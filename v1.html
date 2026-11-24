@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept 3: Interactive Mandapam Double Doors • Shashi & Raveena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Great Vibes Local';
+      src: url('GreatVibes-Regular.ttf') format('truetype');
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 30%, #1f1105 0%, #0c0602 100%);
+      color: #3b2010;
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px 80px;
+      gap: 25px;
+      perspective: 1200px;
+    }
+
+    .nav-bar {
+      display: flex;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 10px 25px;
+      border-radius: 40px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      z-index: 100;
+    }
+    .nav-bar a, .nav-bar button {
+      color: #d4af37;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-bar button.open-btn {
+      background: #8b2518;
+      color: #ffffff;
+      border: 1px solid #d4af37;
+      padding: 7px 20px;
+      border-radius: 20px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    .nav-bar button.open-btn:hover {
+      background: #a83222;
+      transform: scale(1.05);
+    }
+
+    .concept-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #d4af37;
+      text-transform: uppercase;
+    }
+
+    /* MANDAPAM 3D STAGE */
+    .mandapam-stage {
+      position: relative;
+      width: 920px;
+      height: 620px;
+      perspective: 1500px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+      border-radius: 16px;
+    }
+
+    /* INNER SANCTUM (THE CARD INSIDE) */
+    .inner-sanctum {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #fbf5e6;
+      background-image: 
+        radial-gradient(circle at 50% 40%, rgba(255, 248, 220, 0.9) 0%, rgba(247, 235, 206, 0.8) 70%),
+        repeating-linear-gradient(45deg, rgba(139, 90, 43, 0.02) 0px, rgba(139, 90, 43, 0.02) 2px, transparent 2px, transparent 4px);
+      border-radius: 16px;
+      border: 2px solid #d4af37;
+      padding: 30px 45px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: inset 0 0 40px rgba(107, 68, 38, 0.2);
+      overflow: hidden;
+    }
+
+    /* Toran Garland at Top */
+    .mandapam-toran {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #8b2518;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .sanctum-ganesha {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 4px;
+    }
+    .sanctum-head-title {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #7c5132;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Couple Names */
+    .sanctum-couple-name {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 58px;
+      color: #2b1104;
+      margin: 2px 0 6px;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.5);
+    }
+    .sanctum-couple-name .amp {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #8b2518;
+      font-size: 42px;
+      margin: 0 8px;
+    }
+
+    /* Center Row: Saptapadi Artwork + Ceremony Timings + Venue */
+    .sanctum-columns {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.5);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+    }
+
+    /* Left Column: Ceremony Details */
+    .sanctum-left {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sanctum-event-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .event-lbl {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #8b2518;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .event-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #2b1104;
+    }
+    .event-sub {
+      font-size: 11px;
+      font-style: italic;
+      color: #6b4426;
+    }
+
+    /* Center: Saptapadi Feet Artwork */
+    .sanctum-center-art {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sanctum-feet-img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+    .saptapadi-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11.5px;
+      font-style: italic;
+      color: #6b4426;
+      margin-top: 6px;
+    }
+
+    /* Right Column: Venue & QR */
+    .sanctum-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .sanctum-venue-title {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #8b2518;
+      letter-spacing: 0.5px;
+    }
+    .sanctum-venue-sub {
+      font-size: 11.5px;
+      color: #3b2010;
+      line-height: 1.35;
+    }
+    .sanctum-pin-box {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b4426;
+    }
+
+    /* Mandapam QR Badge */
+    .sanctum-qr-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #d4af37;
+      text-align: right;
+    }
+    .sanctum-qr-img {
+      width: 50px;
+      height: 50px;
+    }
+    .sanctum-qr-text {
+      font-size: 9.5px;
+      color: #3b2010;
+      line-height: 1.25;
+    }
+    .sanctum-qr-text strong {
+      color: #8b2518;
+      font-size: 10px;
+      display: block;
+    }
+
+    /* Bottom Blessing Line */
+    .sanctum-bottom-blessing {
+      margin-top: 10px;
+      font-size: 13px;
+      font-style: italic;
+      color: #5c3a21;
+    }
+
+    /* ========================================================
+       DOUBLE DOORS (3D CARVED GATEFOLD OVERLAY)
+       ======================================================== */
+    .door-panel {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: #2b1104;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+        repeating-linear-gradient(0deg, #1f0b02 0px, #1f0b02 4px, #2b1104 4px, #2b1104 20px);
+      border: 3px solid #d4af37;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      z-index: 10;
+      transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      transform-style: preserve-3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      cursor: pointer;
+    }
+
+    /* Left Door */
+    .door-left {
+      left: 0;
+      transform-origin: left center;
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+      border-right: 2px solid #d4af37;
+    }
+
+    /* Right Door */
+    .door-right {
+      right: 0;
+      transform-origin: right center;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+      border-left: 2px solid #d4af37;
+    }
+
+    /* Carved Door Arch Motif */
+    .door-carved-frame {
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+    .door-carved-frame::before {
+      content: '';
+      position: absolute;
+      top: 10px; bottom: 10px; left: 10px; right: 10px;
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      border-radius: 6px;
+    }
+
+    .door-handle-ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 4px solid #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+      margin: 15px 0;
+    }
+
+    .door-text-gold {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #d4af37;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    .door-sub-text {
+      font-size: 11px;
+      color: #e6c875;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    /* Central Sacred Seal on Doors */
+    .center-seal-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle at 35% 35%, #ffd700, #b8860b 70%, #5c3a21 100%);
+      border-radius: 50%;
+      border: 3px solid #fff2a3;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 5px 15px rgba(0,0,0,0.6);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .center-seal-button:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .seal-monogram {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #3d1c06;
+      line-height: 1;
+    }
+    .seal-hint {
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #3d1c06;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* OPENED STATE (CLASSES TOGGLED VIA JAVASCRIPT) */
+    .mandapam-stage.opened .door-left {
+      transform: rotateY(-130deg);
+    }
+    .mandapam-stage.opened .door-right {
+      transform: rotateY(130deg);
+    }
+    .mandapam-stage.opened .center-seal-button {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .nav-bar, .concept-tag, .door-panel, .center-seal-button { display: none !important; }
+      .mandapam-stage { width: 100%; height: auto; box-shadow: none; }
+      .inner-sanctum { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-bar">
+    <a href="index.html">← All Concepts</a>
+    <span style="color:rgba(212,175,55,0.4)">|</span>
+    <button class="open-btn" id="doorToggleBtn" onclick="toggleMandapamDoors()">✨ Open Mandapam Doors</button>
+    <span style="color:rgba(212,175,55,0.4)">|</span>
+    <button onclick="window.print()" style="color:#d4af37; background:none; border:none; cursor:pointer;">🖨️ Print Card</button>
+  </div>
+
+  <div class="concept-tag">Concept 3 • Interactive 3D Mandapam Double Doors</div>
+
+  <div class="mandapam-stage" id="mandapamStage">
+    
+    <!-- ==============================================
+         1. INNER SACRED SANCTUM (REVEALED ON OPENING)
+         ============================================== -->
+    <div class="inner-sanctum">
+      
+      <!-- Top Invocation -->
+      <div class="mandapam-toran">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
+      <img src="ganesha_clean.png" alt="Ganesha" class="sanctum-ganesha">
+      <div class="sanctum-head-title">Kalyana Mandapam • Sacred Wedding Invitation</div>
+
+      <!-- Couple Names in Luxury Script -->
+      <div class="sanctum-couple-name">
+        Shashi <span class="amp">&amp;</span> Raveena
+      </div>
+
+      <!-- Center 3-Column Content -->
+      <div class="sanctum-columns">
+        
+        <!-- Left Column: Muhurtham Schedule -->
+        <div class="sanctum-left">
+          <div class="sanctum-event-item">
+            <span class="event-lbl">Auspicious Date</span>
+            <span class="event-val">Sun, 13 Dec 2026</span>
+            <span class="event-sub">In presence of family &amp; elders</span>
+          </div>
+
+          <div class="sanctum-event-item">
+            <span class="event-lbl">Sumuhurtham</span>
+            <span class="event-val" style="color:#8b2518;">09:50 AM</span>
+            <span class="event-sub">Dhanur Lagna • Saptapadi</span>
+          </div>
+
+          <div class="sanctum-event-item">
+            <span class="event-lbl">Grand Reception</span>
+            <span class="event-val" style="font-size:14.5px;">Following the Marriage</span>
+            <span class="event-sub">Followed by wedding lunch &amp; celebrations</span>
+          </div>
+        </div>
+
+        <!-- Center: Saptapadi Sacred Feet Artwork -->
+        <div class="sanctum-center-art">
+          <img src="feet_artwork_feathered.png" alt="Saptapadi Feet Art" class="sanctum-feet-img">
+          <div class="saptapadi-caption">"Seven Sacred Steps • One Lifetime Destiny"</div>
+        </div>
+
+        <!-- Right Column: Thanmaya Farmstay Resort Venue + QR -->
+        <div class="sanctum-right">
+          <div class="sanctum-venue-title">Thanmaya Farmstay &amp; Resort</div>
+          <div class="sanctum-venue-sub">
+            Grand Heritage Lawns<br>
+            Near Chinna Pendyala, Rajaram<br>
+            Warangal – Hyderabad Highway
+          </div>
+          <div class="sanctum-pin-box">PIN: 506 144</div>
+
+          <!-- Direct Scannable Google Maps QR (Opens Google Maps Navigation) -->
+          <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" class="sanctum-qr-badge" style="text-decoration:none; color:inherit;" title="Open in Google Maps">
+            <img src="venue_qr.svg" alt="Resort Google Maps QR" class="sanctum-qr-img">
+            <div class="sanctum-qr-text">
+              <strong>Google Maps Navigation</strong>
+              Thanmaya Farmstay Resort.<br>Scan or tap for live GPS route.
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="sanctum-bottom-blessing">
+        "Your gracious presence and heartfelt blessings will complete our auspicious celebrations."
+      </div>
+
+    </div>
+
+    <!-- ==============================================
+         2. INTERACTIVE 3D CARVED DOUBLE DOORS
+         ============================================== -->
+    <!-- Left Door -->
+    <div class="door-panel door-left" onclick="toggleMandapamDoors()">
+      <div class="door-carved-frame">
+        <img src="sikku_kolam_clean.png" style="width:36px; height:36px; opacity:0.7; margin-bottom:10px;" alt="Kolam">
+        <div class="door-text-gold">Shashi</div>
+        <div class="door-handle-ring"></div>
+        <div class="door-sub-text">Groom's Family</div>
+      </div>
+    </div>
+
+    <!-- Right Door -->
+    <div class="door-panel door-right" onclick="toggleMandapamDoors()">
+      <div class="door-carved-frame">
+        <img src="sikku_kolam_clean.png" style="width:36px; height:36px; opacity:0.7; margin-bottom:10px; transform:scaleX(-1);" alt="Kolam">
+        <div class="door-text-gold">Raveena</div>
+        <div class="door-handle-ring"></div>
+        <div class="door-sub-text">Bride's Family</div>
+      </div>
+    </div>
+
+    <!-- Central Gold Seal Button -->
+    <div class="center-seal-button" onclick="toggleMandapamDoors()" title="Click to Open Mandapam">
+      <div class="seal-monogram">S&amp;R</div>
+      <div class="seal-hint">Open</div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleMandapamDoors() {
+      const stage = document.getElementById('mandapamStage');
+      const btn = document.getElementById('doorToggleBtn');
+      stage.classList.toggle('opened');
+      if (stage.classList.contains('opened')) {
+        btn.innerHTML = '🚪 Close Mandapam Doors';
+      } else {
+        btn.innerHTML = '✨ Open Mandapam Doors';
+      }
+    }
+  </script>
+
+</body>
+</html>

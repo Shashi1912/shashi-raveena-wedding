@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shashi & Raveena — Royal Telugu Wedding Invitation</title>
+  <meta name="description" content="With the divine blessings of Sri Venkateswara Swamy, Sri Angajala & Sri Kotipalli families cordially invite you to celebrate the wedding of Shashi & Raveena on 13th December 2026 at Thanmaya Farmstay Resort.">
+  <meta property="og:title" content="Shashi & Raveena — Royal Telugu Wedding Invitation">
+  <meta property="og:description" content="13th Dec 2026 • Thanmaya Farmstay Resort • Tap to experience the interactive Mandapam wedding card.">
+  <meta property="og:image" content="preview_v2_closed.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Great Vibes Local';
+      src: url('GreatVibes-Regular.ttf') format('truetype');
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 20%, #1c0e04 0%, #0a0401 100%);
+      color: #3b2010;
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 15px;
+      margin: 0;
+      perspective: 1400px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* PRO FLOATING NAVIGATION CONTROLLER */
+    .nav-bar {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: 100;
+      max-width: 960px;
+    }
+    .ctrl-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
+      letter-spacing: 0.8px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(0, 0, 0, 0.4);
+      color: #e6c875;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .ctrl-btn:hover {
+      background: rgba(212, 175, 55, 0.25);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .ctrl-btn.active {
+      background: #8b2518;
+      color: #ffffff;
+      border-color: #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    }
+    .ctrl-btn.union-btn {
+      background: #d4af37;
+      color: #1a0808;
+      border-color: #ffd700;
+    }
+    .ctrl-btn.union-btn:hover {
+      background: #ffd700;
+      color: #000000;
+    }
+
+    /* AUSPICIOUS BAJENTRIYULU MUSIC BUTTON */
+    .ctrl-btn.music-btn {
+      background: linear-gradient(135deg, rgba(139, 37, 24, 0.85), rgba(60, 20, 5, 0.95));
+      border: 1.5px solid #d4af37;
+      color: #ffd700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      transition: all 0.3s ease;
+    }
+    .ctrl-btn.music-btn:hover {
+      box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+      transform: translateY(-1px);
+    }
+    .ctrl-btn.music-btn.playing {
+      border-color: #ffd700;
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.6);
+    }
+    .music-waves {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+      margin-left: 2px;
+    }
+    .m-bar {
+      width: 2.5px;
+      background: #ffd700;
+      border-radius: 2px;
+      animation: musicBarAnim 0.75s ease-in-out infinite alternate;
+    }
+    .m-bar:nth-child(1) { height: 4px; animation-delay: 0.1s; }
+    .m-bar:nth-child(2) { height: 11px; animation-delay: 0.3s; }
+    .m-bar:nth-child(3) { height: 7px; animation-delay: 0.2s; }
+    .m-bar:nth-child(4) { height: 10px; animation-delay: 0.4s; }
+
+    .ctrl-btn.music-btn.muted .m-bar {
+      animation: none;
+      height: 2px;
+      opacity: 0.35;
+    }
+    @keyframes musicBarAnim {
+      0% { height: 3px; }
+      100% { height: 12px; }
+    }
+
+    .ctrl-btn.track-switch-btn {
+      background: linear-gradient(135deg, rgba(70, 22, 10, 0.9), rgba(35, 12, 4, 0.95));
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      color: #ffd700;
+      font-size: 10px;
+      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.25s ease;
+    }
+    .ctrl-btn.track-switch-btn:hover {
+      background: rgba(212, 175, 55, 0.25);
+      border-color: #ffd700;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .concept-title-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #d4af37;
+      text-transform: uppercase;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    /* 3D MANDAPAM STAGE (960 x 640 px) */
+    .mandapam-stage {
+      position: relative;
+      width: 960px;
+      height: 640px;
+      perspective: 1600px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95);
+      border-radius: 16px;
+    }
+
+    /* ========================================================
+       1. INNER BACKGROUND: THREE DEDICATED WINGS
+       ======================================================== */
+    .inner-canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #fbf5e6;
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(255, 248, 220, 0.9) 0%, rgba(247, 235, 206, 0.8) 70%),
+        repeating-linear-gradient(45deg, rgba(139, 90, 43, 0.02) 0px, rgba(139, 90, 43, 0.02) 2px, transparent 2px, transparent 4px);
+      border-radius: 16px;
+      border: 2px solid #d4af37;
+      overflow: hidden;
+      box-shadow: inset 0 0 50px rgba(107, 68, 38, 0.25);
+    }
+
+    /* LEFT WING: GROOM'S SIDE (ANGAJALA FAMILY) */
+    .wing-groom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      padding: 35px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-right: 1.5px dashed rgba(184, 134, 11, 0.5);
+      background: rgba(255, 250, 240, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    /* RIGHT WING: BRIDE'S SIDE (KOTIPALLI FAMILY) */
+    .wing-bride {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      padding: 35px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-left: 1.5px dashed rgba(184, 134, 11, 0.5);
+      background: rgba(255, 250, 240, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    /* CENTER SANCTUM: FULL UNION (REVEALED WHEN BOTH OPEN) */
+    .sanctum-full-union {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 24px 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+
+    /* Wing Content Elements */
+    .wing-shloka {
+      font-size: 13.5px;
+      letter-spacing: 2px;
+      color: #8b2518;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .wing-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 6px;
+    }
+    .wing-badge {
+      background: #8b2518;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
+      letter-spacing: 2.5px;
+      padding: 4px 14px;
+      border-radius: 14px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .wing-name {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 54px;
+      color: #2b1104;
+      line-height: 1;
+      margin: 4px 0 8px;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.5);
+    }
+    .wing-parents-block {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 10px 16px;
+      width: 100%;
+      margin: 6px 0 12px;
+    }
+    .parents-relation-lbl {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #8b2518;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .parents-names-bold {
+      font-family: 'Playfair Display', serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #2b1104;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    /* Character Sketch Portrait Medallions */
+    .door-portrait-container {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 4px 10px rgba(0,0,0,0.7);
+      overflow: hidden;
+      margin: 6px 0;
+      background: #faf6ee;
+    }
+    .door-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .wing-portrait-wrapper {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      border: 2.5px solid #d4af37;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), 0 0 10px rgba(212, 175, 55, 0.4);
+      overflow: hidden;
+      margin: 4px 0 8px;
+      background: #faf6ee;
+    }
+    .wing-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .wing-invitation-msg {
+      font-size: 14.5px;
+      font-style: italic;
+      color: #4a2e1b;
+      line-height: 1.45;
+      margin-bottom: 14px;
+      padding: 0 10px;
+    }
+    .wing-event-pill {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background: #faf2dc;
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: #2b1104;
+      margin-bottom: 14px;
+    }
+    .wing-quick-btn {
+      background: #d4af37;
+      color: #1a0808;
+      border: none;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: all 0.25s ease;
+    }
+    .wing-quick-btn:hover {
+      background: #ffd700;
+      transform: scale(1.05);
+    }
+
+    /* FULL UNION SANCTUM STYLING */
+    .union-toran {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #8b2518;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .union-ganesha {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 2px;
+    }
+    .union-title {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #7c5132;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .union-couple-name {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 58px;
+      color: #2b1104;
+      line-height: 1;
+      margin: 2px 0 6px;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.5);
+    }
+    .union-couple-name .amp {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #8b2518;
+      font-size: 42px;
+      margin: 0 8px;
+    }
+
+    /* 3-Column Layout in Sanctum */
+    .union-columns {
+      display: grid;
+      grid-template-columns: 1.05fr 1.25fr 1.05fr;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.5);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+    }
+    .union-left {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .event-lbl {
+      font-family: 'Cinzel', serif;
+      font-size: 9.5px;
+      letter-spacing: 1px;
+      color: #8b2518;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .event-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #2b1104;
+    }
+    .event-sub {
+      font-size: 11px;
+      font-style: italic;
+      color: #6b4426;
+    }
+
+    .union-center-art {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .union-feet-img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+    .union-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11.5px;
+      font-style: italic;
+      color: #6b4426;
+      margin-top: 5px;
+    }
+
+    .union-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    .union-venue-title {
+      font-family: 'Cinzel', serif;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #8b2518;
+      letter-spacing: 0.5px;
+    }
+    .union-venue-sub {
+      font-size: 11px;
+      color: #3b2010;
+      line-height: 1.3;
+    }
+
+    /* Clickable/Scannable Google Maps QR Badge */
+    .union-qr-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #faf6ee;
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid #9c7352;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+    }
+    .union-qr-badge:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+    .union-qr-img {
+      width: 48px;
+      height: 48px;
+    }
+    .union-qr-text {
+      text-align: right;
+      font-size: 9.5px;
+      color: #3b2010;
+      line-height: 1.25;
+    }
+    .union-qr-text strong {
+      color: #8b2518;
+      font-size: 10px;
+      display: block;
+    }
+
+    .union-footer-line {
+      font-size: 12.5px;
+      font-style: italic;
+      color: #5c3a21;
+      margin-top: 4px;
+    }
+    .union-parents-footer {
+      font-family: 'Playfair Display', serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #2b1104;
+      margin-top: 2px;
+    }
+
+    /* ========================================================
+       2. 3D CARVED TEAK DOORS (GATEFOLD OVERLAY)
+       ======================================================== */
+    .door-panel {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: #2b1104;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+        repeating-linear-gradient(0deg, #1f0b02 0px, #1f0b02 4px, #2b1104 4px, #2b1104 20px);
+      border: 3px solid #d4af37;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      z-index: 10;
+      transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      transform-style: preserve-3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      cursor: pointer;
+    }
+
+    .door-left {
+      left: 0;
+      transform-origin: left center;
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+      border-right: 2px solid #d4af37;
+    }
+    .door-right {
+      right: 0;
+      transform-origin: right center;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+      border-left: 2px solid #d4af37;
+    }
+
+    /* Door Inscription & Carved Brass Plates */
+    .door-inner-carving {
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 15px;
+      position: relative;
+    }
+    .door-inner-carving::before {
+      content: '';
+      position: absolute;
+      top: 8px; bottom: 8px; left: 8px; right: 8px;
+      border: 1px dashed rgba(212, 175, 55, 0.4);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .door-kolam-badge {
+      width: 38px;
+      height: 38px;
+      opacity: 0.75;
+    }
+    .door-side-tag {
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid #d4af37;
+      padding: 4px 14px;
+      border-radius: 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #ffd700;
+      text-transform: uppercase;
+    }
+    .door-name-gold {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 52px;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 2px 2px 4px rgba(0,0,0,0.8);
+      margin: 6px 0;
+    }
+    .door-family-line {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: #e6c875;
+      text-transform: uppercase;
+      max-width: 280px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .door-brass-ring {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 4px solid #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), inset 0 0 8px rgba(0,0,0,0.8);
+      margin: 8px 0;
+    }
+    .door-click-hint {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.65);
+      text-transform: uppercase;
+    }
+
+    /* Central Gold Medallion Button */
+    .center-union-seal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 96px;
+      height: 96px;
+      background: radial-gradient(circle at 35% 35%, #ffd700, #b8860b 70%, #5c3a21 100%);
+      border-radius: 50%;
+      border: 3px solid #fff2a3;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 5px 20px rgba(0,0,0,0.8);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+    .center-union-seal:hover {
+      transform: translate(-50%, -50%) scale(1.12);
+      box-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 8px 25px rgba(0,0,0,0.9);
+    }
+    .seal-monogram {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #3d1c06;
+      line-height: 1;
+    }
+    .seal-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #3d1c06;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ========================================================
+       3. INTERACTIVE STATES (CLASSES ON #mandapamStage)
+       ======================================================== */
+    /* State A: Groom's Door Opened */
+    .mandapam-stage.opened-groom .door-left {
+      transform: rotateY(-130deg);
+    }
+    .mandapam-stage.opened-groom .wing-groom {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mandapam-stage.opened-groom .center-union-seal {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* State B: Bride's Door Opened */
+    .mandapam-stage.opened-bride .door-right {
+      transform: rotateY(130deg);
+    }
+    .mandapam-stage.opened-bride .wing-bride {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mandapam-stage.opened-bride .center-union-seal {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* State C: Both Doors Opened (Full Union) */
+    .mandapam-stage.opened-both .door-left {
+      transform: rotateY(-130deg);
+    }
+    .mandapam-stage.opened-both .door-right {
+      transform: rotateY(130deg);
+    }
+    .mandapam-stage.opened-both .sanctum-full-union {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mandapam-stage.opened-both .wing-groom,
+    .mandapam-stage.opened-both .wing-bride {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .mandapam-stage.opened-both .center-union-seal {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .nav-bar, .concept-title-tag, .door-panel, .center-union-seal { display: none !important; }
+      .mandapam-stage { width: 100%; height: auto; box-shadow: none; }
+      .inner-canvas { border: none; }
+      .sanctum-full-union { opacity: 1 !important; position: relative; }
+    }
+
+    /* ========================================================
+       VERSION 3: PURE DOOR-TOUCH MINIMALIST LUXURY STYLES
+       ======================================================== */
+    
+    /* FLOATING MUSIC BADGE (TOP-RIGHT) */
+    .music-floating-badge {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(35, 14, 7, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 7px 15px;
+      border-radius: 30px;
+      border: 1.5px solid rgba(212, 175, 55, 0.7);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(212, 175, 55, 0.25);
+      color: #ffd700;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+    .music-floating-badge:hover {
+      background: rgba(50, 20, 10, 0.95);
+      border-color: #ffd700;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+      transform: translateY(-1px);
+    }
+    .music-floating-badge.muted {
+      opacity: 0.6;
+      border-color: rgba(212, 175, 55, 0.35);
+      color: #c9b07a;
+    }
+
+    /* FLOATING CLOSE INVITATION BUTTON (APPEARS WHEN OPEN) */
+    .close-floating-btn {
+      position: fixed;
+      top: 18px;
+      left: 20px;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: rgba(25, 9, 4, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 7px 15px;
+      border-radius: 30px;
+      border: 1.2px solid rgba(212, 175, 55, 0.55);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      color: #f7e6c4;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+    .close-floating-btn:hover {
+      background: rgba(139, 37, 24, 0.95);
+      border-color: #ffd700;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .mandapam-stage.opened-groom ~ .close-floating-btn,
+    .mandapam-stage.opened-bride ~ .close-floating-btn,
+    .mandapam-stage.opened-both ~ .close-floating-btn {
+      display: inline-flex;
+    }
+
+    /* TAP TO OPEN PULSING HINT */
+    .door-tap-hint {
+      position: absolute;
+      bottom: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #ffd700;
+      background: rgba(18, 6, 2, 0.88);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      padding: 4px 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      animation: pulseHintAnim 2s infinite ease-in-out;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 50;
+    }
+    @keyframes pulseHintAnim {
+      0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.05); box-shadow: 0 0 16px rgba(212, 175, 55, 0.6); }
+    }
+    .mandapam-stage.opened-groom .door-tap-hint,
+    .mandapam-stage.opened-bride .door-tap-hint,
+    .mandapam-stage.opened-both .door-tap-hint {
+      display: none !important;
+    }
+
+    /* CALENDAR TOAST NOTIFICATION */
+    .calendar-toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-70px);
+      z-index: 10000;
+      background: rgba(35, 14, 7, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid #d4af37;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.35);
+      color: #ffd700;
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .calendar-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* CALENDAR DATE BLOCK CLICKABLE */
+    .calendar-date-card {
+      cursor: pointer;
+      transition: all 0.25s ease;
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
+    .calendar-date-card:hover {
+      background: rgba(212, 175, 55, 0.15);
+      transform: translateY(-1px);
+    }
+
+    /* VIEWPORT CENTERING AND RESPONSIVE SCALING */
+    .mandapam-stage {
+      margin: auto !important;
+      transition: transform 0.35s ease;
+      transform-origin: center center;
+    }
+    @media (max-width: 1040px) {
+      .mandapam-stage { transform: scale(0.88); }
+    }
+    @media (max-width: 860px) {
+      .mandapam-stage { transform: scale(0.74); }
+    }
+    @media (max-width: 680px) {
+      .mandapam-stage { transform: scale(0.58); }
+    }
+    @media (max-width: 480px) {
+      .mandapam-stage { transform: scale(0.44); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- V3 FLOATING MINIMALIST CONTROLS -->
+  <button class="music-floating-badge playing" id="btnMusic" onclick="toggleWeddingMusic()" title="Click to mute or play wedding music">
+    <span id="musicIcon">🎺🥁</span>
+    <span id="musicBtnLabel">బాజంత్రీలు: ON</span>
+    <span class="music-waves" id="musicWaves">
+      <span class="m-bar"></span>
+      <span class="m-bar"></span>
+      <span class="m-bar"></span>
+      <span class="m-bar"></span>
+    </span>
+  </button>
+
+  <button class="close-floating-btn" id="btnCloseFloating" onclick="closeAllDoors()" title="Click to close doors">
+    ✕ Close Invitation
+  </button>
+
+  <div class="calendar-toast" id="calendarToast">
+    📅 Wedding Added to Calendar (13-Dec-2026 • 09:50 AM)
+  </div>
+
+  <!-- THE MANDAPAM 3D GATEFOLD STAGE -->
+  <div class="mandapam-stage" id="mandapamStage">
+    
+    <!-- ==============================================
+         1. INNER CANVAS: 3 DISTINCT SANCTUMS
+         ============================================== -->
+    <div class="inner-canvas">
+      
+      <!-- WING 1: GROOM'S SIDE (ANGAJALA FAMILY) -->
+      <div class="wing-groom" id="wingGroom">
+        <div class="wing-shloka">॥ श्री गणेशाय नमः ॥</div>
+        <img src="ganesha_clean.png" alt="Ganesha" class="wing-icon">
+        <div class="wing-badge">Groom's Family • Varapaksham</div>
+        
+        <div class="wing-name">Shashi</div>
+
+        <div class="wing-portrait-wrapper">
+          <img src="groom_doodle.png" alt="Shashi Character" class="wing-portrait-img">
+        </div>
+
+        <div class="wing-parents-block">
+          <div class="parents-relation-lbl">Son of</div>
+          <div class="parents-names-bold">
+            Sri Angajala Venkataswamy<br>&amp; Smt. Nirmala
+          </div>
+        </div>
+
+        <div class="wing-invitation-msg">
+          "With immense joy, pride, and the sacred blessings of our elders, the Angajala family cordially invites you to grace the wedding of our beloved son Shashi as he takes sacred vows with Raveena."
+        </div>
+
+        <div class="wing-event-pill">
+          <span><strong>Muhurtham:</strong> 09:50 AM</span>
+          <span><strong>Date:</strong> 13-Dec-2026</span>
+        </div>
+
+        <button class="wing-quick-btn" onclick="openBothDoors()">
+          👑 View Full Wedding Union ➔
+        </button>
+      </div>
+
+      <!-- WING 2: BRIDE'S SIDE (KOTIPALLI FAMILY) -->
+      <div class="wing-bride" id="wingBride">
+        <div class="wing-shloka">॥ శుభమస్తు • Kalyanam ॥</div>
+        <img src="sikku_kolam_clean.png" alt="Kolam" class="wing-icon">
+        <div class="wing-badge">Bride's Family • Kanyapaksham</div>
+        
+        <div class="wing-name">Raveena</div>
+
+        <div class="wing-portrait-wrapper">
+          <img src="bride_doodle.png" alt="Raveena Character" class="wing-portrait-img">
+        </div>
+
+        <div class="wing-parents-block">
+          <div class="parents-relation-lbl">Daughter of</div>
+          <div class="parents-names-bold">
+            Sri Kotipalli Jagadhishwarao<br>&amp; Smt. Sujatha
+          </div>
+        </div>
+
+        <div class="wing-invitation-msg">
+          "With overflowing love and heartfelt blessings, the Kotipalli family warmly invites you to witness and bless our dearest daughter Raveena as she steps into a lifetime of togetherness with Shashi."
+        </div>
+
+        <div class="wing-event-pill">
+          <span><strong>Muhurtham:</strong> 09:50 AM</span>
+          <span><strong>Date:</strong> 13-Dec-2026</span>
+        </div>
+
+        <button class="wing-quick-btn" onclick="openBothDoors()">
+          👑 View Full Wedding Union ➔
+        </button>
+      </div>
+
+      <!-- WING 3: THE GRAND UNION SANCTUM (REVEALED WHEN BOTH DOORS ARE OPEN) -->
+      <div class="sanctum-full-union" id="sanctumUnion">
+        
+        <!-- Top Invocation & Ganesha -->
+        <div class="union-toran">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
+        <img src="ganesha_clean.png" alt="Lord Ganesha" class="union-ganesha">
+        <div class="union-title">Kalyana Mandapam • Sacred Wedding Invitation</div>
+
+        <!-- United Couple Names -->
+        <div class="union-couple-name">
+          Shashi <span class="amp">&amp;</span> Raveena
+        </div>
+
+        <!-- 3-Column Union Grid -->
+        <div class="union-columns">
+          
+          <!-- Left: Muhurtham & Reception -->
+          <div class="union-left">
+            <div class="calendar-date-card" onclick="addDirectlyToCalendar(true)" title="Tap to sync/view in Calendar">
+              <span class="event-lbl">Auspicious Date</span>
+              <div class="event-val">Sun, 13 Dec 2026</div>
+              <div class="event-sub">In presence of family &amp; elders • Tap to sync</div>
+            </div>
+
+            <div>
+              <span class="event-lbl">Sumuhurtham</span>
+              <div class="event-val" style="color:#8b2518;">09:50 AM</div>
+              <div class="event-sub">Dhanur Lagna • Saptapadi</div>
+            </div>
+
+            <div>
+              <span class="event-lbl">Grand Reception</span>
+              <div class="event-val" style="font-size:14px;">Following the Marriage</div>
+              <div class="event-sub">Wedding feast &amp; celebrations</div>
+            </div>
+          </div>
+
+          <!-- Center: Saptapadi Sacred Feet Artwork -->
+          <div class="union-center-art">
+            <img src="feet_artwork_feathered.png" alt="Saptapadi Feet Art" class="union-feet-img">
+            <div class="union-caption">"Seven Sacred Steps • One Lifetime Destiny"</div>
+          </div>
+
+          <!-- Right: Thanmaya Farmstay Resort & Google Maps Navigation -->
+          <div class="union-right">
+            <div class="union-venue-title">Thanmaya Farmstay &amp; Resort</div>
+            <div class="union-venue-sub">
+              Grand Heritage Lawns<br>
+              Near Chinna Pendyala, Rajaram<br>
+              Warangal – Hyderabad Highway
+            </div>
+            <div style="font-size:11px; font-weight:700; color:#6b4426;">PIN: 506 144</div>
+
+            <!-- Direct Google Maps Navigation QR Badge (Clickable & Scannable) -->
+            <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" class="union-qr-badge" title="Tap to open in Google Maps">
+              <img src="venue_qr.svg" alt="Resort Google Maps QR" class="union-qr-img">
+              <div class="union-qr-text">
+                <strong>Google Maps Route</strong>
+                Thanmaya Resort.<br>Tap or scan to navigate.
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="union-footer-line">
+          "With heartfelt blessings and warm wishes from both families"
+        </div>
+        <div class="union-parents-footer">
+          Angajala &amp; Kotipalli Families • Relatives &amp; Friends
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ==============================================
+         2. 3D CARVED DOUBLE TEAK DOORS
+         ============================================== -->
+    <!-- Left Door (Groom's Side) -->
+    <div class="door-panel door-left" id="doorLeft" onclick="handleLeftDoorClick()" title="Click to view Groom's Invitation">
+      <div class="door-inner-carving">
+        <img src="sikku_kolam_clean.png" alt="Kolam" class="door-kolam-badge">
+        <div class="door-side-tag">Groom's Side</div>
+        <div class="door-name-gold">Shashi</div>
+        <div class="door-family-line">
+          Family of Angajala Venkataswamy &amp; Nirmala
+        </div>
+        <div class="door-portrait-container">
+          <img src="groom_doodle.png" alt="Shashi Character" class="door-portrait-img">
+        </div>
+        <div class="door-click-hint">👈 Click to open Groom's side</div>
+      </div>
+    </div>
+
+    <!-- Right Door (Bride's Side) -->
+    <div class="door-panel door-right" id="doorRight" onclick="handleRightDoorClick()" title="Click to view Bride's Invitation">
+      <div class="door-inner-carving">
+        <img src="sikku_kolam_clean.png" alt="Kolam" class="door-kolam-badge" style="transform:scaleX(-1);">
+        <div class="door-side-tag">Bride's Side</div>
+        <div class="door-name-gold">Raveena</div>
+        <div class="door-family-line">
+          Family of Kotipalli Jagadhishwarao &amp; Sujatha
+        </div>
+        <div class="door-portrait-container">
+          <img src="bride_doodle.png" alt="Raveena Character" class="door-portrait-img">
+        </div>
+        <div class="door-click-hint">Click to open Bride's side 👉</div>
+      </div>
+    </div>
+
+    <!-- Central Gold Medallion Button (The Sacred Union) -->
+    <div class="center-union-seal" id="centerSeal" onclick="openBothDoors()" title="Click to open Both Doors (The Grand Union)">
+      <div class="seal-monogram">S&amp;R</div>
+      <div class="seal-tag">Union</div>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT CONTROLLER & AUDIO ENGINE -->
+  <script>
+    const stage = document.getElementById('mandapamStage');
+    // removed btnGroom
+    // removed btnBride
+    // removed btnUnion
+    // removed btnClose
+    const btnMusic = document.getElementById('btnMusic');
+    const musicBtnLabel = document.getElementById('musicBtnLabel');
+    const musicIcon = document.getElementById('musicIcon');
+
+    // ==========================================
+    // DYNAMIC INTERACTIVE AUDIO ENGINE
+    // - Groom's Side: Crisp 14s Nadaswaram & Thavil flourish
+    // - Bride's Side: Melodic 15s Seetha Kalyanam bridal motif
+    // - Main Center / Both Doors: Authentic Full Ketti Melam (గట్టిమేళం from 38:39)
+    // ==========================================
+    let isMusicEnabled = true;
+    let currentAudio = null;
+
+    const audioGroom = new Audio('sound_groom_side.mp3');
+    audioGroom.volume = 0.65;
+
+    const audioBride = new Audio('sound_bride_side.mp3');
+    audioBride.volume = 0.65;
+
+    const audioUnion = new Audio('kettimelam_exact_mela.mp3');
+    audioUnion.loop = true;
+    audioUnion.volume = 0.70;
+
+    function stopAllAudio(fade = false) {
+      const audios = [audioGroom, audioBride, audioUnion];
+      audios.forEach(a => {
+        if (!a.paused) {
+          if (fade) {
+            let vol = a.volume;
+            const timer = setInterval(() => {
+              vol -= 0.15;
+              if (vol <= 0.05) {
+                clearInterval(timer);
+                a.pause();
+                a.currentTime = 0;
+                a.volume = 0.65;
+              } else {
+                a.volume = vol;
+              }
+            }, 60);
+          } else {
+            a.pause();
+            a.currentTime = 0;
+            a.volume = 0.65;
+          }
+        }
+      });
+      currentAudio = null;
+    }
+
+    function playSectionSound(audioObj, labelText, iconText = '🎺🥁') {
+      if (!isMusicEnabled) return;
+      stopAllAudio(false);
+      currentAudio = audioObj;
+      audioObj.currentTime = 0;
+      audioObj.volume = 0.65;
+      audioObj.play().then(() => {
+        btnMusic.classList.remove('muted');
+        btnMusic.classList.add('playing');
+        musicBtnLabel.textContent = labelText;
+        if (musicIcon) musicIcon.textContent = iconText;
+      }).catch(e => {
+        console.log('Audio autoplay waiting for user tap');
+      });
+    }
+
+    function toggleWeddingMusic() {
+      if (isMusicEnabled) {
+        isMusicEnabled = false;
+        stopAllAudio(false);
+        btnMusic.classList.add('muted');
+        btnMusic.classList.remove('playing');
+        musicBtnLabel.textContent = 'బాజంత్రీలు: OFF';
+      } else {
+        isMusicEnabled = true;
+        // Resume appropriate audio based on current stage state
+        if (stage.classList.contains('opened-groom')) {
+          playSectionSound(audioGroom, 'వరుని బాజంత్రీలు', '🤵🎺');
+        } else if (stage.classList.contains('opened-bride')) {
+          playSectionSound(audioBride, 'వధువు కల్యాణం', '👰🪷');
+        } else {
+          playSectionSound(audioUnion, 'గట్టిమేళం (Full Mela)', '👑🥁');
+        }
+      }
+    }
+
+    // Auto-trigger music on first user click anywhere on screen
+    let hasInteracted = false;
+    function handleFirstUserTap() {
+      if (!hasInteracted) {
+        hasInteracted = true;
+        const hint = document.getElementById('doorTapHint');
+        if (hint) hint.style.display = 'none';
+      }
+    }
+    document.addEventListener('pointerdown', handleFirstUserTap, { once: true });
+
+    function resetActiveButtons() {
+      // V3 has direct door-touch interaction
+    }
+
+    // Open ONLY Groom's Side -> Plays trimmed energetic Groom Nadaswaram & Thavil
+    function openGroomWing() {
+      handleFirstUserTap();
+      stage.className = 'mandapam-stage opened-groom';
+      resetActiveButtons();
+      // no button active class
+      playSectionSound(audioGroom, 'వరుని బాజంత్రీలు', '🤵🎺');
+    }
+
+    // Open ONLY Bride's Side -> Plays trimmed soulful Seetha Kalyanam
+    function openBrideWing() {
+      handleFirstUserTap();
+      stage.className = 'mandapam-stage opened-bride';
+      resetActiveButtons();
+      // no button active class
+      playSectionSound(audioBride, 'సీతా కల్యాణం', '👰🪷');
+    }
+
+    const CALENDAR_URL = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shashi+%26+Raveena+Wedding&dates=20261213T042000Z/20261213T093000Z&details=Auspicious+Sumuhurtham+at+09:50+AM.+Thanmaya+Farmstay+Resort,+Warangal+Highway.&location=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144';
+    let hasAddedToCalendar = false;
+
+    function addDirectlyToCalendar(force = false) {
+      if (!hasAddedToCalendar || force) {
+        hasAddedToCalendar = true;
+        try {
+          window.open(CALENDAR_URL, '_blank');
+        } catch (e) {
+          console.log('Calendar auto-sync waiting for user interaction');
+        }
+        const toast = document.getElementById('calendarToast');
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 5000);
+        }
+      }
+    }
+
+    // Open BOTH Doors (The Grand Union) -> Plays FULL, authentic Ketti Melam (గట్టిమేళం)!
+    function openBothDoors() {
+      handleFirstUserTap();
+      stage.className = 'mandapam-stage opened-both';
+      resetActiveButtons();
+      playSectionSound(audioUnion, 'గట్టిమేళం (Full Mela)', '👑🥁');
+      addDirectlyToCalendar();
+    }
+
+    // Close All Doors -> Smoothly fade out the sound
+    function closeAllDoors() {
+      stage.className = 'mandapam-stage';
+      resetActiveButtons();
+      // no button active class
+      stopAllAudio(true);
+      btnMusic.classList.add('muted');
+      btnMusic.classList.remove('playing');
+      musicBtnLabel.textContent = 'బాజంత్రీలు: Paused';
+    }
+
+    // Click handler for Left Door
+    function handleLeftDoorClick() {
+      if (stage.classList.contains('opened-groom')) {
+        closeAllDoors();
+      } else {
+        openGroomWing();
+      }
+    }
+
+    // Click handler for Right Door
+    function handleRightDoorClick() {
+      if (stage.classList.contains('opened-bride')) {
+        closeAllDoors();
+      } else {
+        openBrideWing();
+      }
+    }
+  </script>
+
+</body>
+</html>
