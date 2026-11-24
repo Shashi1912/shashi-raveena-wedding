@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Raveena & Shashi - Handcrafted Vintage Wedding Postcard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600;1,700&family=Satisfy&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #14100c;
+      padding: 40px 20px 80px;
+      font-family: 'Playfair Display', serif;
+      color: #342113;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 45px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 15px;
+      background: #241911;
+      padding: 10px 24px;
+      border-radius: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      border: 1px solid #5a3d24;
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+    }
+    .toolbar button {
+      background: linear-gradient(135deg, #d4af37, #f3cf65);
+      color: #2b180d;
+      border: none;
+      padding: 9px 24px;
+      border-radius: 20px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    }
+    .toolbar button:hover {
+      background: linear-gradient(135deg, #f5d76e, #ffeaa7);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+    }
+    .toolbar .btn-toggle-mask {
+      background: #3e2716;
+      color: #f3cf65;
+      border: 1px solid #8b5a2b;
+    }
+    .toolbar .btn-toggle-mask:hover {
+      background: #54361f;
+      color: #fff;
+    }
+
+    .section-title {
+      color: #d4af37;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 3.5px;
+      text-align: center;
+      margin-bottom: -15px;
+      font-family: 'Cinzel', serif;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+    .section-title::before, .section-title::after {
+      content: "";
+      width: 45px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4af37);
+    }
+    .section-title::after {
+      background: linear-gradient(270deg, transparent, #d4af37);
+    }
+
+    /* ========================================================
+       CARD CANVAS: AUTHENTIC HANDMADE COTTON KRAFT PAPER
+       ======================================================== */
+    .postcard {
+      width: 960px;
+      height: 640px;
+      background-color: #dfcaa8;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(247, 239, 222, 0.98) 0%, rgba(230, 212, 182, 0.96) 65%, rgba(192, 162, 122, 1) 100%),
+        radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at bottom right, rgba(90, 55, 20, 0.15) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(95, 60, 20, 0.015) 25px, rgba(95, 60, 20, 0.015) 50px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 4px 10px rgba(0,0,0,0.3);
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Organic Kraft Deckled Edge Shading */
+    .kraft-deckle-vignette {
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 40px rgba(100, 65, 25, 0.22), inset 0 0 10px rgba(70, 40, 15, 0.35);
+      border-radius: 28px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Natural Hand-Drawn Inked Frame (Top & Bottom connecting Kolams) */
+    .hand-drawn-frame {
+      position: absolute;
+      inset: 22px;
+      border-top: 1.5px solid #4a3319;
+      border-bottom: 1.5px solid #4a3319;
+      border-left: none;
+      border-right: none;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0.88;
+    }
+
+    /* AUTHENTIC INDIAN SIKKU KOLAM CORNER MOTIFS */
+    .kolam-corner {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.95;
+    }
+    .kc-tl { top: 22px; left: 22px; }
+    .kc-tr { top: 22px; right: 22px; transform: scaleX(-1); }
+    .kc-bl { bottom: 22px; left: 22px; transform: scaleY(-1); }
+    .kc-br { bottom: 22px; right: 22px; transform: scale(-1, -1); }
+
+    /* LUSH BOTANICAL CLIMBING VINES (CONNECTING TOP & BOTTOM KOLAMS) */
+    .botanical-vine-left {
+      position: absolute;
+      top: 44px;
+      left: 22px;
+      width: 85px;
+      height: 552px;
+      object-fit: fill;
+      pointer-events: none;
+      z-index: 4;
+    }
+    .botanical-vine-right {
+      position: absolute;
+      top: 44px;
+      right: 22px;
+      width: 85px;
+      height: 552px;
+      object-fit: fill;
+      transform: scaleX(-1);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* ========================================================
+       FRONT SIDE: HAND-LETTERED ROMANCE & SAPTAPADI ARTWORK
+       ======================================================== */
+    .front-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 50px 22px;
+      z-index: 5;
+    }
+
+    /* Hanging Antique Birdcage (Top-Left) */
+    .hanging-birdcage-img {
+      position: absolute;
+      top: 22px;
+      left: 82px;
+      width: 46px;
+      height: 82px;
+      object-fit: contain;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.92;
+    }
+
+    /* Hanging Temple Bells & Love Doves (Top-Right) */
+    .hanging-bells-img {
+      position: absolute;
+      top: 22px;
+      right: 82px;
+      width: 52px;
+      height: 90px;
+      object-fit: contain;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.92;
+    }
+
+    /* Auspicious Handwritten Inscription */
+    .auspicious-shloka-handwritten {
+      font-family: 'Cinzel', serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      color: #633618;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 2px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    }
+
+    /* Center Saptapadi Sacred Steps Watercolor */
+    .saptapadi-center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: -2px;
+      position: relative;
+    }
+    .saptapadi-feet-artwork {
+      height: 330px;
+      max-width: 550px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 14px rgba(70, 40, 15, 0.2));
+    }
+
+    /* Bottom: Couple Names Calligraphy & Romantic Destiny */
+    .front-bottom-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      width: 860px;
+      margin-top: -4px;
+    }
+
+    /* Hand-Lettered Calligraphy for Couple Names (Satisfy Brush Script) */
+    .couple-title-handlettered {
+      font-family: 'Satisfy', cursive;
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #381e0e;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      line-height: 1.1;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(60,25,8,0.15);
+    }
+    .couple-title-handlettered .ampersand-flourish {
+      font-family: 'Alex Brush', cursive;
+      font-size: 46px;
+      font-weight: 400;
+      color: #8c200c;
+      margin: 0 4px;
+      transform: translateY(-2px);
+    }
+
+    .reveal-hint-pill {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #7b4c1e;
+      text-transform: uppercase;
+      margin-top: 2px;
+      margin-bottom: 3px;
+      background: rgba(184, 134, 11, 0.1);
+      border: 1px dashed rgba(140, 88, 32, 0.35);
+      padding: 2px 14px;
+      border-radius: 12px;
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+    }
+    .reveal-hint-pill:hover {
+      background: rgba(184, 134, 11, 0.22);
+    }
+
+    /* Romantic Destiny Verse */
+    .romantic-verse-letterpress {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: #3b2311;
+      max-width: 690px;
+      margin-top: 3px;
+      text-shadow: 0 0.5px 0.5px rgba(255,255,255,0.6);
+    }
+    .hearts-accent {
+      color: #a82512;
+      font-size: 15px;
+      margin-left: 3px;
+      letter-spacing: 2px;
+    }
+
+    /* Hand-Painted Brass Kalasam Pot with Coconut & Leaves */
+    .mangal-kalash-img {
+      position: absolute;
+      right: 48px;
+      bottom: 2px;
+      width: 36px;
+      height: 48px;
+      object-fit: contain;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+
+    /* ========================================================
+       BACK SIDE: AUTHENTIC WEDDING POSTAL KEEPSAKE
+       (CULTURALLY RICH & 100% MARRIAGE-RELATED)
+       ======================================================== */
+    .back-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 40px 20px;
+      z-index: 5;
+    }
+
+    /* Top Center: Lord Ganesha & Couple Names */
+    .back-top-masthead {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      margin-top: 2px;
+    }
+    .ganesha-crest-img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 2px rgba(60,30,10,0.15));
+    }
+    .back-couple-title {
+      font-family: 'Satisfy', cursive;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #381e0e;
+      margin-top: 1px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    }
+    .back-couple-title .amp {
+      font-family: 'Alex Brush', cursive;
+      font-size: 28px;
+      color: #8c200c;
+    }
+
+    /* TOP RIGHT: MARRIAGE-RELATED STAMP & POSTMARK */
+    .back-wedding-stamp-group {
+      position: absolute;
+      right: 36px;
+      top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    /* Wavy Postmark Cancellation Ribbons */
+    .wedding-wavy-postmark {
+      width: 58px;
+      height: 38px;
+      stroke: #3c2415;
+      stroke-width: 1.4;
+      fill: none;
+      opacity: 0.85;
+    }
+
+    /* Circular Auspicious Wedding Postmark */
+    .wedding-circular-postmark {
+      width: 72px;
+      height: 72px;
+      border: 1.5px solid #4a2814;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-8deg);
+      opacity: 0.9;
+      background: rgba(245, 235, 215, 0.2);
+    }
+    .postmark-inner-circle {
+      width: 62px;
+      height: 62px;
+      border: 1px dashed #4a2814;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2px;
+    }
+    .pm-wedding-label-top {
+      font-family: 'Cinzel', serif;
+      font-size: 7.5px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #3b2010;
+    }
+    .pm-wedding-date {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 10px;
+      font-weight: 700;
+      color: #7b2912;
+      margin: 1px 0;
+    }
+    .pm-wedding-label-bot {
+      font-family: 'Cinzel', serif;
+      font-size: 6.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #3b2010;
+    }
+
+    /* BESPOKE COMMEMORATIVE WEDDING STAMP */
+    .wedding-commemorative-stamp {
+      width: 60px;
+      height: 74px;
+      background: #fdf8ee;
+      position: relative;
+      box-shadow: 2px 3px 8px rgba(0,0,0,0.2);
+      transform: rotate(2.5deg);
+      border: 1px solid #7a5433;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px;
+      outline: 2px dotted #8b5a2b;
+      outline-offset: -3px;
+    }
+    .stamp-header-text {
+      font-family: 'Cinzel', serif;
+      font-size: 7px;
+      font-weight: 900;
+      color: #7b2912;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .stamp-sacred-art {
+      width: 32px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stamp-sacred-art svg {
+      width: 100%;
+      height: 100%;
+    }
+    .stamp-bottom-vow {
+      font-family: 'Cinzel', serif;
+      font-size: 6.5px;
+      font-weight: 800;
+      color: #55311a;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* Split Body: Left = Ceremony & QR Medallion, Right = Venue & Address */
+    .back-main-split {
+      display: flex;
+      flex: 1;
+      margin-top: 12px;
+      position: relative;
+    }
+
+    /* Hand-Drawn Center Dividing Line */
+    .back-center-divider-bar {
+      position: absolute;
+      left: 49.5%;
+      top: 6px;
+      bottom: 8px;
+      width: 1.5px;
+      background: #4a3319;
+    }
+
+    /* LEFT: WEDDING CEREMONY & SACRED TIMINGS (GENEROUS PADDING AWAY FROM VINE) */
+    .back-col-left {
+      width: 48.5%;
+      padding-left: 50px;
+      padding-right: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .section-head-calligraphy {
+      font-family: 'Satisfy', cursive;
+      font-size: 26px;
+      font-weight: 700;
+      color: #2e1a0e;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    }
+
+    .ceremony-details-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ceremony-detail-row {
+      border-bottom: 1px dotted rgba(90, 50, 20, 0.35);
+      padding-bottom: 5px;
+    }
+
+    .ceremony-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .ceremony-title-label {
+      font-family: 'Satisfy', cursive;
+      font-size: 19px;
+      font-weight: 700;
+      color: #3b2010;
+    }
+
+    .ceremony-time-badge {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #7b2912;
+      letter-spacing: 0.3px;
+    }
+
+    .ceremony-desc-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14.5px;
+      font-weight: 600;
+      font-style: italic;
+      color: #55341c;
+      margin-top: 1px;
+    }
+
+    /* UNIQUE FEATURE 2: MANDAPAM LOCATION QR MEDALLION */
+    .venue-qr-wax-medallion {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(245, 235, 215, 0.45);
+      border: 1px dashed #7a5433;
+      border-radius: 12px;
+      padding: 8px 14px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+    .medallion-qr-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      border: 1px solid #5a361e;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      background: #fff;
+      padding: 2px;
+    }
+    .medallion-info-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .medallion-heading {
+      font-family: 'Satisfy', cursive;
+      font-size: 17px;
+      font-weight: 700;
+      color: #3b2010;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .medallion-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12.5px;
+      font-style: italic;
+      color: #5a3820;
+      line-height: 1.25;
+      margin-top: 1px;
+    }
+
+    /* RIGHT: VENUE, BLESSINGS & GUEST ADDRESS */
+    .back-col-right {
+      width: 51.5%;
+      padding-left: 24px;
+      padding-right: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .venue-details-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .venue-card-content {
+      border-bottom: 1px dotted rgba(90, 50, 20, 0.35);
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    .venue-name-bold {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #2b170c;
+      letter-spacing: 0.5px;
+    }
+
+    .venue-sub-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14.5px;
+      font-style: italic;
+      font-weight: 600;
+      color: #613b1f;
+      margin-top: 1px;
+    }
+
+    .venue-address-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #4b301c;
+      line-height: 1.35;
+    }
+
+    /* Retro Postal PIN Code Box Grid */
+    .pin-code-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .pin-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #5a361e;
+    }
+    .pin-boxes {
+      display: flex;
+      gap: 4px;
+    }
+    .pin-box {
+      width: 16px;
+      height: 18px;
+      border: 1px solid #6b4426;
+      background: rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 800;
+      color: #3b2010;
+    }
+
+    /* Cultural Wedding Blessing & Compliments */
+    .wedding-blessings-card {
+      margin-top: 4px;
+      border-bottom: 1px dotted rgba(90, 50, 20, 0.35);
+      padding-bottom: 6px;
+    }
+    .blessing-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13.5px;
+      color: #5c381e;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .compliments-signature {
+      font-family: 'Satisfy', cursive;
+      font-size: 17px;
+      font-weight: 700;
+      color: #3b2010;
+      text-align: center;
+      margin-top: 3px;
+    }
+    .compliments-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: #5a361e;
+      text-align: center;
+    }
+
+    /* UNIQUE FEATURE 3: AUSPICIOUS WEDDING GUEST RECIPIENT ZONE */
+    .wedding-guest-recipient-card {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .to-guest-field {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .to-guest-title {
+      font-family: 'Satisfy', cursive;
+      font-size: 21px;
+      font-weight: 700;
+      color: #3b2010;
+    }
+    .to-guest-entry-line {
+      flex: 1;
+      border-bottom: 1px dashed #6b4426;
+      height: 14px;
+    }
+
+    .wedding-postal-footer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11.5px;
+      font-style: italic;
+      letter-spacing: 0.8px;
+      color: #6b4426;
+      text-align: center;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INTERACTIVE CONTROLS TOOLBAR -->
+  <div class="toolbar">
+    <button onclick="window.print()">🖨️ Print High-Res Postcard</button>
+    <button id="revealBtn" class="btn-toggle-mask" onclick="toggleNameReveal()">👁️ Reveal Names (Raveena &amp; Shashi)</button>
+  </div>
+
+  <!-- ========================================================
+       FRONT SIDE: HAND-LETTERED ROMANCE & SAPTAPADI ARTWORK
+       ======================================================== -->
+  <div class="section-title">CARD FRONT • SACRED SAPTAPADI POSTCARD (Front Side)</div>
+  <div class="postcard" id="card-front">
+    
+    <div class="kraft-deckle-vignette"></div>
+    <div class="hand-drawn-frame"></div>
+
+    <!-- 4 AUTHENTIC INDIAN SIKKU KOLAM CORNER MOTIFS -->
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-tl" alt="Kolam">
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-tr" alt="Kolam">
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-bl" alt="Kolam">
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-br" alt="Kolam">
+
+    <!-- LUSH WATERCOLOR BOTANICAL CLIMBING VINES -->
+    <img src="rich_vine.svg" class="botanical-vine-left" alt="Vine Left">
+    <img src="rich_vine.svg" class="botanical-vine-right" alt="Vine Right">
+
+    <div class="front-wrapper">
+      
+      <!-- Top Auspicious Inscription -->
+      <div class="auspicious-shloka-handwritten">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
+
+      <!-- Hanging Antique Birdcage -->
+      <img src="cage_crystal.png" class="hanging-birdcage-img" alt="Birdcage">
+
+      <!-- Hanging Temple Bells & Dove -->
+      <img src="bells_clean.png" class="hanging-bells-img" alt="Bells">
+
+      <!-- Center: Saptapadi Sacred Feet Artwork -->
+      <div class="saptapadi-center-container">
+        <img src="feet_artwork_feathered.png" alt="Saptapadi Sacred Steps" class="saptapadi-feet-artwork">
+      </div>
+
+      <!-- Bottom: Couple Names Calligraphy & Romantic Destiny -->
+      <div class="front-bottom-block">
+        
+        <!-- Couple Names (Warm Romantic Calligraphy - Click to Reveal) -->
+        <div class="couple-title-handlettered" id="front-couple-title" onclick="toggleNameReveal()" style="cursor: pointer;" title="Click to Reveal / Mask Names">
+          Bride <span class="ampersand-flourish">&amp;</span> Groom
+        </div>
+        <div class="reveal-hint-pill" onclick="toggleNameReveal()" title="Click to Reveal / Mask Names">✦ Names Masked • Click to Reveal ✦</div>
+
+        <!-- Romantic Verse Matching Benchmark Exactly -->
+        <div class="romantic-verse-letterpress">
+          Two journeys, two dreams, one beautiful destiny. With hearts full of love and a bond blessed by families, we invite you to celebrate the beginning of our forever <span class="hearts-accent">♥♥</span>
+        </div>
+
+        <!-- Auspicious Handpainted Brass Kalasam Pot -->
+        <img src="kalash_clean.png" class="mangal-kalash-img" alt="Kalash">
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       BACK SIDE: AUTHENTIC WEDDING POSTAL KEEPSAKE
+       (CULTURALLY RICH & 100% MARRIAGE-RELATED)
+       ======================================================== -->
+  <div class="section-title">CARD BACK • WEDDING POSTAL KEEPSAKE (Back Side)</div>
+  <div class="postcard" id="card-back">
+    
+    <div class="kraft-deckle-vignette"></div>
+    <div class="hand-drawn-frame"></div>
+
+    <!-- 4 AUTHENTIC INDIAN SIKKU KOLAM CORNER MOTIFS -->
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-tl" alt="Kolam">
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-tr" alt="Kolam">
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-bl" alt="Kolam">
+    <img src="sikku_kolam_clean.png" class="kolam-corner kc-br" alt="Kolam">
+
+    <!-- LUSH WATERCOLOR BOTANICAL CLIMBING VINES -->
+    <img src="rich_vine.svg" class="botanical-vine-left" alt="Vine Left">
+    <img src="rich_vine.svg" class="botanical-vine-right" alt="Vine Right">
+
+    <div class="back-wrapper">
+      
+      <!-- Top Center Lord Ganesha & Couple Names -->
+      <div class="back-top-masthead">
+        <img src="ganesha_clean.png" alt="Lord Ganesha" class="ganesha-crest-img">
+        <div class="back-couple-title" id="back-couple-title" onclick="toggleNameReveal()" style="cursor: pointer;" title="Click to Reveal / Mask Names">
+          Bride <span class="amp">&amp;</span> Groom
+        </div>
+      </div>
+
+      <!-- ========================================================
+           TOP RIGHT: 100% MARRIAGE-RELATED STAMP & POSTMARK
+           ======================================================== -->
+      <div class="back-wedding-stamp-group">
+        
+        <!-- Postmark Cancellation Waves -->
+        <svg class="wedding-wavy-postmark" viewBox="0 0 58 38">
+          <path d="M0,9 Q14.5,2 29,9 Q43.5,16 58,9"/>
+          <path d="M0,19 Q14.5,12 29,19 Q43.5,26 58,19"/>
+          <path d="M0,29 Q14.5,22 29,29 Q43.5,36 58,29"/>
+        </svg>
+
+        <!-- Auspicious Wedding Postmark -->
+        <div class="wedding-circular-postmark">
+          <div class="postmark-inner-circle">
+            <div class="pm-wedding-label-top">SPECIAL WEDDING</div>
+            <div class="pm-wedding-date">SHUBH VIVAH</div>
+            <div class="pm-wedding-label-bot">BLESSED UNION</div>
+          </div>
+        </div>
+
+        <!-- Bespoke Sacred Union Stamp -->
+        <div class="wedding-commemorative-stamp">
+          <div class="stamp-header-text">SHUBH VIVAH</div>
+          
+          <div class="stamp-sacred-art">
+            <svg viewBox="0 0 32 38">
+              <path d="M 16,3 C 10,3 6,8 6,16 C 6,25 16,35 16,35 C 16,35 26,25 26,16 C 26,8 22,3 16,3 Z" 
+                    fill="none" stroke="#8b2500" stroke-width="1.3"/>
+              <circle cx="13" cy="15" r="4.5" fill="none" stroke="#b8860b" stroke-width="1.2"/>
+              <circle cx="19" cy="15" r="4.5" fill="none" stroke="#b8860b" stroke-width="1.2"/>
+              <circle cx="16" cy="15" r="1.5" fill="#a82512"/>
+            </svg>
+          </div>
+
+          <div class="stamp-bottom-vow">SEVEN VOWS</div>
+        </div>
+      </div>
+
+      <!-- Split Body: Left = Ceremony & Mandapam QR, Right = Venue & Address -->
+      <div class="back-main-split">
+        
+        <!-- Left: Wedding Ceremony Details (Plenty of breathing space from leaves) -->
+        <div class="back-col-left">
+          <div>
+            <div class="section-head-calligraphy">Wedding Ceremony</div>
+            <div class="ceremony-details-box">
+              <div class="ceremony-detail-row">
+                <div class="ceremony-header-line">
+                  <span class="ceremony-title-label">Auspicious Date:</span>
+                  <span class="ceremony-time-badge">Sunday, 24-Nov-2026</span>
+                </div>
+                <div class="ceremony-desc-text">In the divine presence of family &amp; loved ones</div>
+              </div>
+
+              <div class="ceremony-detail-row">
+                <div class="ceremony-header-line">
+                  <span class="ceremony-title-label">Sumuhurtham:</span>
+                  <span class="ceremony-time-badge">09:15 AM - 10:30 AM</span>
+                </div>
+                <div class="ceremony-desc-text">Dhanur Lagna &bull; Sacred Saptapadi &amp; Mangalya Dharana</div>
+              </div>
+
+              <div class="ceremony-detail-row">
+                <div class="ceremony-header-line">
+                  <span class="ceremony-title-label">Grand Reception:</span>
+                  <span class="ceremony-time-badge">07:00 PM Onwards</span>
+                </div>
+                <div class="ceremony-desc-text">An evening of celebrations, music &amp; royal dinner</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- UNIQUE FEATURE 2: MANDAPAM LOCATION QR MEDALLION -->
+          <div class="venue-qr-wax-medallion">
+            <img src="venue_qr.png" alt="Mandapam Route QR" class="medallion-qr-img">
+            <div class="medallion-info-text">
+              <div class="medallion-heading">✦ Scan for Mandapam Location</div>
+              <div class="medallion-desc">Direct Google Maps GPS navigation to the wedding venue. Open camera &amp; scan.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hand-Drawn Center Divider -->
+        <div class="back-center-divider-bar"></div>
+
+        <!-- Right: Venue, Blessings & Guest Address (Rich, Non-Basic Content) -->
+        <div class="back-col-right">
+          <div class="venue-details-block">
+            <div class="section-head-calligraphy">Venue &amp; Location</div>
+            <div class="venue-card-content">
+              <div class="venue-name-bold">Sri Lakshmi Venkateshwara Palace</div>
+              <div class="venue-sub-name">Grand Heritage Mandapam &amp; Royal Lawns</div>
+              <div class="venue-address-line">Opp. Royal Palace Gardens, Palace Cross Road</div>
+              <div class="venue-address-line">Bengaluru, Karnataka</div>
+              
+              <!-- Retro Postal PIN Code Box Grid -->
+              <div class="pin-code-container">
+                <span class="pin-label">PIN:</span>
+                <div class="pin-boxes">
+                  <div class="pin-box">5</div>
+                  <div class="pin-box">6</div>
+                  <div class="pin-box">0</div>
+                  <div class="pin-box">0</div>
+                  <div class="pin-box">0</div>
+                  <div class="pin-box">1</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cultural Wedding Blessing & Compliments (Fills the space gracefully) -->
+            <div class="wedding-blessings-card">
+              <div class="blessing-quote">"Your gracious presence and blessings are our greatest wedding gift."</div>
+              <div class="compliments-signature">With Best Compliments &amp; Blessings:</div>
+              <div class="compliments-sub">Family, Relatives &amp; Friends</div>
+            </div>
+          </div>
+
+          <!-- UNIQUE FEATURE 3: AUSPICIOUS WEDDING GUEST RECIPIENT ZONE -->
+          <div class="wedding-guest-recipient-card">
+            <div class="to-guest-field">
+              <span class="to-guest-title">To:</span>
+              <div class="to-guest-entry-line"></div>
+            </div>
+            <div class="to-guest-entry-line"></div>
+
+            <div class="wedding-postal-footer-text">
+              Sacred Wedding Postal Suite &bull; Sent with Love &amp; Blessings
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let isRevealed = false;
+toggleNameReveal();
+    function toggleNameReveal() {
+      isRevealed = !isRevealed;
+      const frontTitle = document.getElementById('front-couple-title');
+      const backTitle = document.getElementById('back-couple-title');
+      const revealBtn = document.getElementById('revealBtn');
+      const hintPill = document.querySelector('.reveal-hint-pill');
+
+      if (isRevealed) {
+        frontTitle.innerHTML = 'Raveena <span class="ampersand-flourish">&amp;</span> Shashi';
+        backTitle.innerHTML = 'Raveena <span class="amp">&amp;</span> Shashi';
+        if (revealBtn) revealBtn.innerHTML = '🔒 Mask Names (Bride &amp; Groom)';
+        if (hintPill) hintPill.innerHTML = '✦ Names Revealed • Click to Mask ✦';
+      } else {
+        frontTitle.innerHTML = 'Bride <span class="ampersand-flourish">&amp;</span> Groom';
+        backTitle.innerHTML = 'Bride <span class="amp">&amp;</span> Groom';
+        if (revealBtn) revealBtn.innerHTML = '👁️ Reveal Names (Raveena &amp; Shashi)';
+        if (hintPill) hintPill.innerHTML = '✦ Names Masked • Click to Reveal ✦';
+      }
+    }
+  </script>
+</body>
+</html>

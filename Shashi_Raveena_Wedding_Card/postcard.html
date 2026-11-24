@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shashi & Raveena — Handcrafted Vintage Wedding Postcard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Great Vibes Local';
+      src: url('GreatVibes-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* CSS RESET & BASE */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #2b221b;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 80%),
+        repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0px, rgba(0, 0, 0, 0.1) 2px, transparent 2px, transparent 4px);
+      font-family: 'Georgia', serif;
+      color: #3b2010;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+      gap: 50px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .toolbar button {
+      background: #8b5a2b;
+      color: #fff8f0;
+      border: 1px solid #d4af37;
+      padding: 9px 22px;
+      border-radius: 20px;
+      font-family: 'Georgia', serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .toolbar button:hover {
+      background: #a46d38;
+      transform: translateY(-1px);
+    }
+
+    .section-title {
+      font-family: 'Georgia', serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #d4af37;
+      text-transform: uppercase;
+      margin-bottom: -35px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    /* 6" x 4" POSTCARD CONTAINER */
+    .postcard {
+      width: 960px;
+      height: 640px;
+      position: relative;
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 12px;
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 2px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    #card-front {
+      background-image: url('bg_front_master.png');
+    }
+
+    #card-back {
+      background-image: url('bg_back_master.png');
+    }
+
+    /* ========================================================
+       FRONT SIDE ELEMENTS
+       ======================================================== */
+    .front-auspicious-shloka {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'Georgia', serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #4a2e1b;
+      opacity: 0.9;
+    }
+
+    .front-couple-names {
+      position: absolute;
+      top: 405px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 52px;
+      color: #3b2010;
+      letter-spacing: 1.5px;
+      text-shadow: 1px 1px 0px rgba(255, 235, 205, 0.6);
+    }
+
+    .front-couple-names .amp {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      color: #8b2518;
+      font-size: 40px;
+      margin: 0 8px;
+    }
+
+    /* ========================================================
+       BACK SIDE ELEMENTS
+       ======================================================== */
+    .back-couple-names {
+      position: absolute;
+      top: 154px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 42px;
+      color: #3b2010;
+      letter-spacing: 1.5px;
+      text-shadow: 0.5px 0.5px 0px rgba(255, 235, 205, 0.5);
+    }
+
+    .back-couple-names .amp {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      color: #8b2518;
+      font-size: 32px;
+      margin: 0 6px;
+    }
+
+    /* Left Column: Ceremony Details (Placed cleanly below 'Wedding Ceremony' heading) */
+    .back-left-details {
+      position: absolute;
+      top: 325px;
+      left: 105px;
+      width: 345px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .event-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .event-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px dotted rgba(107, 68, 38, 0.35);
+      padding-bottom: 2px;
+    }
+
+    .event-title-label {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 14px;
+      font-weight: 700;
+      color: #3b2010;
+    }
+
+    .event-time-val {
+      font-family: 'Georgia', serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #8b2518;
+    }
+
+    .event-sub-desc {
+      font-family: 'Georgia', serif;
+      font-size: 11.5px;
+      font-style: italic;
+      color: #5c3a21;
+    }
+
+    /* Mandapam Route QR Stamp (Warm Parchment Badge with clean quiet zone) */
+    .mandapam-qr-stamp {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 4px;
+    }
+
+    .mandapam-qr-stamp img {
+      width: 66px;
+      height: 66px;
+      background: #faf6ee;
+      padding: 4px;
+      border-radius: 4px;
+      border: 1px solid #9c7352;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .qr-stamp-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .qr-stamp-head {
+      font-family: 'Georgia', serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #3b2010;
+    }
+
+    .qr-stamp-sub {
+      font-family: 'Georgia', serif;
+      font-size: 10.5px;
+      font-style: italic;
+      color: #5c3a21;
+      line-height: 1.25;
+    }
+
+    /* Right Column: Venue Details (Placed cleanly below 'Venue & Location' heading) */
+    .back-right-details {
+      position: absolute;
+      top: 325px;
+      left: 520px;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .venue-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      border-bottom: 1px dotted rgba(107, 68, 38, 0.35);
+      padding-bottom: 8px;
+    }
+
+    .venue-title-bold {
+      font-family: 'Georgia', serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #3b2010;
+      letter-spacing: 0.2px;
+    }
+
+    .venue-subhead {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: #6b4426;
+    }
+
+    .venue-addr {
+      font-family: 'Georgia', serif;
+      font-size: 12px;
+      color: #3b2010;
+      line-height: 1.25;
+    }
+
+    .pin-grid {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+      font-family: 'Georgia', serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #5c3a21;
+    }
+
+    .pin-box {
+      width: 15px;
+      height: 17px;
+      border: 1px solid #7c5132;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Georgia', serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #3b2010;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .to-guest-block {
+      position: absolute;
+      top: 435px;
+      left: 520px;
+      width: 350px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .to-guest-label {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 24px;
+      color: #3b2010;
+    }
+
+    .to-guest-line {
+      flex: 1;
+      border-bottom: 1px dotted rgba(107, 68, 38, 0.6);
+      height: 12px;
+    }
+
+    /* PRINT RULES */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+      }
+      .toolbar, .section-title {
+        display: none !important;
+      }
+      .postcard {
+        page-break-after: always;
+        break-after: page;
+        box-shadow: none;
+        margin: 0 auto;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button onclick="window.print()">🖨️ Print Postcard Cards (Front &amp; Back)</button>
+  </div>
+
+  <div class="section-title">CARD FRONT • SACRED SAPTAPADI POSTCARD</div>
+  <div class="postcard" id="card-front">
+    <div class="front-auspicious-shloka">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
+    <div class="front-couple-names">
+      Shashi <span class="amp">&amp;</span> Raveena
+    </div>
+  </div>
+
+  <div class="section-title">CARD BACK • WEDDING POSTAL KEEPSAKE</div>
+  <div class="postcard" id="card-back">
+    
+    <div class="back-couple-names">
+      Shashi <span class="amp">&amp;</span> Raveena
+    </div>
+
+    <!-- Left: Wedding Ceremony Details -->
+    <div class="back-left-details">
+      <div class="event-row">
+        <div class="event-header-line">
+          <span class="event-title-label">Auspicious Date:</span>
+          <span class="event-time-val">Sunday, 13-Dec-2026</span>
+        </div>
+        <div class="event-sub-desc">In the divine presence of family &amp; loved ones</div>
+      </div>
+
+      <div class="event-row">
+        <div class="event-header-line">
+          <span class="event-title-label">Sumuhurtham:</span>
+          <span class="event-time-val">09:50 AM</span>
+        </div>
+        <div class="event-sub-desc">Dhanur Lagna • Sacred Saptapadi &amp; Mangalya Dharana</div>
+      </div>
+
+      <div class="event-row">
+        <div class="event-header-line">
+          <span class="event-title-label">Grand Reception:</span>
+          <span class="event-time-val">07:00 PM Onwards</span>
+        </div>
+        <div class="event-sub-desc">An evening of celebrations, music &amp; wedding dinner</div>
+      </div>
+
+      <!-- Mandapam Route QR Code (Pure Letterpress Stamped) -->
+      <div class="mandapam-qr-stamp">
+        <img src="venue_qr.svg" alt="Resort Route QR">
+        <div class="qr-stamp-text">
+          <div class="qr-stamp-head">Scan for Resort Location</div>
+          <div class="qr-stamp-sub">Thanmaya Farmstay Resort, Rajaram<br>Open camera to navigate on Google Maps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Venue & Guest To Line -->
+    <div class="back-right-details">
+      <div class="venue-info-block">
+        <div class="venue-title-bold">Thanmaya Farmstay &amp; Resort</div>
+        <div class="venue-subhead">Grand Heritage Lawns &amp; Resort Mandapam</div>
+        <div class="venue-addr">Near Chinna Pendyala, Rajaram (Rajavaram)</div>
+        <div class="venue-addr">Warangal – Hyderabad Highway, Telangana</div>
+        <div class="pin-grid">
+          PIN:
+          <span class="pin-box">5</span>
+          <span class="pin-box">0</span>
+          <span class="pin-box">6</span>
+          <span class="pin-box">1</span>
+          <span class="pin-box">4</span>
+          <span class="pin-box">4</span>
+        </div>
+      </div>
+
+      <div class="to-guest-block">
+        <span class="to-guest-label">To:</span>
+        <div class="to-guest-line"></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

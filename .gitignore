@@ -1,0 +1,15 @@
+# Large raw media and scratch archives
+*.mp4
+*.webm
+*.zip
+track_kettimelam.mp3
+track_seetha_kalyanam.mp3
+wedding_bajentriyulu.wav
+sfx_door_open.wav
+sfx_union.wav
+test.wav
+sample_*.mp3
+*.log
+__pycache__/
+.venv/
+deploy_to_github.py

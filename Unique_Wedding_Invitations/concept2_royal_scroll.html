@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept 2: Royal Decree Scroll (Shahi Farman) • Shashi & Raveena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Great Vibes Local';
+      src: url('GreatVibes-Regular.ttf') format('truetype');
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 20%, #2b1218 0%, #150508 100%);
+      color: #3b2010;
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+      gap: 30px;
+    }
+
+    .nav-bar {
+      display: flex;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 10px 25px;
+      border-radius: 40px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .nav-bar a, .nav-bar button {
+      color: #d4af37;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-bar button.print-btn {
+      background: #d4af37;
+      color: #150508;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .concept-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #d4af37;
+      text-transform: uppercase;
+    }
+
+    /* SCROLL WRAPPER */
+    .scroll-container {
+      width: 720px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.9));
+    }
+
+    /* Wooden Scroll Dowels (Top & Bottom) */
+    .scroll-roller {
+      width: 780px;
+      height: 32px;
+      background: linear-gradient(90deg, #5c2d16 0%, #a86c38 20%, #d4af37 45%, #ffd700 50%, #d4af37 55%, #a86c38 80%, #5c2d16 100%);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+    .roller-finial {
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(circle at 35% 35%, #ffd700, #b8860b 60%, #4a2500 100%);
+      border-radius: 50%;
+      border: 2px solid #fff2a3;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    /* Scroll Parchment Sheet */
+    .scroll-body {
+      width: 700px;
+      background: #fbf5e6;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, rgba(139, 90, 43, 0.02) 0px, rgba(139, 90, 43, 0.02) 1px, transparent 1px, transparent 4px);
+      border-left: 3px solid #b8860b;
+      border-right: 3px solid #b8860b;
+      padding: 55px 45px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      margin: -6px 0;
+      box-shadow: inset 0 0 40px rgba(107, 68, 38, 0.25);
+    }
+
+    /* Royal Filigree Inner Border */
+    .scroll-body::before {
+      content: '';
+      position: absolute;
+      top: 18px; bottom: 18px; left: 18px; right: 18px;
+      border: 2px solid #8b2518;
+      outline: 1px solid #d4af37;
+      outline-offset: 4px;
+      pointer-events: none;
+    }
+
+    /* Traditional Corner Kolams */
+    .scroll-corner {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      opacity: 0.85;
+    }
+    .sc-tl { top: 26px; left: 26px; }
+    .sc-tr { top: 26px; right: 26px; transform: scaleX(-1); }
+    .sc-bl { bottom: 26px; left: 26px; transform: scaleY(-1); }
+    .sc-br { bottom: 26px; right: 26px; transform: scale(-1); }
+
+    .royal-shloka {
+      font-size: 15px;
+      letter-spacing: 4px;
+      color: #8b2518;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .scroll-ganesha {
+      width: 65px;
+      height: 65px;
+      margin-bottom: 10px;
+    }
+
+    .royal-proclamation-head {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 6px;
+      color: #7c5132;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .shahi-farman-title {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #8b2518;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 8px;
+      width: 80%;
+    }
+
+    .proclamation-text {
+      font-size: 18px;
+      line-height: 1.5;
+      font-style: italic;
+      color: #4a2e1b;
+      max-width: 540px;
+      margin-bottom: 20px;
+    }
+
+    /* Couple Names */
+    .scroll-couple {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 64px;
+      color: #1a0808;
+      letter-spacing: 2px;
+      margin: 10px 0;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.4);
+    }
+    .scroll-couple .amp {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #8b2518;
+      font-size: 46px;
+      margin: 0 10px;
+    }
+
+    /* Saptapadi Sacred Feet Artwork */
+    .scroll-feet-art {
+      width: 320px;
+      height: auto;
+      border-radius: 8px;
+      margin: 15px 0;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ceremony Schedule Box */
+    .ceremony-decree-box {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1.5px solid #d4af37;
+      border-radius: 8px;
+      padding: 16px 24px;
+      margin: 18px 0;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .decree-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .decree-title {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #8b2518;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .decree-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a0808;
+    }
+    .decree-desc {
+      font-size: 12.5px;
+      font-style: italic;
+      color: #5c3a21;
+    }
+
+    /* Venue & Royal Wax Seal Section */
+    .scroll-bottom-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dotted #8b5a2b;
+    }
+
+    .venue-decree {
+      text-align: left;
+      flex: 1;
+    }
+    .venue-decree-name {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: #8b2518;
+      letter-spacing: 1px;
+    }
+    .venue-decree-sub {
+      font-size: 13.5px;
+      color: #3b2010;
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+    .venue-decree-pin {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #6b4426;
+      margin-top: 2px;
+    }
+
+    /* Wax Seal with Mandapam Route QR */
+    .wax-seal-qr-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #faf6ee;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #d4af37;
+    }
+    .seal-qr-img {
+      width: 65px;
+      height: 65px;
+    }
+    .seal-qr-text {
+      text-align: left;
+      font-size: 11px;
+      color: #4a2e1b;
+      line-height: 1.3;
+    }
+    .seal-qr-text strong {
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      color: #8b2518;
+      display: block;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .nav-bar, .concept-tag { display: none; }
+      .scroll-container { filter: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-bar">
+    <a href="index.html">← All Concepts</a>
+    <span style="color:rgba(212,175,55,0.4)">|</span>
+    <button class="print-btn" onclick="window.print()">🖨️ Print Royal Scroll</button>
+  </div>
+
+  <div class="concept-tag">Concept 2 • Imperial Royal Decree Scroll (Shahi Farman)</div>
+
+  <div class="scroll-container">
+    
+    <!-- Top Scroll Roller -->
+    <div class="scroll-roller">
+      <div class="roller-finial"></div>
+      <div class="roller-finial"></div>
+    </div>
+
+    <!-- Scroll Parchment Document -->
+    <div class="scroll-body">
+      
+      <!-- 4 Corner Traditional Kolams -->
+      <img src="sikku_kolam_clean.png" alt="Kolam" class="scroll-corner sc-tl">
+      <img src="sikku_kolam_clean.png" alt="Kolam" class="scroll-corner sc-tr">
+      <img src="sikku_kolam_clean.png" alt="Kolam" class="scroll-corner sc-bl">
+      <img src="sikku_kolam_clean.png" alt="Kolam" class="scroll-corner sc-br">
+
+      <!-- Divine Invocation -->
+      <div class="royal-shloka">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
+      <img src="ganesha_clean.png" alt="Lord Ganesha" class="scroll-ganesha">
+
+      <div class="royal-proclamation-head">Imperial Royal Proclamation</div>
+      <div class="shahi-farman-title">Kalyana Shahi Farman</div>
+
+      <div class="proclamation-text">
+        "By divine grace and with the loving blessings of our revered ancestors, families, and elders, we humbly invite you to grace the auspicious marriage ceremony uniting two souls in sacred matrimony."
+      </div>
+
+      <!-- Couple Names in Majestic Calligraphy -->
+      <div class="scroll-couple">
+        Shashi <span class="amp">&amp;</span> Raveena
+      </div>
+
+      <!-- Saptapadi Sacred Steps Feathered Artwork -->
+      <img src="feet_artwork_feathered.png" alt="Saptapadi Sacred Steps" class="scroll-feet-art">
+
+      <!-- Ceremony Schedule Box -->
+      <div class="ceremony-decree-box">
+        <div class="decree-item">
+          <span class="decree-title">Auspicious Date</span>
+          <span class="decree-time">Sunday, 13-Dec-2026</span>
+          <span class="decree-desc">Margashira Shukla Chaturdashi</span>
+        </div>
+        <div style="width:1px; background:#d4af37;"></div>
+        <div class="decree-item">
+          <span class="decree-title">Sumuhurtham</span>
+          <span class="decree-time" style="color:#8b2518;">09:50 AM</span>
+          <span class="decree-desc">Dhanur Lagna • Saptapadi</span>
+        </div>
+        <div style="width:1px; background:#d4af37;"></div>
+        <div class="decree-item">
+          <span class="decree-title">Grand Reception</span>
+          <span class="decree-time" style="font-size:16px;">Following the Marriage</span>
+          <span class="decree-desc">Wedding feast &amp; celebrations</span>
+        </div>
+      </div>
+
+      <!-- Venue & Mandapam Route QR -->
+      <div class="scroll-bottom-section">
+        <div class="venue-decree">
+          <div class="venue-decree-name">Thanmaya Farmstay &amp; Resort</div>
+          <div class="venue-decree-sub">Grand Heritage Lawns &amp; Resort Mandapam<br>Near Chinna Pendyala, Rajaram (Rajavaram)<br>Warangal – Hyderabad Highway, Telangana</div>
+          <div class="venue-decree-pin">PIN CODE: 506 144</div>
+        </div>
+
+        <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" class="wax-seal-qr-group" style="text-decoration:none; color:inherit;">
+          <img src="venue_qr.svg" alt="Resort Google Maps Route QR" class="seal-qr-img">
+          <div class="seal-qr-text">
+            <strong>Google Maps Navigation</strong>
+            Thanmaya Farmstay Resort.<br>Scan or tap for live GPS route.
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Scroll Roller -->
+    <div class="scroll-roller">
+      <div class="roller-finial"></div>
+      <div class="roller-finial"></div>
+    </div>
+
+  </div>
+
+</body>
+</html>

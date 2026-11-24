@@ -1,0 +1,36 @@
+===========================================================
+SHASHI & RAVEENA - HANDCRAFTED WEDDING INVITATION SUITE
+===========================================================
+
+Event Details:
+- Auspicious Date: Sunday, 13th December 2026
+- Sumuhurtham: 09:50 AM (Dhanur Lagna)
+- Grand Reception: 07:00 PM Onwards
+- Venue: Thanmaya Farmstay & Resort, Near Chinna Pendyala, 
+  Rajaram (Rajavaram), Warangal-Hyderabad Highway, Telangana
+- PIN Code: 506144
+
+Contents of this Folder:
+-----------------------------------------------------------
+1. postcard.html
+   - Master interactive & printable double-sided card layout.
+   - Simply double-click to open in any web browser (Chrome, Edge, Safari).
+   - Press Ctrl + P (or click the top Print button) to print.
+
+2. postcard_front_print_300dpi.png & postcard_back_print_300dpi.png
+   - Master Ultra-HD 300 DPI print files (1920 x 1280 px).
+   - Ideal for professional offset / digital print shops.
+   - Recommended cardstock: 300 - 350 GSM Natural Kraft Paper or
+     Handmade Cotton Cardstock with rounded corners (die-cut).
+
+3. postcard_front.png & postcard_back.png
+   - Standard high-resolution digital previews (960 x 640 px)
+     ready for WhatsApp / Instagram / digital sharing.
+
+4. Supporting Vector & Art Assets:
+   - feet_artwork_feathered.png (Saptapadi Sacred Feet Artwork)
+   - sikku_kolam_clean.png (Authentic Traditional Brahma Mudi Kolam)
+   - rich_vine.svg (Watercolor Climbing Botanical Vine)
+   - venue_qr.svg (Vector Scannable QR Medallion)
+   - ganesha_clean.png, cage_crystal.png, bells_clean.png, kalash_clean.png
+===========================================================

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept 4: Heritage Pichwai & Lotus Nature Canvas • Shashi & Raveena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Great Vibes Local';
+      src: url('GreatVibes-Regular.ttf') format('truetype');
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 20%, #082418 0%, #03120c 100%);
+      color: #3b2010;
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+      gap: 30px;
+    }
+
+    .nav-bar {
+      display: flex;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      padding: 10px 25px;
+      border-radius: 40px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .nav-bar a, .nav-bar button {
+      color: #d4af37;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-bar button.print-btn {
+      background: #d4af37;
+      color: #03120c;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .concept-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #d4af37;
+      text-transform: uppercase;
+    }
+
+    /* PICHWAI ART CARD CONTAINER (PORTRAIT 700 x 980) */
+    .pichwai-canvas {
+      width: 720px;
+      background: #0d3824;
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 6px);
+      border-radius: 20px;
+      border: 4px solid #d4af37;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+      padding: 24px;
+      position: relative;
+    }
+
+    /* Outer Pichwai Gold Arch Frame */
+    .pichwai-inner-arch {
+      background: #fbf5e6;
+      border-radius: 14px;
+      border: 2px solid #b8860b;
+      padding: 40px 35px 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      box-shadow: inset 0 0 35px rgba(107, 68, 38, 0.2);
+    }
+
+    /* Scalloped Arch Header */
+    .arch-header {
+      width: 100%;
+      border-bottom: 2px solid #b8860b;
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+      position: relative;
+    }
+    .arch-shloka {
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: #8b2518;
+      font-weight: 700;
+    }
+
+    .pichwai-ganesha {
+      width: 60px;
+      height: 60px;
+      margin: 8px 0;
+    }
+
+    .pichwai-subhead {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #6b4426;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Couple Title */
+    .pichwai-couple-name {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 64px;
+      color: #1a0808;
+      margin: 4px 0 10px;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.4);
+    }
+    .pichwai-couple-name .amp {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #8b2518;
+      font-size: 46px;
+      margin: 0 8px;
+    }
+
+    /* Saptapadi Painting */
+    .pichwai-feet-art {
+      width: 320px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      margin: 10px 0 14px;
+    }
+
+    .pichwai-verse {
+      font-size: 16px;
+      font-style: italic;
+      color: #4a2e1b;
+      max-width: 520px;
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    /* Event Itinerary Grid */
+    .itinerary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .itinerary-box {
+      background: #faf2dc;
+      border: 1.5px solid #d4af37;
+      border-radius: 8px;
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .itinerary-box.highlight {
+      background: #f7ebd0;
+      border-color: #8b2518;
+    }
+    .itinerary-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: #8b2518;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .itinerary-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a0808;
+      margin: 2px 0;
+    }
+    .itinerary-desc {
+      font-size: 12px;
+      font-style: italic;
+      color: #5c3a21;
+    }
+
+    /* Venue & QR Banner */
+    .pichwai-venue-footer {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #d4af37;
+      border-radius: 10px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+    .venue-details-text {
+      flex: 1;
+    }
+    .venue-head {
+      font-family: 'Cinzel', serif;
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #0d3824;
+      letter-spacing: 0.5px;
+    }
+    .venue-lines {
+      font-size: 12.5px;
+      color: #3b2010;
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+    .venue-pin {
+      font-size: 12px;
+      font-weight: 700;
+      color: #8b2518;
+      margin-top: 2px;
+    }
+
+    .qr-banner-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 1px solid #d4af37;
+      padding-left: 18px;
+    }
+    .qr-badge-img {
+      width: 65px;
+      height: 65px;
+    }
+    .qr-badge-text {
+      font-size: 10.5px;
+      color: #4a2e1b;
+      line-height: 1.3;
+    }
+    .qr-badge-text strong {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      color: #0d3824;
+      display: block;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .nav-bar, .concept-tag { display: none; }
+      .pichwai-canvas { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-bar">
+    <a href="index.html">← All Concepts</a>
+    <span style="color:rgba(212,175,55,0.4)">|</span>
+    <button class="print-btn" onclick="window.print()">🖨️ Print Pichwai Canvas</button>
+  </div>
+
+  <div class="concept-tag">Concept 4 • Heritage Pichwai &amp; Lotus Nature Canvas</div>
+
+  <div class="pichwai-canvas">
+    
+    <div class="pichwai-inner-arch">
+      
+      <!-- Top Arch Header -->
+      <div class="arch-header">
+        <div class="arch-shloka">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
+      </div>
+
+      <img src="ganesha_clean.png" alt="Lord Ganesha" class="pichwai-ganesha">
+      <div class="pichwai-subhead">Sacred Wedding Invitation</div>
+
+      <!-- Couple Names in Luxury Script -->
+      <div class="pichwai-couple-name">
+        Shashi <span class="amp">&amp;</span> Raveena
+      </div>
+
+      <!-- Feathered Saptapadi Painting -->
+      <img src="feet_artwork_feathered.png" alt="Saptapadi Feet Art" class="pichwai-feet-art">
+
+      <div class="pichwai-verse">
+        "Two journeys, two dreams, one beautiful destiny. With hearts full of love and a bond blessed by families, we invite you to celebrate the beginning of our forever."
+      </div>
+
+      <!-- Itinerary Grid -->
+      <div class="itinerary-row">
+        
+        <!-- Sumuhurtham Box -->
+        <div class="itinerary-box highlight">
+          <div class="itinerary-tag">Auspicious Sumuhurtham</div>
+          <div class="itinerary-time" style="color:#8b2518;">09:50 AM</div>
+          <div class="itinerary-desc">Sunday, 13th December 2026<br>Dhanur Lagna • Saptapadi</div>
+        </div>
+
+        <!-- Reception Box -->
+        <div class="itinerary-box">
+          <div class="itinerary-tag">Grand Reception</div>
+          <div class="itinerary-time" style="font-size:16px;">Following the Marriage</div>
+          <div class="itinerary-desc">Sunday, 13th December 2026<br>Wedding feast &amp; celebrations</div>
+        </div>
+
+      </div>
+
+      <!-- Thanmaya Farmstay Resort Venue & QR -->
+      <div class="pichwai-venue-footer">
+        <div class="venue-details-text">
+          <div class="venue-head">Thanmaya Farmstay &amp; Resort</div>
+          <div class="venue-lines">
+            Grand Heritage Lawns &amp; Resort Mandapam<br>
+            Near Chinna Pendyala, Rajaram (Rajavaram)<br>
+            Warangal – Hyderabad Highway, Telangana
+          </div>
+          <div class="venue-pin">PIN CODE: 506 144</div>
+        </div>
+
+        <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" class="qr-banner-group" style="text-decoration:none; color:inherit;">
+          <img src="venue_qr.svg" alt="Resort Google Maps QR" class="qr-badge-img">
+          <div class="qr-badge-text">
+            <strong>Google Maps Navigation</strong>
+            Thanmaya Farmstay Resort.<br>Scan or tap for live GPS route.
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

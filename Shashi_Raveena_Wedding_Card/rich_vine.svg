@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 552" width="85" height="552">
+  <defs>
+    <linearGradient id="leafGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a3d16"/>
+      <stop offset="50%" stop-color="#466627"/>
+      <stop offset="100%" stop-color="#69923c"/>
+    </linearGradient>
+    <linearGradient id="leafGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#364e1e"/>
+      <stop offset="55%" stop-color="#587c32"/>
+      <stop offset="100%" stop-color="#7fa84a"/>
+    </linearGradient>
+    <linearGradient id="leafGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#223311"/>
+      <stop offset="45%" stop-color="#3c5720"/>
+      <stop offset="100%" stop-color="#52762a"/>
+    </linearGradient>
+    <filter id="leafShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1.5" stdDeviation="1" flood-color="#261608" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Main organic climbing border stem: runs from top Kolam to bottom Kolam -->
+  <path d="M 22,0 L 22,80 Q 20,200 24,350 L 22,552" fill="none" stroke="#4a301a" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Secondary branching stems -->
+  <path d="M 22,390 Q 38,320 42,230" fill="none" stroke="#4a301a" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M 23,240 Q 36,190 34,140" fill="none" stroke="#4a301a" stroke-width="1.0" stroke-linecap="round"/>
+
+  <!-- CLUSTER 1: Mature base leaves -->
+  <g transform="translate(22, 450) rotate(-32)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 14,-12 35,-16 45,-7 C 35,14 14,12 0,0 Z" fill="url(#leafGradA)"/>
+    <path d="M 0,0 Q 25,-4 40,-6" stroke="#1c290e" stroke-width="0.9" fill="none"/>
+  </g>
+  <g transform="translate(22, 420) rotate(-145)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 12,-10 30,-14 38,-6 C 30,12 12,10 0,0 Z" fill="url(#leafGradB)"/>
+    <path d="M 0,0 Q 22,-4 34,-5" stroke="#1c290e" stroke-width="0.8" fill="none"/>
+  </g>
+
+  <!-- CLUSTER 2 -->
+  <g transform="translate(22, 380) rotate(-26)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 14,-11 34,-16 43,-7 C 34,14 14,11 0,0 Z" fill="url(#leafGradB)"/>
+    <path d="M 0,0 Q 24,-4 39,-6" stroke="#1c290e" stroke-width="0.8" fill="none"/>
+  </g>
+  <g transform="translate(22, 350) rotate(-142)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 12,-10 28,-13 36,-6 C 28,11 12,9 0,0 Z" fill="url(#leafGradC)"/>
+    <path d="M 0,0 Q 20,-4 32,-5" stroke="#1c290e" stroke-width="0.7" fill="none"/>
+  </g>
+
+  <!-- CLUSTER 3 (Side branch leaves) -->
+  <g transform="translate(32, 315) rotate(-18)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 13,-10 32,-15 41,-7 C 32,13 13,11 0,0 Z" fill="url(#leafGradA)"/>
+    <path d="M 0,0 Q 24,-4 37,-6" stroke="#1c290e" stroke-width="0.8" fill="none"/>
+  </g>
+  <g transform="translate(24, 290) rotate(-140)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 12,-9 28,-13 35,-6 C 28,11 12,9 0,0 Z" fill="url(#leafGradB)"/>
+    <path d="M 0,0 Q 20,-4 31,-5" stroke="#1c290e" stroke-width="0.7" fill="none"/>
+  </g>
+
+  <!-- CLUSTER 4 (Mid branch leaves) -->
+  <g transform="translate(40, 255) rotate(-20)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 12,-9 30,-14 38,-6 C 30,12 12,10 0,0 Z" fill="url(#leafGradB)"/>
+    <path d="M 0,0 Q 22,-4 34,-5" stroke="#1c290e" stroke-width="0.7" fill="none"/>
+  </g>
+  <g transform="translate(26, 230) rotate(-148)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 11,-9 28,-12 34,-5 C 28,11 11,9 0,0 Z" fill="url(#leafGradC)"/>
+    <path d="M 0,0 Q 18,-4 30,-5" stroke="#1c290e" stroke-width="0.7" fill="none"/>
+  </g>
+
+  <!-- CLUSTER 5 -->
+  <g transform="translate(36, 185) rotate(-24)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 11,-8 28,-12 35,-5 C 28,11 11,9 0,0 Z" fill="url(#leafGradA)"/>
+    <path d="M 0,0 Q 20,-4 31,-5" stroke="#1c290e" stroke-width="0.7" fill="none"/>
+  </g>
+  <g transform="translate(26, 160) rotate(-138)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 10,-8 25,-11 32,-5 C 25,10 10,8 0,0 Z" fill="url(#leafGradB)"/>
+    <path d="M 0,0 Q 18,-3 28,-4" stroke="#1c290e" stroke-width="0.6" fill="none"/>
+  </g>
+
+  <!-- CLUSTER 6 -->
+  <g transform="translate(32, 120) rotate(-26)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 10,-7 25,-11 31,-4 C 25,10 10,8 0,0 Z" fill="url(#leafGradB)"/>
+    <path d="M 0,0 Q 18,-3 27,-4" stroke="#1c290e" stroke-width="0.6" fill="none"/>
+  </g>
+  <g transform="translate(23, 98) rotate(-135)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 9,-7 22,-10 28,-4 C 22,9 9,7 0,0 Z" fill="url(#leafGradC)"/>
+    <path d="M 0,0 Q 16,-3 24,-4" stroke="#1c290e" stroke-width="0.6" fill="none"/>
+  </g>
+
+  <!-- TOP TERMINAL LEAVES -->
+  <g transform="translate(23, 62) rotate(-32)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 8,-6 20,-9 26,-4 C 20,8 8,6 0,0 Z" fill="url(#leafGradA)"/>
+    <path d="M 0,0 Q 15,-3 22,-3" stroke="#1c290e" stroke-width="0.6" fill="none"/>
+  </g>
+  <g transform="translate(22, 38) rotate(-130)" filter="url(#leafShadow)">
+    <path d="M 0,0 C 7,-5 18,-8 22,-3 C 18,7 7,5 0,0 Z" fill="url(#leafGradB)"/>
+    <path d="M 0,0 Q 13,-2 19,-3" stroke="#1c290e" stroke-width="0.5" fill="none"/>
+  </g>
+</svg>

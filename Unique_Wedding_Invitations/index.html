@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shashi & Raveena — Unique Wedding Invitation Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Great Vibes Local';
+      src: url('GreatVibes-Regular.ttf') format('truetype');
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 10%, #1c1511 0%, #0d0a08 100%);
+      color: #e6dfd8;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px 80px;
+      gap: 30px;
+    }
+
+    /* HEADER BANNER */
+    .studio-header {
+      text-align: center;
+      max-width: 900px;
+    }
+    .header-shloka {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      letter-spacing: 4px;
+      color: #d4af37;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .header-couple-title {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 64px;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      line-height: 1.1;
+    }
+    .header-couple-title .amp {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #d4af37;
+      font-size: 46px;
+      margin: 0 8px;
+    }
+    .header-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #c4a47c;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
+    /* CONCEPT SELECTOR TABS */
+    .concept-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 1000px;
+      width: 100%;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #d4af37;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    .tab-btn:hover {
+      background: rgba(212, 175, 55, 0.2);
+      transform: translateY(-2px);
+    }
+    .tab-btn.active {
+      background: #d4af37;
+      color: #0d0a08;
+      font-weight: 800;
+      border-color: #ffd700;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+
+    /* LIVE PREVIEW IFRAME VIEWPORT */
+    .preview-viewport {
+      width: 100%;
+      max-width: 1100px;
+      height: 820px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      position: relative;
+    }
+    .preview-viewport iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ACTION BAR */
+    .action-bar {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    .action-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-family: 'Cinzel', serif;
+      font-size: 12.5px;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .action-btn:hover {
+      background: #d4af37;
+      color: #0d0a08;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STUDIO HEADER -->
+  <div class="studio-header">
+    <div class="header-shloka">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
+    <div class="header-couple-title">
+      Shashi <span class="amp">&amp;</span> Raveena
+    </div>
+    <div class="header-sub">Unique Wedding Invitation Design Studio • Thanmaya Farmstay Resort</div>
+  </div>
+
+  <!-- INTERACTIVE TABS TO SWITCH CONCEPTS -->
+  <div class="concept-tabs">
+    <button class="tab-btn active" onclick="loadConcept('concept1_boarding_pass.html', this)">
+      ✈️ Concept 1: Destination Boarding Pass &amp; Passport
+    </button>
+    <button class="tab-btn" onclick="loadConcept('concept2_royal_scroll.html', this)">
+      📜 Concept 2: Royal Decree Scroll (Shahi Farman)
+    </button>
+    <button class="tab-btn" onclick="loadConcept('concept3_mandapam_gatefold.html', this)">
+      🚪 Concept 3: 3D Mandapam Double Doors
+    </button>
+    <button class="tab-btn" onclick="loadConcept('concept4_pichwai_heritage.html', this)">
+      🪷 Concept 4: Pichwai Lotus Nature Canvas
+    </button>
+  </div>
+
+  <!-- LIVE EMBED VIEWPORT -->
+  <div class="preview-viewport">
+    <iframe id="previewFrame" src="concept1_boarding_pass.html"></iframe>
+  </div>
+
+  <!-- QUICK ACTION BUTTONS -->
+  <div class="action-bar">
+    <a id="openFullBtn" href="concept1_boarding_pass.html" target="_blank" class="action-btn">
+      ↗ Open Selected in Full Screen
+    </a>
+    <button onclick="printCurrentConcept()" class="action-btn" style="background:#d4af37; color:#0d0a08; font-weight:700;">
+      🖨️ Print Selected Design
+    </button>
+  </div>
+
+  <script>
+    function loadConcept(fileUrl, btnElement) {
+      document.getElementById('previewFrame').src = fileUrl;
+      document.getElementById('openFullBtn').href = fileUrl;
+      const allTabs = document.querySelectorAll('.tab-btn');
+      allTabs.forEach(tab => tab.classList.remove('active'));
+      btnElement.classList.add('active');
+    }
+
+    function printCurrentConcept() {
+      const frame = document.getElementById('previewFrame');
+      frame.contentWindow.focus();
+      frame.contentWindow.print();
+    }
+  </script>
+
+</body>
+</html>
