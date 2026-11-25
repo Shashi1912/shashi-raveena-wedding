@@ -901,12 +901,190 @@
     .calendar-date-card {
       cursor: pointer;
       transition: all 0.25s ease;
-      padding: 4px 8px;
+      padding: 6px 10px;
       border-radius: 8px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(255, 255, 255, 0.4);
+      display: inline-block;
+      text-align: left;
     }
     .calendar-date-card:hover {
-      background: rgba(212, 175, 55, 0.15);
-      transform: translateY(-1px);
+      background: rgba(212, 175, 55, 0.2);
+      border-color: #8b2518;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 37, 24, 0.15);
+    }
+    .cal-mini-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, #8b2518, #5a140b);
+      color: #ffd700;
+      border: 1px solid #d4af37;
+      border-radius: 12px;
+      font-size: 8.5px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 2px 7px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      margin-left: 6px;
+      vertical-align: middle;
+      animation: calMiniPulse 2.5s infinite ease-in-out;
+    }
+    @keyframes calMiniPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+      50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+    }
+
+    /* ROYAL CALENDAR MODAL BACKDROP & DIALOG */
+    .calendar-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: rgba(10, 4, 1, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .calendar-modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .calendar-modal-dialog {
+      background: linear-gradient(145deg, #2b1104, #150601);
+      border: 2px solid #d4af37;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 35px rgba(212, 175, 55, 0.35);
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      padding: 28px 24px 22px;
+      text-align: center;
+      position: relative;
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .calendar-modal-backdrop.open .calendar-modal-dialog {
+      transform: scale(1);
+    }
+    .cal-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #ffd700;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .cal-modal-close:hover {
+      background: #8b2518;
+      border-color: #ffd700;
+      transform: scale(1.1);
+    }
+    .cal-modal-icon {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+    .cal-modal-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #ffd700;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .cal-modal-couple {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+      margin: 4px 0 6px;
+    }
+    .cal-modal-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 4px;
+    }
+    .cal-modal-venue {
+      font-size: 11.5px;
+      color: #e6c875;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .cal-modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .cal-btn-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      border: 1.5px solid #d4af37;
+      text-decoration: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      transition: all 0.25s ease;
+      text-align: left;
+    }
+    .cal-btn-option:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: #ffd700;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    .cal-btn-icon {
+      font-size: 24px;
+    }
+    .cal-btn-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cal-btn-text strong {
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      color: #ffd700;
+      letter-spacing: 0.5px;
+    }
+    .cal-btn-text small {
+      font-size: 10.5px;
+      color: #e6c875;
+      opacity: 0.85;
+    }
+    .cal-btn-arrow {
+      color: #ffd700;
+      font-size: 14px;
+    }
+    .cal-modal-footer {
+      font-size: 10px;
+      color: rgba(255, 215, 0, 0.7);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
     }
 
     /* VIEWPORT CENTERING AND RESPONSIVE SCALING */
@@ -947,6 +1125,42 @@
   <button class="close-floating-btn" id="btnCloseFloating" onclick="closeAllDoors()" title="Click to close doors">
     ✕ Close Invitation
   </button>
+
+    <!-- ROYAL CALENDAR SAVE MODAL -->
+  <div class="calendar-modal-backdrop" id="calendarModal" onclick="closeCalendarModal(event)">
+    <div class="calendar-modal-dialog" onclick="event.stopPropagation()">
+      <button class="cal-modal-close" onclick="closeCalendarModal()" title="Close">✕</button>
+      <div class="cal-modal-icon">📅✨</div>
+      <div class="cal-modal-heading">Save Auspicious Date</div>
+      <div class="cal-modal-couple">Shashi &amp; Raveena</div>
+      <div class="cal-modal-time">Sunday, 13 December 2026 • 09:50 AM</div>
+      <div class="cal-modal-venue">Thanmaya Farmstay Resort, Warangal Highway</div>
+
+      <div class="cal-modal-buttons">
+        <a class="cal-btn-option cal-btn-google" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shashi+%26+Raveena+Wedding&dates=20261213T042000Z/20261213T093000Z&details=Auspicious+Sumuhurtham+at+09:50+AM.+Thanmaya+Farmstay+Resort,+Warangal+Highway.&location=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" onclick="handleCalendarSelection('Google Calendar')">
+          <span class="cal-btn-icon">🗓️</span>
+          <span class="cal-btn-text">
+            <strong>Google Calendar</strong>
+            <small>Sync directly to Android / Chrome / Gmail</small>
+          </span>
+          <span class="cal-btn-arrow">➔</span>
+        </a>
+
+        <button class="cal-btn-option cal-btn-apple" onclick="downloadICSFile(); handleCalendarSelection('Apple / iCal')">
+          <span class="cal-btn-icon">🍏</span>
+          <span class="cal-btn-text">
+            <strong>Apple / Outlook Calendar</strong>
+            <small>Download 1-tap .ics file with 9:50 AM alarm</small>
+          </span>
+          <span class="cal-btn-arrow">➔</span>
+        </button>
+      </div>
+
+      <div class="cal-modal-footer">
+        🔔 Adds ceremony reminder alert to your personal calendar
+      </div>
+    </div>
+  </div>
 
   <div class="calendar-toast" id="calendarToast">
     📅 Wedding Added to Calendar (13-Dec-2026 • 09:50 AM)
@@ -1044,8 +1258,9 @@
           
           <!-- Left: Muhurtham & Reception -->
           <div class="union-left">
-            <div class="calendar-date-card" onclick="addDirectlyToCalendar(true)" title="Tap to sync/view in Calendar">
+                        <div class="calendar-date-card" onclick="openCalendarModal()" title="Tap to save Auspicious Date to your Calendar">
               <span class="event-lbl">Auspicious Date</span>
+              <span class="cal-mini-badge">📅 Save Date</span>
               <div class="event-val">Sun, 13 Dec 2026</div>
               <div class="event-sub">In presence of family &amp; elders • Tap to sync</div>
             </div>
@@ -1271,32 +1486,71 @@
       playSectionSound(audioBride, 'సీతా కల్యాణం', '👰🪷');
     }
 
-    const CALENDAR_URL = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shashi+%26+Raveena+Wedding&dates=20261213T042000Z/20261213T093000Z&details=Auspicious+Sumuhurtham+at+09:50+AM.+Thanmaya+Farmstay+Resort,+Warangal+Highway.&location=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144';
-    let hasAddedToCalendar = false;
+        const CALENDAR_URL = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shashi+%26+Raveena+Wedding&dates=20261213T042000Z/20261213T093000Z&details=Auspicious+Sumuhurtham+at+09:50+AM.+Thanmaya+Farmstay+Resort,+Warangal+Highway.&location=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144';
 
-    function addDirectlyToCalendar(force = false) {
-      if (!hasAddedToCalendar || force) {
-        hasAddedToCalendar = true;
-        try {
-          window.open(CALENDAR_URL, '_blank');
-        } catch (e) {
-          console.log('Calendar auto-sync waiting for user interaction');
-        }
+    function openCalendarModal() {
+      const modal = document.getElementById('calendarModal');
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeCalendarModal(e) {
+      if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('cal-modal-close')) return;
+      const modal = document.getElementById('calendarModal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function handleCalendarSelection(provider) {
+      setTimeout(() => {
+        const modal = document.getElementById('calendarModal');
+        if (modal) modal.classList.remove('open');
         const toast = document.getElementById('calendarToast');
         if (toast) {
+          toast.textContent = '📅 Wedding Added via ' + provider + ' (13-Dec-2026 • 09:50 AM)';
           toast.classList.add('show');
           setTimeout(() => toast.classList.remove('show'), 5000);
         }
-      }
+      }, 400);
     }
 
-    // Open BOTH Doors (The Grand Union) -> Plays FULL, authentic Ketti Melam (గట్టిమేళం)!
+    function downloadICSFile() {
+      const icsLines = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Shashi Raveena Wedding//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        'SUMMARY:Shashi & Raveena Wedding (Sumuhurtham)',
+        'DESCRIPTION:Divine Wedding Celebration of Shashi & Raveena.\nSumuhurtham: 09:50 AM (Dhanur Lagna).\nGrand Reception to follow.\nVenue: Thanmaya Farmstay Resort, Warangal Highway.',
+        'LOCATION:Thanmaya Farmstay Resort, Rajavaram, Telangana 506144',
+        'DTSTART:20261213T042000Z',
+        'DTEND:20261213T093000Z',
+        'STATUS:CONFIRMED',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT2H',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:Reminder: Shashi & Raveena Wedding Ceremony today at 09:50 AM',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ];
+      const icsString = icsLines.join(String.fromCharCode(13, 10));
+      const blob = new Blob([icsString], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', 'Shashi_Raveena_Wedding.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Open BOTH Doors (The Grand Union) -> Plays 8D Main Celebratory Wedding Song!
     function openBothDoors() {
       handleFirstUserTap();
       stage.className = 'mandapam-stage opened-both';
       resetActiveButtons();
-      playSectionSound(audioUnion, 'గట్టిమేళం (Full Mela)', '👑🥁');
-      addDirectlyToCalendar();
+      playSectionSound(audioMain, '👑 కల్యాణ మహోత్సవం (8D)', '👑🎉');
+      // calendar auto-open removed for user choice
     }
 
     // Close All Doors -> Smoothly fade out the sound

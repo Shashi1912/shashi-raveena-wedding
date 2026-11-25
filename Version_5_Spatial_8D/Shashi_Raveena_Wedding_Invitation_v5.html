@@ -2,14 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shashi & Raveena — Version 5: 3D/8D Spatial Audio Wedding Invitation</title>
-  <meta name="description" content="With the divine blessings of Sri Venkateswara Swamy, Sri Angajala & Sri Kotipalli families cordially invite you to celebrate the wedding of Shashi & Raveena on 13th December 2026 at Thanmaya Farmstay Resort.">
-  <meta property="og:title" content="Shashi & Raveena — Royal Telugu Wedding Invitation">
-  <meta property="og:description" content="13th Dec 2026 • Thanmaya Farmstay Resort • Tap to experience the interactive Mandapam wedding card.">
-  <meta property="og:image" content="preview_v2_closed.png">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shashi & Raveena — Royal Mandapam Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,8 +14,16 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ========================================================
+       ROYAL WEDDING MANDAPAM ATMOSPHERE & SURROUNDINGS
+       ======================================================== */
     body {
-      background: radial-gradient(circle at 50% 20%, #1c0e04 0%, #0a0401 100%);
+      background: #120302;
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 10% 20%, rgba(139, 37, 24, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(139, 37, 24, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, #1f0804 0%, #0a0101 100%);
       color: #3b2010;
       font-family: 'Cormorant Garamond', serif;
       min-height: 100vh;
@@ -30,423 +32,598 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px 15px;
+      padding: 10px 12px 60px;
       margin: 0;
-      perspective: 1400px;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-    }
-
-    /* PRO FLOATING NAVIGATION CONTROLLER */
-    .nav-bar {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      align-items: center;
-      gap: 7px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      padding: 8px 16px;
-      border-radius: 40px;
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      z-index: 100;
-      max-width: 960px;
-    }
-    .ctrl-btn {
-      font-family: 'Cinzel', serif;
-      font-size: 10.5px;
-      letter-spacing: 0.8px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      background: rgba(0, 0, 0, 0.4);
-      color: #e6c875;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.25s ease;
-      text-transform: uppercase;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .ctrl-btn:hover {
-      background: rgba(212, 175, 55, 0.25);
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-    .ctrl-btn.active {
-      background: #8b2518;
-      color: #ffffff;
-      border-color: #d4af37;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-    }
-    .ctrl-btn.union-btn {
-      background: #d4af37;
-      color: #1a0808;
-      border-color: #ffd700;
-    }
-    .ctrl-btn.union-btn:hover {
-      background: #ffd700;
-      color: #000000;
-    }
-
-    /* AUSPICIOUS BAJENTRIYULU MUSIC BUTTON */
-    .ctrl-btn.music-btn {
-      background: linear-gradient(135deg, rgba(139, 37, 24, 0.85), rgba(60, 20, 5, 0.95));
-      border: 1.5px solid #d4af37;
-      color: #ffd700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      transition: all 0.3s ease;
-    }
-    .ctrl-btn.music-btn:hover {
-      box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
-      transform: translateY(-1px);
-    }
-    .ctrl-btn.music-btn.playing {
-      border-color: #ffd700;
-      box-shadow: 0 0 14px rgba(212, 175, 55, 0.6);
-    }
-    .music-waves {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 12px;
-      margin-left: 2px;
-    }
-    .m-bar {
-      width: 2.5px;
-      background: #ffd700;
-      border-radius: 2px;
-      animation: musicBarAnim 0.75s ease-in-out infinite alternate;
-    }
-    .m-bar:nth-child(1) { height: 4px; animation-delay: 0.1s; }
-    .m-bar:nth-child(2) { height: 11px; animation-delay: 0.3s; }
-    .m-bar:nth-child(3) { height: 7px; animation-delay: 0.2s; }
-    .m-bar:nth-child(4) { height: 10px; animation-delay: 0.4s; }
-
-    .ctrl-btn.music-btn.muted .m-bar {
-      animation: none;
-      height: 2px;
-      opacity: 0.35;
-    }
-    @keyframes musicBarAnim {
-      0% { height: 3px; }
-      100% { height: 12px; }
-    }
-
-    .ctrl-btn.track-switch-btn {
-      background: linear-gradient(135deg, rgba(70, 22, 10, 0.9), rgba(35, 12, 4, 0.95));
-      border: 1px solid rgba(212, 175, 55, 0.55);
-      color: #ffd700;
-      font-size: 10px;
-      padding: 6px 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.25s ease;
-    }
-    .ctrl-btn.track-switch-btn:hover {
-      background: rgba(212, 175, 55, 0.25);
-      border-color: #ffd700;
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-
-    .concept-title-tag {
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      letter-spacing: 3px;
-      color: #d4af37;
-      text-transform: uppercase;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-    }
-
-    /* 3D MANDAPAM STAGE (960 x 640 px) */
-    .mandapam-stage {
       position: relative;
-      width: 960px;
-      height: 640px;
-      perspective: 1600px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95);
-      border-radius: 16px;
+    }
+
+    /* SUBTLE MANDALA DAMASK WATERMARK IN BACKGROUND */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        radial-gradient(rgba(212, 175, 55, 0.08) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(212, 175, 55, 0.04) 1.5px, transparent 1.5px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* ========================================================
-       1. INNER BACKGROUND: THREE DEDICATED WINGS
+       TRADITIONAL MARIGOLD & MANGO LEAF TORAN (TOP GARLAND)
+       ======================================================== */
+    .wedding-toran-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 48px;
+      pointer-events: none;
+      z-index: 100;
+      overflow: visible;
+      display: flex;
+      justify-content: center;
+    }
+    .toran-svg-garland {
+      width: 100%;
+      max-width: 960px;
+      height: 52px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
+    }
+
+    /* ========================================================
+       SWAYING SACRED TEMPLE BELLS (TOP CORNERS)
+       ======================================================== */
+    .sacred-bell-fixture {
+      position: fixed;
+      top: 0;
+      z-index: 102;
+      pointer-events: none;
+      transform-origin: top center;
+    }
+    .sacred-bell-fixture.left {
+      left: 12px;
+      animation: bellSwayLeft 3.8s ease-in-out infinite alternate;
+    }
+    .sacred-bell-fixture.right {
+      right: 12px;
+      animation: bellSwayRight 4.2s ease-in-out infinite alternate;
+    }
+    @keyframes bellSwayLeft {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+    @keyframes bellSwayRight {
+      0% { transform: rotate(5deg); }
+      100% { transform: rotate(-5deg); }
+    }
+    .bell-chain {
+      width: 2px;
+      height: 35px;
+      background: repeating-linear-gradient(to bottom, #ffd700 0, #ffd700 3px, #7c5132 3px, #7c5132 6px);
+      margin: 0 auto;
+      box-shadow: 0 0 4px rgba(255, 215, 0, 0.4);
+    }
+    .bell-img {
+      width: 44px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.85));
+    }
+
+    /* ========================================================
+       BOTANICAL GOLDEN VINES (SIDE ACCENTS)
+       ======================================================== */
+    .mandapam-side-vine {
+      position: fixed;
+      top: 20%;
+      width: 60px;
+      height: auto;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.65;
+      filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3));
+    }
+    .mandapam-side-vine.left {
+      left: 0;
+      animation: vineBreathe 4s ease-in-out infinite alternate;
+    }
+    .mandapam-side-vine.right {
+      right: 0;
+      animation: vineBreathe 4s ease-in-out infinite alternate 2s;
+    }
+    @keyframes vineBreathe {
+      0% { opacity: 0.5; transform: translateY(0); }
+      100% { opacity: 0.75; transform: translateY(-8px); }
+    }
+
+    /* ========================================================
+       GLOWING BRASS DEEPAMS / DIYAS (SACRED LAMPS AT BOTTOM)
+       ======================================================== */
+    .diya-fixture {
+      position: fixed;
+      bottom: 22px;
+      z-index: 101;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .diya-fixture.left { left: 18px; }
+    .diya-fixture.right { right: 18px; }
+    
+    .diya-flame {
+      width: 14px;
+      height: 22px;
+      background: radial-gradient(ellipse at 50% 80%, #ffffff 0%, #fff2a3 25%, #ff9800 60%, transparent 100%);
+      border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
+      box-shadow: 
+        0 0 15px 4px rgba(255, 200, 50, 0.8),
+        0 0 35px 12px rgba(255, 120, 0, 0.4);
+      animation: flameWobble 1.8s ease-in-out infinite alternate;
+      transform-origin: 50% 90%;
+      margin-bottom: -2px;
+    }
+    @keyframes flameWobble {
+      0% { transform: scale(1) rotate(-2deg); opacity: 0.95; }
+      50% { transform: scale(1.08, 0.96) rotate(2deg); opacity: 1; }
+      100% { transform: scale(0.96, 1.05) rotate(-1deg); opacity: 0.9; }
+    }
+    .diya-bowl {
+      width: 32px;
+      height: 12px;
+      background: radial-gradient(ellipse at 50% 30%, #ffd700 0%, #b8860b 60%, #4a2810 100%);
+      border-radius: 0 0 16px 16px;
+      border: 1px solid #ffd700;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    }
+    .diya-base {
+      width: 18px;
+      height: 6px;
+      background: #8b6508;
+      border-radius: 3px;
+      margin-top: 1px;
+    }
+
+    /* ========================================================
+       FLOATING AUSPICIOUS ROSE & JASMINE PETALS
+       ======================================================== */
+    .petals-layer {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .petal {
+      position: absolute;
+      width: 12px;
+      height: 16px;
+      background: radial-gradient(circle at 30% 30%, #ff6b81, #d63031);
+      border-radius: 50% 0 50% 50%;
+      opacity: 0.7;
+      animation: fallPetal linear infinite;
+    }
+    .petal.gold {
+      background: radial-gradient(circle at 30% 30%, #fff2a3, #e6b800);
+      width: 8px; height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+    }
+    .petal.yellow {
+      background: radial-gradient(circle at 30% 30%, #ffeaa7, #fdcb6e);
+    }
+    @keyframes fallPetal {
+      0% {
+        transform: translateY(-20px) rotate(0deg) translateX(0);
+        opacity: 0;
+      }
+      10% { opacity: 0.75; }
+      90% { opacity: 0.75; }
+      100% {
+        transform: translateY(105vh) rotate(360deg) translateX(40px);
+        opacity: 0;
+      }
+    }
+
+    /* LUXURY CORNER 8D ACOUSTIC CHIP */
+    .audio-corner-chip {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(25, 10, 5, 0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      border-radius: 16px;
+      padding: 4px 10px;
+      color: #ffd700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .audio-corner-chip:hover {
+      border-color: #ffd700;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+    }
+    .chip-glow-dot {
+      width: 5px;
+      height: 5px;
+      background: #ffd700;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #ffd700;
+      animation: chipDotBlink 2s infinite ease-in-out;
+    }
+    @keyframes chipDotBlink {
+      0%, 100% { opacity: 0.6; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 8px #ffd700; }
+    }
+    .music-mini-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 1.5px;
+      height: 9px;
+      margin-left: 2px;
+    }
+    .c-bar {
+      width: 1.5px;
+      background: #ffd700;
+      border-radius: 1px;
+      animation: miniBarAnim 0.8s ease-in-out infinite alternate;
+    }
+    .c-bar:nth-child(1) { height: 3px; animation-delay: 0.1s; }
+    .c-bar:nth-child(2) { height: 8px; animation-delay: 0.3s; }
+    .c-bar:nth-child(3) { height: 5px; animation-delay: 0.2s; }
+
+    .audio-corner-chip.muted .c-bar {
+      animation: none;
+      height: 2px;
+      opacity: 0.3;
+    }
+    .audio-corner-chip.muted .chip-glow-dot {
+      background: #888;
+      box-shadow: none;
+      animation: none;
+    }
+    @keyframes miniBarAnim {
+      0% { height: 2px; }
+      100% { height: 9px; }
+    }
+
+    /* ========================================================
+       THE ROYAL MANDAPAM 3D GATEFOLD STAGE
+       ======================================================== */
+    .mandapam-stage {
+      position: relative;
+      width: min(94vw, 410px);
+      height: min(620px, calc(100dvh - 130px));
+      min-height: 520px;
+      perspective: 1400px;
+      border-radius: 18px;
+      margin: 0 auto;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.95), 
+        0 0 45px rgba(212, 175, 55, 0.35);
+      z-index: 10;
+    }
+
+    /* GLOWING SACRED RANGOLI / SIKKU KOLAM BASE */
+    .mandapam-stage::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      height: 40px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.45) 0%, rgba(139, 37, 24, 0.25) 50%, transparent 75%);
+      filter: blur(8px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* RESPONSIVE FINE-TUNING FOR MOBILE PHONES */
+    @media (max-width: 600px) {
+      body {
+        padding: 6px 8px 65px;
+      }
+      
+      .sacred-bell-fixture.left { left: 4px; }
+      .sacred-bell-fixture.right { right: 4px; }
+      .bell-chain { height: 24px; }
+      .bell-img { width: 30px; }
+      .mandapam-side-vine {
+        width: 36px;
+        opacity: 0.3;
+        z-index: 1;
+      }
+      .diya-fixture.left { left: 8px; bottom: 12px; }
+      .diya-fixture.right { right: 8px; bottom: 12px; }
+      .diya-bowl { width: 24px; height: 10px; }
+      .diya-flame { width: 10px; height: 16px; }
+      .door-name-gold { font-size: 34px; }
+      .door-portrait-container { width: 62px; height: 62px; }
+      .door-family-line { font-size: 8px; max-width: 125px; }
+      .center-union-seal { width: 76px; height: 76px; }
+      .seal-monogram { font-size: 18px; }
+      .union-couple-name { font-size: 42px; }
+      .union-couple-name .amp { font-size: 30px; }
+      .union-center-art { max-width: 230px; }
+      .mobile-floating-bar {
+        bottom: 10px;
+        padding: 6px 14px;
+        gap: 8px;
+      }
+      .m-pill-btn { font-size: 9.5px; }
+    }
+
+    /* ========================================================
+       1. INNER CANVAS (THREE DEDICATED ARCHED WINGS)
        ======================================================== */
     .inner-canvas {
-      position: absolute;
+      position: relative;
       width: 100%;
       height: 100%;
       background: #fbf5e6;
       background-image: 
-        radial-gradient(circle at 50% 30%, rgba(255, 248, 220, 0.9) 0%, rgba(247, 235, 206, 0.8) 70%),
+        radial-gradient(circle at 50% 20%, rgba(255, 248, 220, 0.95) 0%, rgba(247, 235, 206, 0.85) 70%),
         repeating-linear-gradient(45deg, rgba(139, 90, 43, 0.02) 0px, rgba(139, 90, 43, 0.02) 2px, transparent 2px, transparent 4px);
-      border-radius: 16px;
-      border: 2px solid #d4af37;
+      border-radius: 18px;
+      border: 2.5px solid #d4af37;
       overflow: hidden;
-      box-shadow: inset 0 0 50px rgba(107, 68, 38, 0.25);
+      box-shadow: inset 0 0 40px rgba(107, 68, 38, 0.25);
     }
 
-    /* LEFT WING: GROOM'S SIDE (ANGAJALA FAMILY) */
+    /* LEFT WING: GROOM'S DEDICATED HALF (FITS EXACTLY IN LEFT 50%) */
     .wing-groom {
       position: absolute;
       top: 0;
       left: 0;
       width: 50%;
       height: 100%;
-      padding: 35px 30px;
+      padding: 18px 8px 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      border-right: 1.5px dashed rgba(184, 134, 11, 0.5);
-      background: rgba(255, 250, 240, 0.4);
+      border-right: 1px dashed rgba(184, 134, 11, 0.4);
+      background: rgba(255, 250, 240, 0.5);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.4s ease;
+      z-index: 5;
+      overflow-y: auto;
+      scrollbar-width: none;
     }
+    .wing-groom::-webkit-scrollbar { display: none; }
 
-    /* RIGHT WING: BRIDE'S SIDE (KOTIPALLI FAMILY) */
+    /* RIGHT WING: BRIDE'S DEDICATED HALF (FITS EXACTLY IN RIGHT 50%) */
     .wing-bride {
       position: absolute;
       top: 0;
       right: 0;
       width: 50%;
       height: 100%;
-      padding: 35px 30px;
+      padding: 18px 8px 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      border-left: 1.5px dashed rgba(184, 134, 11, 0.5);
-      background: rgba(255, 250, 240, 0.4);
+      border-left: 1px dashed rgba(184, 134, 11, 0.4);
+      background: rgba(255, 250, 240, 0.5);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.4s ease;
+      z-index: 5;
+      overflow-y: auto;
+      scrollbar-width: none;
     }
+    .wing-bride::-webkit-scrollbar { display: none; }
 
-    /* CENTER SANCTUM: FULL UNION (REVEALED WHEN BOTH OPEN) */
+    /* CENTER SANCTUM: FULL UNION (REVEALED IN FULL WIDTH WHEN BOTH OPEN) */
     .sanctum-full-union {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 24px 35px;
+      padding: 22px 14px 75px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.5s ease;
+      z-index: 4;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #d4af37 transparent;
     }
 
-    /* Wing Content Elements */
+    /* WING HALF-COLUMN TYPOGRAPHY (TAILORED FOR 50% WIDTH) */
     .wing-shloka {
-      font-size: 13.5px;
-      letter-spacing: 2px;
+      font-size: 9px;
+      letter-spacing: 1px;
       color: #8b2518;
       font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .wing-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 6px;
+      margin-bottom: 2px;
     }
     .wing-badge {
       background: #8b2518;
-      color: #ffffff;
+      color: #ffd700;
       font-family: 'Cinzel', serif;
-      font-size: 10.5px;
-      letter-spacing: 2.5px;
-      padding: 4px 14px;
-      border-radius: 14px;
+      font-size: 8px;
+      letter-spacing: 1.5px;
+      padding: 2px 8px;
+      border-radius: 10px;
       text-transform: uppercase;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin: 4px 0;
     }
     .wing-name {
       font-family: 'Great Vibes Local', 'Great Vibes', cursive;
-      font-size: 54px;
+      font-size: 34px;
       color: #2b1104;
       line-height: 1;
-      margin: 4px 0 8px;
-      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.5);
+      margin: 2px 0 4px;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.4);
     }
-    .wing-parents-block {
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid #d4af37;
-      border-radius: 8px;
-      padding: 10px 16px;
-      width: 100%;
-      margin: 6px 0 12px;
-    }
-    .parents-relation-lbl {
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      color: #8b2518;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .parents-names-bold {
-      font-family: 'Playfair Display', serif;
-      font-size: 15.5px;
-      font-weight: 700;
-      color: #2b1104;
-      margin-top: 3px;
-      line-height: 1.3;
-    }
-
-    /* Character Sketch Portrait Medallions */
-    .door-portrait-container {
-      width: 78px;
-      height: 78px;
-      border-radius: 50%;
-      border: 2px solid #ffd700;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 4px 10px rgba(0,0,0,0.7);
-      overflow: hidden;
-      margin: 6px 0;
-      background: #faf6ee;
-    }
-    .door-portrait-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
     .wing-portrait-wrapper {
-      width: 95px;
-      height: 95px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
-      border: 2.5px solid #d4af37;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), 0 0 10px rgba(212, 175, 55, 0.4);
+      border: 2px solid #d4af37;
       overflow: hidden;
-      margin: 4px 0 8px;
+      margin: 4px 0 6px;
       background: #faf6ee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     .wing-portrait-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
-
-    .wing-invitation-msg {
-      font-size: 14.5px;
-      font-style: italic;
-      color: #4a2e1b;
-      line-height: 1.45;
-      margin-bottom: 14px;
-      padding: 0 10px;
-    }
-    .wing-event-pill {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      background: #faf2dc;
+    .wing-parents-block {
+      background: rgba(255, 255, 255, 0.85);
       border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 6px 8px;
+      width: 100%;
+      margin: 4px 0 8px;
+    }
+    .wing-hint-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8px;
+      color: #8b2518;
+      font-weight: 600;
+      margin-top: 4px;
+      background: rgba(212, 175, 55, 0.2);
+      padding: 3px 6px;
       border-radius: 6px;
-      padding: 8px 14px;
-      font-size: 12px;
-      color: #2b1104;
-      margin-bottom: 14px;
+      line-height: 1.25;
     }
     .wing-quick-btn {
-      background: #d4af37;
-      color: #1a0808;
-      border: none;
-      padding: 7px 18px;
-      border-radius: 20px;
+      background: linear-gradient(135deg, #8b2518, #69170e);
+      color: #ffd700;
+      border: 1px solid #ffd700;
+      padding: 6px 10px;
+      border-radius: 16px;
       font-family: 'Cinzel', serif;
-      font-size: 10.5px;
+      font-size: 8.5px;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      letter-spacing: 0.5px;
       cursor: pointer;
       text-transform: uppercase;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: all 0.25s ease;
-    }
-    .wing-quick-btn:hover {
-      background: #ffd700;
-      transform: scale(1.05);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      margin-top: 6px;
+      width: 100%;
     }
 
-    /* FULL UNION SANCTUM STYLING */
+    /* TYPOGRAPHY */
     .union-toran {
       font-size: 13px;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       color: #8b2518;
       font-weight: 700;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .union-ganesha {
-      width: 44px;
-      height: 44px;
-      margin-bottom: 2px;
+      width: 42px;
+      height: 42px;
+      margin: 2px 0;
     }
     .union-title {
       font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 4px;
+      font-size: 10.5px;
+      letter-spacing: 3.5px;
       color: #7c5132;
       text-transform: uppercase;
       font-weight: 700;
     }
     .union-couple-name {
       font-family: 'Great Vibes Local', 'Great Vibes', cursive;
-      font-size: 58px;
+      font-size: 48px;
       color: #2b1104;
-      line-height: 1;
-      margin: 2px 0 6px;
+      line-height: 1.05;
+      margin: 4px 0 10px;
       text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.5);
     }
     .union-couple-name .amp {
       font-family: 'Playfair Display', serif;
       font-style: italic;
       color: #8b2518;
-      font-size: 42px;
-      margin: 0 8px;
+      font-size: 36px;
+      margin: 0 4px;
     }
 
-    /* 3-Column Layout in Sanctum */
-    .union-columns {
-      display: grid;
-      grid-template-columns: 1.05fr 1.25fr 1.05fr;
-      gap: 16px;
-      align-items: center;
+    /* SACRED ARTWORK */
+    .union-center-art {
       width: 100%;
-      margin: 8px 0;
-      padding: 10px 0;
-      border-top: 1px solid rgba(212, 175, 55, 0.5);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+      max-width: 270px;
+      margin: 4px auto 14px;
     }
-    .union-left {
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .union-feet-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1.5px solid #d4af37;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
+    .union-caption {
+      font-size: 11.5px;
+      font-style: italic;
+      color: #6b4426;
+      margin-top: 5px;
+    }
+
+    /* AUSPICIOUS ROYAL PARCHMENT CARDS */
+    .royal-sanctum-card {
+      width: 100%;
+      background: rgba(255, 250, 240, 0.85);
+      border: 1.5px solid #d4af37;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(107, 68, 38, 0.08);
+      position: relative;
+    }
+    .royal-sanctum-card::before {
+      content: '';
+      position: absolute;
+      top: 3px; bottom: 3px; left: 3px; right: 3px;
+      border: 1px dashed rgba(212, 175, 55, 0.35);
+      border-radius: 9px;
+      pointer-events: none;
+    }
+
     .event-lbl {
       font-family: 'Cinzel', serif;
       font-size: 9.5px;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       color: #8b2518;
       font-weight: 700;
       text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
     }
     .event-val {
       font-family: 'Playfair Display', serif;
-      font-size: 14.5px;
+      font-size: 16.5px;
       font-weight: 700;
       color: #2b1104;
     }
@@ -454,98 +631,121 @@
       font-size: 11px;
       font-style: italic;
       color: #6b4426;
+      margin-top: 2px;
     }
 
-    .union-center-art {
-      display: flex;
-      flex-direction: column;
+    /* INTERACTIVE CALENDAR DATE BLOCK */
+    .calendar-date-card {
+      cursor: pointer;
+      background: #faf2dc;
+      border: 1.5px solid #d4af37;
+      transition: all 0.25s ease;
+    }
+    .calendar-date-card:hover, .calendar-date-card:active {
+      background: #fdf0ce;
+      border-color: #8b2518;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(139, 37, 24, 0.2);
+    }
+    .cal-mini-badge {
+      display: inline-flex;
       align-items: center;
+      gap: 4px;
+      background: linear-gradient(135deg, #8b2518, #5a140b);
+      color: #ffd700;
+      border: 1px solid #d4af37;
+      border-radius: 12px;
+      font-size: 9px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      margin-top: 6px;
+      animation: calPulse 2s infinite ease-in-out;
     }
-    .union-feet-img {
-      width: 250px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-    }
-    .union-caption {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 11.5px;
-      font-style: italic;
-      color: #6b4426;
-      margin-top: 5px;
+    @keyframes calPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
     }
 
-    .union-right {
-      text-align: right;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-    .union-venue-title {
+    /* VENUE BLOCK */
+    .venue-title {
       font-family: 'Cinzel', serif;
       font-size: 13.5px;
       font-weight: 800;
       color: #8b2518;
-      letter-spacing: 0.5px;
     }
-    .union-venue-sub {
-      font-size: 11px;
+    .venue-desc {
+      font-size: 11.5px;
       color: #3b2010;
-      line-height: 1.3;
+      line-height: 1.35;
+      margin: 2px 0 6px;
     }
-
-    /* Clickable/Scannable Google Maps QR Badge */
-    .union-qr-badge {
+    .venue-actions-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: #faf6ee;
-      padding: 5px 8px;
-      border-radius: 6px;
-      border: 1px solid #9c7352;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      transition: all 0.2s ease;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 6px;
     }
-    .union-qr-badge:hover {
-      background: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    }
-    .union-qr-img {
-      width: 48px;
-      height: 48px;
-    }
-    .union-qr-text {
-      text-align: right;
-      font-size: 9.5px;
-      color: #3b2010;
-      line-height: 1.25;
-    }
-    .union-qr-text strong {
-      color: #8b2518;
+    .btn-maps-direct {
+      background: linear-gradient(135deg, #8b2518, #69170e);
+      color: #ffd700;
+      border: 1px solid #ffd700;
+      padding: 7px 15px;
+      border-radius: 20px;
+      font-family: 'Cinzel', serif;
       font-size: 10px;
-      display: block;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+    .btn-maps-direct:hover {
+      background: #a32c1e;
+      color: #ffffff;
+    }
+    .qr-badge-mini {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #d4af37;
+      text-decoration: none;
+      color: #3b2010;
+    }
+    .qr-badge-mini img {
+      width: 32px;
+      height: 32px;
+    }
+    .qr-badge-mini span {
+      font-size: 8.5px;
+      font-weight: 700;
+      text-align: left;
+      line-height: 1.2;
     }
 
-    .union-footer-line {
-      font-size: 12.5px;
-      font-style: italic;
-      color: #5c3a21;
-      margin-top: 4px;
-    }
+    /* FOOTER */
     .union-parents-footer {
       font-family: 'Playfair Display', serif;
       font-size: 12.5px;
       font-weight: 700;
       color: #2b1104;
-      margin-top: 2px;
+      margin-top: 6px;
+    }
+    .union-footer-sub {
+      font-size: 10.5px;
+      font-style: italic;
+      color: #6b4426;
     }
 
     /* ========================================================
-       2. 3D CARVED TEAK DOORS (GATEFOLD OVERLAY)
+       2. 3D CARVED TEAK DOORS (MOBILE PORTRAIT GATEFOLD)
        ======================================================== */
     .door-panel {
       position: absolute;
@@ -554,137 +754,143 @@
       height: 100%;
       background: #2b1104;
       background-image: 
-        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.14) 0%, transparent 60%),
         repeating-linear-gradient(0deg, #1f0b02 0px, #1f0b02 4px, #2b1104 4px, #2b1104 20px);
       border: 3px solid #d4af37;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.9);
       z-index: 10;
-      transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 1.1s cubic-bezier(0.25, 1, 0.5, 1);
       transform-style: preserve-3d;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 25px;
+      padding: 16px 10px;
       cursor: pointer;
     }
 
     .door-left {
       left: 0;
       transform-origin: left center;
-      border-top-left-radius: 16px;
-      border-bottom-left-radius: 16px;
-      border-right: 2px solid #d4af37;
+      border-top-left-radius: 18px;
+      border-bottom-left-radius: 18px;
+      border-right: 1.5px solid #d4af37;
     }
     .door-right {
       right: 0;
       transform-origin: right center;
-      border-top-right-radius: 16px;
-      border-bottom-right-radius: 16px;
-      border-left: 2px solid #d4af37;
+      border-top-right-radius: 18px;
+      border-bottom-right-radius: 18px;
+      border-left: 1.5px solid #d4af37;
     }
 
-    /* Door Inscription & Carved Brass Plates */
     .door-inner-carving {
       width: 100%;
       height: 100%;
-      border: 2px solid rgba(212, 175, 55, 0.5);
-      border-radius: 10px;
+      border: 2px solid rgba(212, 175, 55, 0.55);
+      border-radius: 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 15px;
+      padding: 18px 8px;
       position: relative;
     }
     .door-inner-carving::before {
       content: '';
       position: absolute;
-      top: 8px; bottom: 8px; left: 8px; right: 8px;
-      border: 1px dashed rgba(212, 175, 55, 0.4);
-      border-radius: 6px;
+      top: 6px; bottom: 6px; left: 6px; right: 6px;
+      border: 1px dashed rgba(212, 175, 55, 0.45);
+      border-radius: 8px;
       pointer-events: none;
     }
 
     .door-kolam-badge {
-      width: 38px;
-      height: 38px;
-      opacity: 0.75;
+      width: 32px;
+      height: 32px;
+      opacity: 0.85;
     }
     .door-side-tag {
-      background: rgba(212, 175, 55, 0.15);
+      background: rgba(212, 175, 55, 0.18);
       border: 1px solid #d4af37;
-      padding: 4px 14px;
+      padding: 3px 12px;
       border-radius: 12px;
       font-family: 'Cinzel', serif;
-      font-size: 11px;
+      font-size: 9.5px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       color: #ffd700;
       text-transform: uppercase;
     }
     .door-name-gold {
       font-family: 'Great Vibes Local', 'Great Vibes', cursive;
-      font-size: 52px;
+      font-size: 40px;
       color: #ffffff;
-      text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 2px 2px 4px rgba(0,0,0,0.8);
-      margin: 6px 0;
+      text-shadow: 0 0 14px rgba(212, 175, 55, 0.85), 2px 2px 4px rgba(0,0,0,0.8);
+      margin: 4px 0;
     }
     .door-family-line {
       font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 1.5px;
+      font-size: 9px;
+      letter-spacing: 1.2px;
       color: #e6c875;
       text-transform: uppercase;
-      max-width: 280px;
-      line-height: 1.4;
+      max-width: 150px;
+      line-height: 1.35;
       text-align: center;
     }
-    .door-brass-ring {
-      width: 44px;
-      height: 44px;
+    .door-portrait-container {
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
-      border: 4px solid #d4af37;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), inset 0 0 8px rgba(0,0,0,0.8);
-      margin: 8px 0;
+      border: 2.5px solid #ffd700;
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.7), 0 4px 10px rgba(0,0,0,0.8);
+      overflow: hidden;
+      margin: 4px 0;
+      background: #faf6ee;
+    }
+    .door-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .door-click-hint {
       font-family: 'Montserrat', sans-serif;
-      font-size: 9.5px;
+      font-size: 8.5px;
       font-weight: 600;
-      letter-spacing: 1px;
-      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.8px;
+      color: rgba(255, 255, 255, 0.75);
       text-transform: uppercase;
     }
 
-    /* Central Gold Medallion Button */
+    /* CENTRAL GOLD MEDALLION */
     .center-union-seal {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 96px;
-      height: 96px;
+      width: 84px;
+      height: 84px;
       background: radial-gradient(circle at 35% 35%, #ffd700, #b8860b 70%, #5c3a21 100%);
       border-radius: 50%;
       border: 3px solid #fff2a3;
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 5px 20px rgba(0,0,0,0.8);
+      box-shadow: 0 0 28px rgba(212, 175, 55, 0.85), 0 6px 18px rgba(0,0,0,0.85);
       z-index: 20;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.4s ease;
+      transition: all 0.35s ease;
       text-align: center;
     }
-    .center-union-seal:hover {
-      transform: translate(-50%, -50%) scale(1.12);
-      box-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 8px 25px rgba(0,0,0,0.9);
+    .center-union-seal:hover, .center-union-seal:active {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 8px 24px rgba(0,0,0,0.95);
     }
     .seal-monogram {
       font-family: 'Cinzel', serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 900;
       color: #3d1c06;
       line-height: 1;
@@ -696,44 +902,60 @@
       letter-spacing: 1px;
       color: #3d1c06;
       text-transform: uppercase;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     /* ========================================================
-       3. INTERACTIVE STATES (CLASSES ON #mandapamStage)
+       3. INTERACTIVE STATES (FOCUSED INDIVIDUAL REVEAL)
        ======================================================== */
-    /* State A: Groom's Door Opened */
+    /* State 1: Groom's Door ONLY Opened (-125deg) */
     .mandapam-stage.opened-groom .door-left {
-      transform: rotateY(-130deg);
+      transform: rotateY(-125deg);
+    }
+    .mandapam-stage.opened-groom .door-right {
+      transform: rotateY(0deg);
     }
     .mandapam-stage.opened-groom .wing-groom {
       opacity: 1;
       pointer-events: auto;
+    }
+    .mandapam-stage.opened-groom .wing-bride,
+    .mandapam-stage.opened-groom .sanctum-full-union {
+      opacity: 0;
+      pointer-events: none;
     }
     .mandapam-stage.opened-groom .center-union-seal {
       opacity: 0;
       pointer-events: none;
     }
 
-    /* State B: Bride's Door Opened */
+    /* State 2: Bride's Door ONLY Opened (125deg) */
+    .mandapam-stage.opened-bride .door-left {
+      transform: rotateY(0deg);
+    }
     .mandapam-stage.opened-bride .door-right {
-      transform: rotateY(130deg);
+      transform: rotateY(125deg);
     }
     .mandapam-stage.opened-bride .wing-bride {
       opacity: 1;
       pointer-events: auto;
+    }
+    .mandapam-stage.opened-bride .wing-groom,
+    .mandapam-stage.opened-bride .sanctum-full-union {
+      opacity: 0;
+      pointer-events: none;
     }
     .mandapam-stage.opened-bride .center-union-seal {
       opacity: 0;
       pointer-events: none;
     }
 
-    /* State C: Both Doors Opened (Full Union) */
+    /* State 3: BOTH Doors Opened (The Grand Union Sanctum) */
     .mandapam-stage.opened-both .door-left {
-      transform: rotateY(-130deg);
+      transform: rotateY(-125deg);
     }
     .mandapam-stage.opened-both .door-right {
-      transform: rotateY(130deg);
+      transform: rotateY(125deg);
     }
     .mandapam-stage.opened-both .sanctum-full-union {
       opacity: 1;
@@ -749,556 +971,736 @@
       pointer-events: none;
     }
 
-    @media print {
-      body { background: none; padding: 0; }
-      .nav-bar, .concept-title-tag, .door-panel, .center-union-seal { display: none !important; }
-      .mandapam-stage { width: 100%; height: auto; box-shadow: none; }
-      .inner-canvas { border: none; }
-      .sanctum-full-union { opacity: 1 !important; position: relative; }
-    }
-
-    /* ========================================================
-       VERSION 3: PURE DOOR-TOUCH MINIMALIST LUXURY STYLES
-       ======================================================== */
-    
-    /* FLOATING MUSIC BADGE (TOP-RIGHT) */
-    .music-floating-badge {
-      position: fixed;
-      top: 18px;
-      right: 20px;
-      z-index: 9999;
-      display: inline-flex;
+    /* TOP SECTION NAVIGATION TABS (Inside Opened Card) */
+    .inner-nav-tabs {
+      display: flex;
       align-items: center;
-      gap: 7px;
-      background: rgba(35, 14, 7, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 7px 15px;
-      border-radius: 30px;
-      border: 1.5px solid rgba(212, 175, 55, 0.7);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(212, 175, 55, 0.25);
-      color: #ffd700;
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      user-select: none;
-    }
-    .music-floating-badge:hover {
-      background: rgba(50, 20, 10, 0.95);
-      border-color: #ffd700;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-      transform: translateY(-1px);
-    }
-    .music-floating-badge.muted {
-      opacity: 0.6;
-      border-color: rgba(212, 175, 55, 0.35);
-      color: #c9b07a;
-    }
-
-    /* FLOATING CLOSE INVITATION BUTTON (APPEARS WHEN OPEN) */
-    .close-floating-btn {
-      position: fixed;
-      top: 18px;
-      left: 20px;
-      z-index: 9999;
-      display: none;
-      align-items: center;
+      justify-content: center;
       gap: 6px;
-      background: rgba(25, 9, 4, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 7px 15px;
-      border-radius: 30px;
-      border: 1.2px solid rgba(212, 175, 55, 0.55);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-      color: #f7e6c4;
+      margin-bottom: 12px;
+      background: rgba(139, 37, 24, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 4px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .nav-tab-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 5px 8px;
+      border-radius: 14px;
       font-family: 'Cinzel', serif;
-      font-size: 11px;
+      font-size: 8.5px;
       font-weight: 700;
-      letter-spacing: 0.8px;
+      color: #7c5132;
       cursor: pointer;
       transition: all 0.25s ease;
-      user-select: none;
+      white-space: nowrap;
     }
-    .close-floating-btn:hover {
-      background: rgba(139, 37, 24, 0.95);
-      border-color: #ffd700;
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-    .mandapam-stage.opened-groom ~ .close-floating-btn,
-    .mandapam-stage.opened-bride ~ .close-floating-btn,
-    .mandapam-stage.opened-both ~ .close-floating-btn {
-      display: inline-flex;
+    .nav-tab-btn.active {
+      background: linear-gradient(135deg, #8b2518, #5a140b);
+      color: #ffd700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    /* TAP TO OPEN PULSING HINT */
-    .door-tap-hint {
-      position: absolute;
-      bottom: -32px;
+    /* WING CONTENT */
+    .wing-portrait-wrapper {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      border: 2px solid #d4af37;
+      overflow: hidden;
+      margin: 8px 0;
+      background: #faf6ee;
+    }
+    .wing-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wing-name {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 46px;
+      color: #2b1104;
+      line-height: 1;
+      margin: 4px 0 8px;
+    }
+    .wing-parents-block {
+      background: rgba(255, 250, 240, 0.85);
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 10px 14px;
+      width: 100%;
+      margin: 8px 0 12px;
+    }
+    .wing-quick-btn {
+      background: #d4af37;
+      color: #1a0808;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+      margin-top: 10px;
+      transition: all 0.25s ease;
+    }
+    .wing-quick-btn:hover {
+      background: #ffd700;
+      transform: scale(1.04);
+    }
+
+    /* FLOATING BOTTOM CONTROLS */
+    .mobile-floating-bar {
+      position: fixed;
+      bottom: 14px;
       left: 50%;
       transform: translateX(-50%);
-      white-space: nowrap;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: #ffd700;
-      background: rgba(18, 6, 2, 0.88);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      padding: 4px 12px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-      animation: pulseHintAnim 2s infinite ease-in-out;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-      z-index: 50;
-    }
-    @keyframes pulseHintAnim {
-      0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
-      50% { opacity: 1; transform: translateX(-50%) scale(1.05); box-shadow: 0 0 16px rgba(212, 175, 55, 0.6); }
-    }
-    .mandapam-stage.opened-groom .door-tap-hint,
-    .mandapam-stage.opened-bride .door-tap-hint,
-    .mandapam-stage.opened-both .door-tap-hint {
-      display: none !important;
-    }
-
-    /* CALENDAR TOAST NOTIFICATION */
-    .calendar-toast {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-70px);
-      z-index: 10000;
-      background: rgba(35, 14, 7, 0.94);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 1000;
+      background: rgba(25, 10, 5, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border: 1.5px solid #d4af37;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.35);
-      color: #ffd700;
-      font-family: 'Cinzel', serif;
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      padding: 10px 24px;
       border-radius: 30px;
-      transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
-      opacity: 0;
-      pointer-events: none;
+      padding: 7px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85), 0 0 15px rgba(212, 175, 55, 0.3);
       white-space: nowrap;
     }
-    .calendar-toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
-
-    /* CALENDAR DATE BLOCK CLICKABLE */
-    .calendar-date-card {
-      cursor: pointer;
-      transition: all 0.25s ease;
-      padding: 4px 8px;
-      border-radius: 8px;
-    }
-    .calendar-date-card:hover {
-      background: rgba(212, 175, 55, 0.15);
-      transform: translateY(-1px);
-    }
-
-    /* VIEWPORT CENTERING AND RESPONSIVE SCALING */
-    .mandapam-stage {
-      margin: auto !important;
-      transition: transform 0.35s ease;
-      transform-origin: center center;
-    }
-    @media (max-width: 1040px) {
-      .mandapam-stage { transform: scale(0.88); }
-    }
-    @media (max-width: 860px) {
-      .mandapam-stage { transform: scale(0.74); }
-    }
-    @media (max-width: 680px) {
-      .mandapam-stage { transform: scale(0.58); }
-    }
-    @media (max-width: 480px) {
-      .mandapam-stage { transform: scale(0.44); }
-    }
-
-
-    /* 8D AUDIO HEADPHONE RECOMMENDED CHIP */
-    .headphone-cue-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(20, 8, 4, 0.82);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      border-radius: 20px;
-      padding: 5px 14px;
+    .m-pill-btn {
+      background: transparent;
+      border: none;
       color: #ffd700;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: 10.5px;
       font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      animation: cuePulse 2.5s infinite ease-in-out;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: color 0.2s ease;
     }
-    @keyframes cuePulse {
-      0%, 100% { opacity: 0.85; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.03); box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+    .m-pill-btn:hover {
+      color: #ffffff;
+    }
+    .m-pill-divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(212, 175, 55, 0.4);
     }
 
-
-    /* AUSPICIOUS ROYAL WELCOME OVERLAY */
-    .welcome-overlay {
+    /* ROYAL CALENDAR MODAL */
+    .calendar-modal-backdrop {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       height: 100dvh;
-      background: radial-gradient(circle at 50% 30%, #2a1106 0%, #0a0301 100%);
+      background: rgba(10, 4, 1, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 99999;
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: pointer;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-      padding: 20px;
-    }
-    .welcome-overlay.hidden {
+      padding: 16px;
       opacity: 0;
       visibility: hidden;
-      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    .welcome-modal {
-      text-align: center;
-      background: rgba(35, 14, 7, 0.9);
+    .calendar-modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .calendar-modal-dialog {
+      background: linear-gradient(145deg, #2b1104, #150601);
       border: 2px solid #d4af37;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 35px rgba(212, 175, 55, 0.35);
       border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(212, 175, 55, 0.35);
-      max-width: 480px;
-      width: 90%;
-      animation: modalGlow 3s infinite ease-in-out;
+      max-width: 380px;
+      width: 100%;
+      padding: 26px 20px 20px;
+      text-align: center;
+      position: relative;
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    @keyframes modalGlow {
-      0%, 100% { box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(212, 175, 55, 0.3); }
-      50% { box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 55px rgba(255, 215, 0, 0.6); }
-    }
-    .welcome-sanskrit {
-      font-family: 'Cinzel', serif;
-      font-size: 13px;
-      letter-spacing: 2px;
-      color: #ffd700;
-      margin-bottom: 12px;
-    }
-    .welcome-couple {
-      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
-      font-size: 46px;
-      color: #fce8a6;
-      line-height: 1.1;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-      margin-bottom: 8px;
-    }
-    .welcome-sub {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      color: #d4af37;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .welcome-btn {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      background: linear-gradient(135deg, #8b2518, #5a140b);
-      border: 1.5px solid #ffd700;
-      padding: 12px 28px;
-      border-radius: 30px;
-      color: #ffffff;
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-      animation: pulseBtn 2s infinite ease-in-out;
-    }
-    @keyframes pulseBtn {
-      0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); }
-      50% { transform: scale(1.04); box-shadow: 0 0 25px rgba(255, 215, 0, 0.7); }
-    }
-    .welcome-headphone-note {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9.5px;
-      letter-spacing: 0.8px;
-      color: #ffd700;
-      font-weight: 500;
+    .calendar-modal-backdrop.open .calendar-modal-dialog {
+      transform: scale(1);
     }
 
+    /* UNIQUE ROYAL EXIT CONFIRMATION MODAL */
+    .exit-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: rgba(10, 4, 1, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 1000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 18px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+    .exit-modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .exit-modal-dialog {
+      background: linear-gradient(145deg, #2b1104, #140501);
+      border: 2px solid #ffd700;
+      box-shadow: 0 25px 65px rgba(0,0,0,0.95), 0 0 45px rgba(212, 175, 55, 0.5);
+      border-radius: 22px;
+      max-width: 380px;
+      width: 100%;
+      padding: 28px 20px 22px;
+      text-align: center;
+      position: relative;
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .exit-modal-backdrop.open .exit-modal-dialog {
+      transform: scale(1);
+    }
+    .exit-icon {
+      font-size: 36px;
+      margin-bottom: 6px;
+      filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.7));
+    }
+    .exit-sanskrit {
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      letter-spacing: 2px;
+      color: #ffd700;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .exit-title {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 38px;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+      margin: 4px 0 8px;
+    }
+    .exit-body-msg {
+      font-size: 12.5px;
+      color: #f7e7c4;
+      line-height: 1.45;
+      margin-bottom: 20px;
+      padding: 0 6px;
+    }
+    .exit-body-msg strong {
+      color: #ffd700;
+    }
+    .exit-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .exit-btn-stay {
+      background: linear-gradient(135deg, #8b2518, #5a140b);
+      border: 1.5px solid #ffd700;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      transition: all 0.25s ease;
+    }
+    .exit-btn-stay:hover {
+      background: #a32c1e;
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    }
+    .exit-btn-leave {
+      background: transparent;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #c49d68;
+      padding: 9px 16px;
+      border-radius: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 9.5px;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .exit-btn-leave:hover {
+      color: #ffffff;
+      border-color: #ffd700;
+    }
+    .cal-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #ffd700;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cal-modal-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #ffd700;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .cal-modal-couple {
+      font-family: 'Great Vibes Local', 'Great Vibes', cursive;
+      font-size: 34px;
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+      margin: 4px 0 6px;
+    }
+    .cal-modal-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 4px;
+    }
+    .cal-modal-venue {
+      font-size: 11px;
+      color: #e6c875;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .cal-modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .cal-btn-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #d4af37;
+      text-decoration: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      transition: all 0.25s ease;
+      text-align: left;
+    }
+    .cal-btn-option:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: #ffd700;
+    }
+    .cal-btn-text strong {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      color: #ffd700;
+      display: block;
+    }
+    .cal-btn-text small {
+      font-size: 10px;
+      color: #e6c875;
+      opacity: 0.85;
+    }
+
+    /* TOAST */
+    .calendar-toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-70px);
+      z-index: 100000;
+      background: rgba(35, 14, 7, 0.95);
+      border: 1.5px solid #d4af37;
+      color: #ffd700;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      white-space: nowrap;
+    }
+    .calendar-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
-  <!-- AUSPICIOUS ROYAL WELCOME OVERLAY (Unlocks 8D Audio on every phone/browser) -->
-  <div class="welcome-overlay" id="welcomeOverlay" onclick="dismissWelcomeAndPlay()">
-    <div class="welcome-modal">
-      <div class="welcome-sanskrit">॥ శ్రీ వేంకటేశ్వర ప్రసన్న ॥</div>
-      <div class="welcome-couple">Shashi &amp; Raveena</div>
-      <div class="welcome-sub">Wedding Invitation • 13-Dec-2026</div>
-      <div class="welcome-btn">
-        <span>✨ Tap to Open Invitation ✨</span>
-        <span class="welcome-headphone-note">🎧 8D Spatial Audio Experience</span>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- V3 FLOATING MINIMALIST CONTROLS -->
-  <button class="music-floating-badge playing" id="btnMusic" onclick="toggleWeddingMusic()" title="Click to mute or play wedding music">
-    <span id="musicIcon">🎺🥁</span>
-    <span id="musicBtnLabel">8D బాజంత్రీలు: ON</span>
-    <span class="music-waves" id="musicWaves">
-      <span class="m-bar"></span>
-      <span class="m-bar"></span>
-      <span class="m-bar"></span>
-      <span class="m-bar"></span>
-    </span>
-  </button>
-
-  <button class="close-floating-btn" id="btnCloseFloating" onclick="closeAllDoors()" title="Click to close doors">
-    ✕ Close Invitation
-  </button>
-
-  <div class="calendar-toast" id="calendarToast">
-    📅 Wedding Added to Calendar (13-Dec-2026 • 09:50 AM)
-  </div>
-
-    <!-- 8D AUDIO EXPERIENCE RECOMMENDATION -->
-  <div class="headphone-cue-badge">
-    🎧 8D Spatial Audio • Headphones Recommended for 360° Sound
-  </div>
-  
-  <!-- THE MANDAPAM 3D GATEFOLD STAGE -->
-  <div class="mandapam-stage" id="mandapamStage">
-    
-    <!-- ==============================================
-         1. INNER CANVAS: 3 DISTINCT SANCTUMS
-         ============================================== -->
-    <div class="inner-canvas">
+  <!-- ==============================================
+       1. TRADITIONAL MARIGOLD & MANGO LEAF TORAN (TOP)
+       ============================================== -->
+  <div class="wedding-toran-container">
+    <svg class="toran-svg-garland" viewBox="0 0 960 52" fill="none" preserveAspectRatio="none">
+      <!-- Top Rope -->
+      <path d="M0,8 Q480,18 960,8" stroke="#8b5a2b" stroke-width="4" fill="none"/>
       
-      <!-- WING 1: GROOM'S SIDE (ANGAJALA FAMILY) -->
-      <div class="wing-groom" id="wingGroom">
-        <div class="wing-shloka">॥ श्री गणेशाय नमः ॥</div>
-        <img src="ganesha_clean.png" alt="Ganesha" class="wing-icon">
-        <div class="wing-badge">Groom's Family • Varapaksham</div>
-        
+      <!-- Repeated Mango Leaves & Marigold Garlands -->
+      <!-- Garland Swags -->
+      <path d="M0,10 Q60,32 120,12 Q180,32 240,12 Q300,32 360,12 Q420,32 480,12 Q540,32 600,12 Q660,32 720,12 Q780,32 840,12 Q900,32 960,10" stroke="#ff9800" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M0,12 Q60,36 120,14 Q180,36 240,14 Q300,36 360,14 Q420,36 480,14 Q540,36 600,14 Q660,36 720,14 Q780,36 840,14 Q900,36 960,12" stroke="#ffd700" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M0,14 Q60,40 120,16 Q180,40 240,16 Q300,40 360,16 Q420,40 480,16 Q540,40 600,16 Q660,40 720,16 Q780,40 840,16 Q900,40 960,14" stroke="#ff5722" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+      <!-- Hanging Mango Leaves (Green triangular pinnacles) -->
+      <polygon points="60,34 54,48 66,48" fill="#2e7d32"/>
+      <polygon points="180,34 174,48 186,48" fill="#2e7d32"/>
+      <polygon points="300,34 294,48 306,48" fill="#2e7d32"/>
+      <polygon points="420,34 414,48 426,48" fill="#2e7d32"/>
+      <polygon points="480,34 474,50 486,50" fill="#2e7d32"/>
+      <polygon points="540,34 534,48 546,48" fill="#2e7d32"/>
+      <polygon points="660,34 654,48 666,48" fill="#2e7d32"/>
+      <polygon points="780,34 774,48 786,48" fill="#2e7d32"/>
+      <polygon points="900,34 894,48 906,48" fill="#2e7d32"/>
+
+      <!-- Marigold Flower Dots -->
+      <circle cx="60" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="60" cy="30" r="3" fill="#ffd700"/>
+      <circle cx="180" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="180" cy="30" r="3" fill="#ffd700"/>
+      <circle cx="300" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="300" cy="30" r="3" fill="#ffd700"/>
+      <circle cx="420" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="420" cy="30" r="3" fill="#ffd700"/>
+      <circle cx="480" cy="32" r="7" fill="#ff5722"/>
+      <circle cx="480" cy="32" r="3.5" fill="#ffd700"/>
+      <circle cx="540" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="540" cy="30" r="3" fill="#ffd700"/>
+      <circle cx="660" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="660" cy="30" r="3" fill="#ffd700"/>
+      <circle cx="780" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="780" cy="30" r="3" fill="#ffd700"/>
+      <circle cx="900" cy="30" r="6" fill="#ff9800"/>
+      <circle cx="900" cy="30" r="3" fill="#ffd700"/>
+    </svg>
+  </div>
+
+  <!-- ==============================================
+       2. SWAYING TEMPLE BELLS (LEFT & RIGHT)
+       ============================================== -->
+  <div class="sacred-bell-fixture left">
+    <div class="bell-chain"></div>
+    <img src="asset_bells.png" alt="Sacred Temple Bell" class="bell-img" onerror="this.src='bells_flawless.png'">
+  </div>
+  <div class="sacred-bell-fixture right">
+    <div class="bell-chain"></div>
+    <img src="asset_bells.png" alt="Sacred Temple Bell" class="bell-img" style="transform:scaleX(-1);" onerror="this.src='bells_flawless.png'">
+  </div>
+
+  <!-- ==============================================
+       3. BOTANICAL GOLDEN VINES (LEFT & RIGHT)
+       ============================================== -->
+  <img src="asset_vine_left.png" alt="Golden Vine" class="mandapam-side-vine left">
+  <img src="asset_vine_right.png" alt="Golden Vine" class="mandapam-side-vine right">
+
+  <!-- ==============================================
+       4. SACRED FLICKERING DIYAS (BOTTOM CORNERS)
+       ============================================== -->
+  <div class="diya-fixture left">
+    <div class="diya-flame"></div>
+    <div class="diya-bowl"></div>
+    <div class="diya-base"></div>
+  </div>
+  <div class="diya-fixture right">
+    <div class="diya-flame"></div>
+    <div class="diya-bowl"></div>
+    <div class="diya-base"></div>
+  </div>
+
+  <!-- ==============================================
+       5. FLOATING CELEBRATORY ROSE & JASMINE PETALS
+       ============================================== -->
+  <div class="petals-layer" id="petalsLayer">
+    <!-- Generated dynamically in JS for natural drift -->
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="calendar-toast" id="calendarToast">
+    ◆ Saved to Calendar! ◆
+  </div>
+
+  <!-- LUXURY CORNER 8D SPATIAL AUDIO CHIP -->
+  <div class="audio-corner-chip" id="cornerAudioChip" onclick="toggleSound()" title="8D Spatial Audio • Tap to Toggle">
+    <span class="chip-glow-dot" id="chipGlowDot"></span>
+    <span class="chip-txt">8D • 360°</span>
+    <span class="music-mini-bars" id="chipMiniBars">
+      <span class="c-bar"></span>
+      <span class="c-bar"></span>
+      <span class="c-bar"></span>
+    </span>
+  </div>
+
+  <!-- ==============================================
+       THE MANDAPAM 3D GATEFOLD STAGE
+       ============================================== -->
+  <div class="mandapam-stage" id="mandapamStage">
+
+    <!-- INNER CANVAS (THE SANCTUM) -->
+    <div class="inner-canvas">
+
+      <!-- WING 1: GROOM'S DEDICATED HALF (FITS LEFT 50%) -->
+      <div class="wing-groom">
+        <div class="wing-shloka">॥ శ్రీ వేంకటేశ్వర ప్రసన్న ॥</div>
+        <img src="ganesha_clean.png" alt="Ganesha" style="width:28px; height:28px; margin:2px 0;">
+        <div class="wing-badge">Groom's Side</div>
         <div class="wing-name">Shashi</div>
-
         <div class="wing-portrait-wrapper">
-          <img src="groom_doodle.png" alt="Shashi Character" class="wing-portrait-img">
+          <img src="groom_doodle.png" alt="Shashi" class="wing-portrait-img">
         </div>
-
         <div class="wing-parents-block">
-          <div class="parents-relation-lbl">Son of</div>
-          <div class="parents-names-bold">
-            Sri Angajala Venkataswamy<br>&amp; Smt. Nirmala
-          </div>
+          <div class="event-lbl" style="font-size:8px;">Son of</div>
+          <div class="event-val" style="font-size:11.5px; line-height:1.25;">Sri Angajala Venkataswamy<br>&amp; Smt. Nirmala</div>
         </div>
-
-        <div class="wing-invitation-msg">
-          "With immense joy, pride, and the sacred blessings of our elders, the Angajala family cordially invites you to grace the wedding of our beloved son Shashi as he takes sacred vows with Raveena."
-        </div>
-
-        <div class="wing-event-pill">
-          <span><strong>Muhurtham:</strong> 09:50 AM</span>
-          <span><strong>Date:</strong> 13-Dec-2026</span>
-        </div>
-
         <button class="wing-quick-btn" onclick="openBothDoors()">
-          👑 View Full Wedding Union ➔
+          ◆ View Sacred Union ➔
         </button>
       </div>
 
-      <!-- WING 2: BRIDE'S SIDE (KOTIPALLI FAMILY) -->
-      <div class="wing-bride" id="wingBride">
-        <div class="wing-shloka">॥ శుభమస్తు • Kalyanam ॥</div>
-        <img src="sikku_kolam_clean.png" alt="Kolam" class="wing-icon">
-        <div class="wing-badge">Bride's Family • Kanyapaksham</div>
-        
+      <!-- WING 2: BRIDE'S DEDICATED HALF (FITS RIGHT 50%) -->
+      <div class="wing-bride">
+        <div class="wing-shloka">॥ శ్రీ వేంకటేశ్వర ప్రసన్న ॥</div>
+        <img src="ganesha_clean.png" alt="Ganesha" style="width:28px; height:28px; margin:2px 0;">
+        <div class="wing-badge">Bride's Side</div>
         <div class="wing-name">Raveena</div>
-
         <div class="wing-portrait-wrapper">
-          <img src="bride_doodle.png" alt="Raveena Character" class="wing-portrait-img">
+          <img src="bride_doodle.png" alt="Raveena" class="wing-portrait-img">
         </div>
-
         <div class="wing-parents-block">
-          <div class="parents-relation-lbl">Daughter of</div>
-          <div class="parents-names-bold">
-            Sri Kotipalli Jagadhishwarao<br>&amp; Smt. Sujatha
-          </div>
+          <div class="event-lbl" style="font-size:8px;">Daughter of</div>
+          <div class="event-val" style="font-size:11px; line-height:1.25;">Sri Kotipalli<br>Jagadhishwarao<br>&amp; Smt. Sujatha</div>
         </div>
-
-        <div class="wing-invitation-msg">
-          "With overflowing love and heartfelt blessings, the Kotipalli family warmly invites you to witness and bless our dearest daughter Raveena as she steps into a lifetime of togetherness with Shashi."
-        </div>
-
-        <div class="wing-event-pill">
-          <span><strong>Muhurtham:</strong> 09:50 AM</span>
-          <span><strong>Date:</strong> 13-Dec-2026</span>
-        </div>
-
         <button class="wing-quick-btn" onclick="openBothDoors()">
-          👑 View Full Wedding Union ➔
+          ◆ View Sacred Union ➔
         </button>
       </div>
 
-      <!-- WING 3: THE GRAND UNION SANCTUM (REVEALED WHEN BOTH DOORS ARE OPEN) -->
-      <div class="sanctum-full-union" id="sanctumUnion">
-        
-        <!-- Top Invocation & Ganesha -->
-        <div class="union-toran">॥ श्री गणेशाय नमः • శుభమస్తు ॥</div>
-        <img src="ganesha_clean.png" alt="Lord Ganesha" class="union-ganesha">
-        <div class="union-title">Kalyana Mandapam • Sacred Wedding Invitation</div>
+      <!-- FULL UNION SANCTUM (VERTICAL ROYAL FLOW) -->
+      <div class="sanctum-full-union">
+        <div class="union-toran">॥ శ్రీ వేంకటేశ్వర ప్రసన్న ॥</div>
+        <img src="ganesha_clean.png" alt="Ganesha" class="union-ganesha">
+        <div class="union-title">Kalyana Mahotsavam</div>
 
-        <!-- United Couple Names -->
         <div class="union-couple-name">
           Shashi <span class="amp">&amp;</span> Raveena
         </div>
 
-        <!-- 3-Column Union Grid -->
-        <div class="union-columns">
+        <!-- Centered Saptapadi Feet Artwork -->
+        <div class="union-center-art">
+          <img src="feet_artwork_feathered.png" alt="Sacred Wedding Ritual" class="union-feet-img">
+          <div class="union-caption">సప్తపది • Seven Sacred Steps of Eternal Union</div>
+        </div>
+
+        <!-- Auspicious Date Card with Interactive Calendar -->
+        <div class="royal-sanctum-card calendar-date-card" onclick="openCalendarModal()" title="Tap to save Auspicious Date to your Calendar">
+          <span class="event-lbl">Auspicious Date</span>
+          <div class="event-val">Sun, 13 Dec 2026</div>
+          <div class="event-sub">In presence of family &amp; elders</div>
+          <div class="cal-mini-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:3px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Save to Calendar</span>
+            <span style="font-size:10px; opacity:0.8;">◆</span>
+          </div>
+        </div>
+
+        <!-- Muhurtham & Reception Details -->
+        <div class="royal-sanctum-card">
+          <span class="event-lbl">Sumuhurtham</span>
+          <div class="event-val" style="color:#8b2518;">09:50 AM</div>
+          <div class="event-sub">Dhanur Lagna • Saptapadi Kalyanam</div>
+          <hr style="border:none; border-top:1px dashed rgba(212,175,55,0.4); margin:8px 0;">
+          <span class="event-lbl">Grand Reception</span>
+          <div class="event-val" style="font-size:14.5px;">Following the Marriage</div>
+          <div class="event-sub">Wedding feast &amp; celebrations</div>
+        </div>
+
+        <!-- Venue & Directions Card -->
+        <div class="royal-sanctum-card">
+          <span class="event-lbl">Sacred Venue</span>
+          <div class="venue-title">Thanmaya Farmstay Resort</div>
+          <div class="venue-desc">Rajavaram, Warangal Highway, Telangana 506144</div>
           
-          <!-- Left: Muhurtham & Reception -->
-          <div class="union-left">
-            <div class="calendar-date-card" onclick="addDirectlyToCalendar(true)" title="Tap to sync/view in Calendar">
-              <span class="event-lbl">Auspicious Date</span>
-              <div class="event-val">Sun, 13 Dec 2026</div>
-              <div class="event-sub">In presence of family &amp; elders • Tap to sync</div>
-            </div>
-
-            <div>
-              <span class="event-lbl">Sumuhurtham</span>
-              <div class="event-val" style="color:#8b2518;">09:50 AM</div>
-              <div class="event-sub">Dhanur Lagna • Saptapadi</div>
-            </div>
-
-            <div>
-              <span class="event-lbl">Grand Reception</span>
-              <div class="event-val" style="font-size:14px;">Following the Marriage</div>
-              <div class="event-sub">Wedding feast &amp; celebrations</div>
-            </div>
-          </div>
-
-          <!-- Center: Saptapadi Sacred Feet Artwork -->
-          <div class="union-center-art">
-            <img src="feet_artwork_feathered.png" alt="Saptapadi Feet Art" class="union-feet-img">
-            <div class="union-caption">"Seven Sacred Steps • One Lifetime Destiny"</div>
-          </div>
-
-          <!-- Right: Thanmaya Farmstay Resort & Google Maps Navigation -->
-          <div class="union-right">
-            <div class="union-venue-title">Thanmaya Farmstay &amp; Resort</div>
-            <div class="union-venue-sub">
-              Grand Heritage Lawns<br>
-              Near Chinna Pendyala, Rajaram<br>
-              Warangal – Hyderabad Highway
-            </div>
-            <div style="font-size:11px; font-weight:700; color:#6b4426;">PIN: 506 144</div>
-
-            <!-- Direct Google Maps Navigation QR Badge (Clickable & Scannable) -->
-            <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" class="union-qr-badge" title="Tap to open in Google Maps">
-              <img src="venue_qr.svg" alt="Resort Google Maps QR" class="union-qr-img">
-              <div class="union-qr-text">
-                <strong>Google Maps Route</strong>
-                Thanmaya Resort.<br>Tap or scan to navigate.
-              </div>
+          <div class="venue-actions-row">
+            <a href="https://maps.app.goo.gl/354R7X9Xy4vN1jJCA" target="_blank" class="btn-maps-direct">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Venue Directions ➔</span>
+            </a>
+            <a href="https://maps.app.goo.gl/354R7X9Xy4vN1jJCA" target="_blank" class="qr-badge-mini" title="Scan or Tap for Google Maps">
+              <img src="venue_qr.svg" alt="Venue QR" onerror="this.src='venue_qr.png'">
+              <span>Scan QR<br>for Maps</span>
             </a>
           </div>
-
         </div>
 
-        <div class="union-footer-line">
-          "With heartfelt blessings and warm wishes from both families"
-        </div>
+        <!-- Family Footer -->
         <div class="union-parents-footer">
-          Angajala &amp; Kotipalli Families • Relatives &amp; Friends
+          Sri Angajala &amp; Sri Kotipalli Families
         </div>
+        <div class="union-footer-sub">
+          Cordially invite you to bless the newly wedded couple
+        </div>
+
+        <!-- Toggle back to individual wings if both doors are open -->
+        <button class="wing-quick-btn" style="max-width:240px; margin:10px auto 4px; background:linear-gradient(135deg, #d4af37, #b8860b); color:#1a0808;" onclick="event.stopPropagation(); isUnionOpen=false; updateDoorStates();">
+          ◆ View Groom &amp; Bride Wings ◆
+        </button>
 
       </div>
 
     </div>
 
-    <!-- ==============================================
-         2. 3D CARVED DOUBLE TEAK DOORS
-         ============================================== -->
-    <!-- Left Door (Groom's Side) -->
-    <div class="door-panel door-left" id="doorLeft" onclick="handleLeftDoorClick()" title="Click to view Groom's Invitation">
+    <!-- LEFT DOOR: GROOM'S SIDE -->
+    <div class="door-panel door-left" id="doorLeft" onclick="handleLeftDoorClick()" title="Tap to open Groom's Door">
       <div class="door-inner-carving">
         <img src="sikku_kolam_clean.png" alt="Kolam" class="door-kolam-badge">
         <div class="door-side-tag">Groom's Side</div>
         <div class="door-name-gold">Shashi</div>
+        <div class="door-portrait-container">
+          <img src="groom_doodle.png" alt="Shashi" class="door-portrait-img">
+        </div>
         <div class="door-family-line">
           Family of Angajala Venkataswamy &amp; Nirmala
         </div>
-        <div class="door-portrait-container">
-          <img src="groom_doodle.png" alt="Shashi Character" class="door-portrait-img">
-        </div>
-        <div class="door-click-hint">👈 Click to open Groom's side</div>
+        <div class="door-click-hint">◆ Tap to Open ◆</div>
       </div>
     </div>
 
-    <!-- Right Door (Bride's Side) -->
-    <div class="door-panel door-right" id="doorRight" onclick="handleRightDoorClick()" title="Click to view Bride's Invitation">
+    <!-- RIGHT DOOR: BRIDE'S SIDE -->
+    <div class="door-panel door-right" id="doorRight" onclick="handleRightDoorClick()" title="Tap to open Bride's Door">
       <div class="door-inner-carving">
         <img src="sikku_kolam_clean.png" alt="Kolam" class="door-kolam-badge" style="transform:scaleX(-1);">
         <div class="door-side-tag">Bride's Side</div>
         <div class="door-name-gold">Raveena</div>
+        <div class="door-portrait-container">
+          <img src="bride_doodle.png" alt="Raveena" class="door-portrait-img">
+        </div>
         <div class="door-family-line">
           Family of Kotipalli Jagadhishwarao &amp; Sujatha
         </div>
-        <div class="door-portrait-container">
-          <img src="bride_doodle.png" alt="Raveena Character" class="door-portrait-img">
-        </div>
-        <div class="door-click-hint">Click to open Bride's side 👉</div>
+        <div class="door-click-hint">◆ Tap to Open ◆</div>
       </div>
     </div>
 
-    <!-- Central Gold Medallion Button (The Sacred Union) -->
-    <div class="center-union-seal" id="centerSeal" onclick="openBothDoors()" title="Click to open Both Doors (The Grand Union)">
+    <!-- CENTER GOLD UNION SEAL -->
+    <div class="center-union-seal" id="centerSeal" onclick="openBothDoors()" title="Tap to open The Grand Union">
       <div class="seal-monogram">S&amp;R</div>
       <div class="seal-tag">Union</div>
     </div>
 
   </div>
 
-  <!-- JAVASCRIPT CONTROLLER & AUDIO ENGINE -->
+  <!-- FLOATING BOTTOM CONTROLS -->
+  <div class="mobile-floating-bar">
+    <button class="m-pill-btn" onclick="toggleSound()" title="Toggle 8D Music">
+      <span id="audioIcon">
+        <svg id="soundSvgActive" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      </span>
+      <span id="audioLabel">బాజంత్రీలు: ON</span>
+    </button>
+    <div class="m-pill-divider"></div>
+    <button class="m-pill-btn" onclick="closeAllDoors()" title="Close Doors">
+      ✕ Close
+    </button>
+    <div class="m-pill-divider"></div>
+    <button class="m-pill-btn" onclick="openCalendarModal()" title="Save Date">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:3px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <span>Save Date</span>
+    </button>
+  </div>
+
+  <!-- ROYAL CALENDAR MODAL -->
+  <div class="calendar-modal-backdrop" id="calendarModal" onclick="closeCalendarModal(event)">
+    <div class="calendar-modal-dialog" onclick="event.stopPropagation()">
+      <button class="cal-modal-close" onclick="closeCalendarModal()" title="Close">✕</button>
+      <div style="margin-bottom:8px;"><img src="asset_kalash.png" alt="Auspicious Kalash" style="width:38px; height:auto; filter:drop-shadow(0 2px 8px rgba(212,175,55,0.5));"></div>
+      <div class="cal-modal-heading">Save Auspicious Date</div>
+      <div class="cal-modal-couple">Shashi &amp; Raveena</div>
+      <div class="cal-modal-time">Sunday, 13 December 2026 • 09:50 AM</div>
+      <div class="cal-modal-venue">Thanmaya Farmstay Resort, Warangal Highway</div>
+
+      <div class="cal-modal-buttons">
+        <a class="cal-btn-option" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shashi+%26+Raveena+Wedding&dates=20261213T042000Z/20261213T093000Z&details=Auspicious+Sumuhurtham+at+09:50+AM.+Thanmaya+Farmstay+Resort,+Warangal+Highway.&location=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" onclick="handleCalendarSelection('Google Calendar')">
+          <span style="display:flex; align-items:center; justify-content:center; width:30px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </span>
+          <span class="cal-btn-text">
+            <strong>Google Calendar</strong>
+            <small>Sync directly to Android / Chrome / Gmail</small>
+          </span>
+          <span style="color:#ffd700;">➔</span>
+        </a>
+
+        <button class="cal-btn-option" onclick="downloadICSFile(); handleCalendarSelection('Apple / iCal')">
+          <span style="display:flex; align-items:center; justify-content:center; width:30px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#d4af37"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.4c.67-.82 1.13-1.96.99-3.1-.98.04-2.17.65-2.87 1.47-.61.71-1.15 1.87-.99 2.98 1.1.08 2.2-.55 2.87-1.35z"/></svg>
+          </span>
+          <span class="cal-btn-text">
+            <strong>Apple / Outlook Calendar</strong>
+            <small>Download 1-tap .ics with 9:50 AM reminder</small>
+          </span>
+          <span style="color:#ffd700;">➔</span>
+        </button>
+      </div>
+
+      <div style="font-size:10px; color:rgba(255,215,0,0.7); font-family:'Montserrat',sans-serif;">
+        ◆ Adds ceremony reminder alert to your phone calendar ◆
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIQUE ROYAL EXIT CONFIRMATION MODAL -->
+  <div class="exit-modal-backdrop" id="exitModal">
+    <div class="exit-modal-dialog">
+      <div class="exit-icon" style="margin-bottom:8px;"><img src="asset_kalash.png" alt="Mangala Kalash" style="width:48px; height:auto; filter:drop-shadow(0 4px 10px rgba(212,175,55,0.6));"></div>
+      <div class="exit-sanskrit">॥ శ్రీ వేంకటేశ్వర ప్రసన్న ॥</div>
+      <div class="exit-title">Leaving So Soon?</div>
+      <div class="exit-body-msg">
+        You are currently in the sacred wedding celebration of <strong>Shashi &amp; Raveena</strong>.<br><br>
+        Please stay to save the <strong>Auspicious Muhurtham (13-Dec-2026)</strong> and view the venue directions!
+      </div>
+      <div class="exit-actions">
+        <button class="exit-btn-stay" onclick="stayInInvitation()">
+          ◆ Stay in the Mandapam ◆
+        </button>
+        <button class="exit-btn-leave" onclick="allowExitInvitation()">
+          Leave Invitation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE CONTROLLER SCRIPT -->
   <script>
     const stage = document.getElementById('mandapamStage');
-    // removed btnGroom
-    // removed btnBride
-    // removed btnUnion
-    // removed btnClose
-    const btnMusic = document.getElementById('btnMusic');
-    const musicBtnLabel = document.getElementById('musicBtnLabel');
-    const musicIcon = document.getElementById('musicIcon');
-
-    // ==========================================
-    // VERSION 5: 3D / 8D SPATIAL AUDIO ENGINE
-    // - Entry: Auspicious 8D Shenhai & Nadaswaram on open
-    // - Groom's Wing: Energetic 8D Nadaswaram & Thavil
-    // - Bride's Wing: 8D Kannathil Muthamittal Violin Melody
-    // - Main Union: Grand 8D Celebratory Wedding Music
-    // ==========================================
-    let isMusicEnabled = true;
-    let currentAudio = null;
+    let isAudioOn = true;
 
     const audioEntry = new Audio('entry_8d.mp3');
     audioEntry.loop = true;
@@ -1314,197 +1716,219 @@
     audioMain.loop = true;
     audioMain.volume = 0.72;
 
-    function stopAllAudio(fade = false) {
-      const audios = [audioEntry, audioGroom, audioBride, audioMain];
-      audios.forEach(a => {
-        if (!a.paused) {
-          if (fade) {
-            let vol = a.volume;
-            const timer = setInterval(() => {
-              vol -= 0.15;
-              if (vol <= 0.05) {
-                clearInterval(timer);
-                a.pause();
-                a.currentTime = 0;
-                a.volume = 0.65;
-              } else {
-                a.volume = vol;
-              }
-            }, 50);
-          } else {
-            a.pause();
-            a.currentTime = 0;
-          }
-        }
-      });
-      currentAudio = null;
-    }
-
-    function playSectionSound(audioObj, labelText, iconText = '🎧') {
-      if (!isMusicEnabled) return;
-      stopAllAudio(false);
-      currentAudio = audioObj;
-      audioObj.currentTime = 0;
-      audioObj.volume = 0.68;
-      audioObj.play().then(() => {
-        btnMusic.classList.remove('muted');
-        btnMusic.classList.add('playing');
-        musicBtnLabel.textContent = labelText;
-        if (musicIcon) musicIcon.textContent = iconText;
-      }).catch(e => {
-        console.log('Audio autoplay waiting for user interaction:', e);
+    function stopAllAudio() {
+      [audioEntry, audioGroom, audioBride, audioMain].forEach(a => {
+        a.pause();
+        a.currentTime = 0;
       });
     }
 
-    function toggleWeddingMusic() {
-      if (isMusicEnabled) {
-        isMusicEnabled = false;
-        stopAllAudio(false);
-        btnMusic.classList.add('muted');
-        btnMusic.classList.remove('playing');
-        musicBtnLabel.textContent = '8D Audio: OFF';
+    function updateActiveTab(activeId) {
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(activeId);
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    function handleLeftDoorClick() {
+      if (stage.classList.contains('opened-both')) {
+        closeAllDoors();
+      } else if (stage.classList.contains('opened-groom')) {
+        // Tapping already-open groom door closes it
+        closeAllDoors();
       } else {
-        isMusicEnabled = true;
-        if (stage.classList.contains('opened-groom')) {
-          playSectionSound(audioGroom, '🤵 వరుని బాజంత్రీలు (8D)', '🤵🎺');
-        } else if (stage.classList.contains('opened-bride')) {
-          playSectionSound(audioBride, '👰 వధువు వైభోగం (8D)', '👰🎻');
-        } else if (stage.classList.contains('opened-both')) {
-          playSectionSound(audioMain, '👑 కల్యాణ మహోత్సవం (8D)', '👑🎉');
-        } else {
-          playSectionSound(audioEntry, '✨ కళ్యాణ ప్రవేశం (8D)', '🎧🎺');
-        }
+        // Open groom only, closing bride if it was open
+        openGroomWingOnly();
       }
     }
 
-    // Single interaction flag
-    let hasInteracted = false;
-
-    function handleFirstUserTap() {
-      if (!hasInteracted) {
-        hasInteracted = true;
-        const hint = document.getElementById('doorTapHint');
-        if (hint) hint.style.display = 'none';
+    function handleRightDoorClick() {
+      if (stage.classList.contains('opened-both')) {
+        closeAllDoors();
+      } else if (stage.classList.contains('opened-bride')) {
+        // Tapping already-open bride door closes it
+        closeAllDoors();
+      } else {
+        // Open bride only, closing groom if it was open
+        openBrideWingOnly();
       }
     }
 
-    function dismissWelcomeAndPlay() {
-      const overlay = document.getElementById('welcomeOverlay');
-      if (overlay) overlay.classList.add('hidden');
-      handleFirstUserTap();
-      playSectionSound(audioEntry, '✨ కళ్యాణ ప్రవేశం (8D)', '🎧🎺');
-    }
-
-    function startEntryAudio() {
-      if (!hasInteracted && isMusicEnabled) {
-        dismissWelcomeAndPlay();
-      }
-    }
-
-    // Attempt autoplay immediately on link load
-    window.addEventListener('DOMContentLoaded', () => {
-      audioEntry.play().then(() => {
-        // Autoplay allowed by browser!
-        hasInteracted = true;
-        const overlay = document.getElementById('welcomeOverlay');
-        if (overlay) overlay.classList.add('hidden');
-        btnMusic.classList.remove('muted');
-        btnMusic.classList.add('playing');
-        musicBtnLabel.textContent = '✨ కళ్యాణ ప్రవేశం (8D)';
-      }).catch(() => {
-        // Autoplay blocked by browser policy -> Welcome overlay is active for natural 1-tap open!
-        console.log('Autoplay waiting for natural tap to open');
-      });
-    });
-
-    // On desktop: mousemove or wheel or keydown triggers entry audio and dissolves overlay
-    ['mousemove', 'wheel', 'keydown'].forEach(evt => {
-      window.addEventListener(evt, () => {
-        if (!hasInteracted) {
-          dismissWelcomeAndPlay();
-        }
-      }, { once: true });
-    });
-
-    function resetActiveButtons() {
-      // V3 has direct door-touch interaction
-    }
-
-    // Open ONLY Groom's Side -> Plays 8D Sundhari Kanaal Violin
-    function openGroomWing() {
-      handleFirstUserTap();
+    function openGroomWingOnly() {
       stage.className = 'mandapam-stage opened-groom';
-      resetActiveButtons();
-      playSectionSound(audioGroom, '🤵 వరుని వైభోగం (Violin 8D)', '🤵🎻');
+      if (isAudioOn) {
+        stopAllAudio();
+        audioGroom.play().catch(e => {});
+      }
     }
 
-    // Open ONLY Bride's Side -> Plays 8D Kannathil Muthamittal Violin
-    function openBrideWing() {
-      handleFirstUserTap();
+    function openBrideWingOnly() {
       stage.className = 'mandapam-stage opened-bride';
-      resetActiveButtons();
-      playSectionSound(audioBride, '👰 వధువు వైభోగం (స్నేహితనే 8D)', '👰🎻');
+      if (isAudioOn) {
+        stopAllAudio();
+        audioBride.play().catch(e => {});
+      }
     }
 
-    const CALENDAR_URL = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shashi+%26+Raveena+Wedding&dates=20261213T042000Z/20261213T093000Z&details=Auspicious+Sumuhurtham+at+09:50+AM.+Thanmaya+Farmstay+Resort,+Warangal+Highway.&location=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144';
-    let hasAddedToCalendar = false;
+    function openBothDoors() {
+      stage.className = 'mandapam-stage opened-both';
+      if (isAudioOn) {
+        stopAllAudio();
+        audioMain.play().catch(e => {});
+      }
+    }
 
-    function addDirectlyToCalendar(force = false) {
-      if (!hasAddedToCalendar || force) {
-        hasAddedToCalendar = true;
-        try {
-          window.open(CALENDAR_URL, '_blank');
-        } catch (e) {
-          console.log('Calendar auto-sync waiting for user interaction');
+    function closeAllDoors() {
+      stage.className = 'mandapam-stage';
+      if (isAudioOn) {
+        stopAllAudio();
+        audioEntry.play().catch(e => {});
+      } else {
+        stopAllAudio();
+      }
+    }
+
+    function toggleSound() {
+      isAudioOn = !isAudioOn;
+      const lbl = document.getElementById('audioLabel');
+      const icon = document.getElementById('audioIcon');
+      const chipDot = document.getElementById('chipGlowDot');
+      const chipBars = document.getElementById('chipMiniBars');
+      if (isAudioOn) {
+        if (lbl) lbl.textContent = 'బాజంత్రీలు: ON';
+        if (icon) icon.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>';
+        if (chipDot) chipDot.style.background = '#4ade80';
+        if (chipBars) chipBars.style.opacity = '1';
+        if (stage.classList.contains('opened-both')) {
+          audioMain.play().catch(e => {});
+        } else {
+          audioEntry.play().catch(e => {});
         }
+      } else {
+        if (lbl) lbl.textContent = 'ఆడియో: OFF';
+        if (icon) icon.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
+        if (chipDot) chipDot.style.background = '#888';
+        if (chipBars) chipBars.style.opacity = '0.3';
+        stopAllAudio();
+      }
+    }
+
+    function openCalendarModal() {
+      const modal = document.getElementById('calendarModal');
+      if (modal) modal.classList.add('open');
+    }
+
+    function closeCalendarModal(e) {
+      if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('cal-modal-close')) return;
+      const modal = document.getElementById('calendarModal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function handleCalendarSelection(provider) {
+      setTimeout(() => {
+        const modal = document.getElementById('calendarModal');
+        if (modal) modal.classList.remove('open');
         const toast = document.getElementById('calendarToast');
         if (toast) {
+          toast.textContent = '📅 Saved via ' + provider + ' (13-Dec-2026 • 09:50 AM)';
           toast.classList.add('show');
           setTimeout(() => toast.classList.remove('show'), 5000);
         }
-      }
+      }, 400);
     }
 
-    // Open BOTH Doors (The Grand Union) -> Plays 8D Main Celebratory Wedding Song!
-    function openBothDoors() {
-      handleFirstUserTap();
-      stage.className = 'mandapam-stage opened-both';
-      resetActiveButtons();
-      playSectionSound(audioMain, '👑 కల్యాణ మహోత్సవం (8D)', '👑🎉');
-      addDirectlyToCalendar();
+    function downloadICSFile() {
+      const icsLines = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Shashi Raveena Wedding//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        'SUMMARY:Shashi & Raveena Wedding (Sumuhurtham)',
+        'DESCRIPTION:Divine Wedding Celebration of Shashi & Raveena.\\nSumuhurtham: 09:50 AM (Dhanur Lagna).\\nGrand Reception to follow.\\nVenue: Thanmaya Farmstay Resort, Warangal Highway.',
+        'LOCATION:Thanmaya Farmstay Resort, Rajavaram, Telangana 506144',
+        'DTSTART:20261213T042000Z',
+        'DTEND:20261213T093000Z',
+        'STATUS:CONFIRMED',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT2H',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:Reminder: Shashi & Raveena Wedding Ceremony today at 09:50 AM',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ];
+      const icsString = icsLines.join(String.fromCharCode(13, 10));
+      const blob = new Blob([icsString], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', 'Shashi_Raveena_Wedding.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
-    // Close All Doors -> Resumes Entry 8D Song
-    function closeAllDoors() {
-      stage.className = 'mandapam-stage';
-      resetActiveButtons();
-      if (isMusicEnabled) {
-        playSectionSound(audioEntry, '✨ కళ్యాణ ప్రవేశం (8D)', '🎧🎺');
-      } else {
-        stopAllAudio(true);
-        btnMusic.classList.add('muted');
-        btnMusic.classList.remove('playing');
-        musicBtnLabel.textContent = '8D Audio: Paused';
-      }
+    // GENERATE FLOATING FESTIVE PETALS
+    const petalsContainer = document.getElementById('petalsLayer');
+    const petalTypes = ['', 'gold', 'yellow'];
+    for (let i = 0; i < 28; i++) {
+      const p = document.createElement('div');
+      const type = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+      p.className = 'petal ' + type;
+      p.style.left = (Math.random() * 100) + 'vw';
+      p.style.animationDuration = (6 + Math.random() * 8) + 's';
+      p.style.animationDelay = (Math.random() * 8) + 's';
+      petalsContainer.appendChild(p);
     }
 
-    // Click handler for Left Door
-    function handleLeftDoorClick() {
-      if (stage.classList.contains('opened-groom')) {
-        closeAllDoors();
-      } else {
-        openGroomWing();
+    // ==============================================
+    // BROWSER BACK BUTTON / GESTURE INTERCEPTION
+    // ==============================================
+    let allowActualExit = false;
+
+    // Trap the browser history so pressing Back triggers popstate instead of exiting
+    function initHistoryProtection() {
+      try {
+        history.pushState({ cardPage: 'mandapam_base' }, '', window.location.href);
+        history.pushState({ cardPage: 'mandapam_active' }, '', window.location.href);
+      } catch (e) {}
+    }
+    initHistoryProtection();
+
+    window.addEventListener('popstate', function(event) {
+      if (allowActualExit) {
+        return; // Allow the user to leave when they confirm
       }
+      // Re-trap the history immediately to prevent tab closing
+      history.pushState({ cardPage: 'mandapam_active' }, '', window.location.href);
+      showExitConfirmation();
+    });
+
+    function showExitConfirmation() {
+      const modal = document.getElementById('exitModal');
+      if (modal) modal.classList.add('open');
     }
 
-    // Click handler for Right Door
-    function handleRightDoorClick() {
-      if (stage.classList.contains('opened-bride')) {
-        closeAllDoors();
-      } else {
-        openBrideWing();
-      }
+    function stayInInvitation() {
+      const modal = document.getElementById('exitModal');
+      if (modal) modal.classList.remove('open');
     }
+
+    function allowExitInvitation() {
+      allowActualExit = true;
+      const modal = document.getElementById('exitModal');
+      if (modal) modal.classList.remove('open');
+      history.go(-2); // Navigate back out
+    }
+
+    // Guard desktop window / tab closing
+    window.addEventListener('beforeunload', function(e) {
+      if (!allowActualExit) {
+        e.preventDefault();
+        e.returnValue = 'Are you sure you want to leave the wedding invitation of Shashi & Raveena?';
+        return e.returnValue;
+      }
+    });
   </script>
 
 </body>
