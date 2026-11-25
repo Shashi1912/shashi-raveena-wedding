@@ -1333,9 +1333,76 @@
       transform: scale(1);
     }
     .exit-icon {
-      font-size: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 6px;
-      filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.7));
+    }
+    /* UNIQUE ROYAL SANCTUM SEAL */
+    .royal-union-seal-badge {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 12px auto 4px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .royal-union-seal-badge:hover {
+      transform: scale(1.08);
+    }
+    .royal-union-seal-badge:active {
+      transform: scale(0.95);
+    }
+    .seal-ornament-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 250px;
+    }
+    .seal-line-left,
+    .seal-line-right {
+      flex: 1;
+      height: 1px;
+      position: relative;
+    }
+    .seal-line-left {
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), #d4af37);
+    }
+    .seal-line-right {
+      background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.3), transparent);
+    }
+    .seal-line-left::before {
+      content: '❖';
+      position: absolute;
+      left: 12px;
+      top: -6px;
+      font-size: 8px;
+      color: #d4af37;
+      opacity: 0.75;
+    }
+    .seal-line-right::after {
+      content: '❖';
+      position: absolute;
+      right: 12px;
+      top: -6px;
+      font-size: 8px;
+      color: #d4af37;
+      opacity: 0.75;
+    }
+    .seal-medallion-core {
+      margin: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 3px 10px rgba(212, 175, 55, 0.6));
+      animation: sealPulse 4s ease-in-out infinite;
+    }
+    @keyframes sealPulse {
+      0%, 100% { filter: drop-shadow(0 3px 8px rgba(212, 175, 55, 0.45)); }
+      50% { filter: drop-shadow(0 3px 14px rgba(255, 215, 0, 0.85)); }
     }
     .exit-sanskrit {
       font-family: 'Cinzel', serif;
@@ -1710,11 +1777,11 @@
               <div class="venue-desc">Rajavaram, Warangal Highway, Telangana 506144</div>
               
               <div class="venue-actions-row">
-                <a href="https://maps.app.goo.gl/354R7X9Xy4vN1jJCA" target="_blank" class="btn-maps-direct">
+                <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" rel="noopener noreferrer" class="btn-maps-direct" onclick="event.stopPropagation();" title="Get Directions to Thanmaya Farmstay Resort">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>Directions ➔</span>
+                  <span>Get Directions ➔</span>
                 </a>
-                <a href="https://maps.app.goo.gl/354R7X9Xy4vN1jJCA" target="_blank" class="qr-badge-mini" title="Scan or Tap for Google Maps">
+                <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" rel="noopener noreferrer" class="qr-badge-mini" onclick="event.stopPropagation();" title="Scan or Tap for Google Maps">
                   <img src="venue_qr.svg" alt="Venue QR" onerror="this.src='venue_qr.png'">
                   <span>Scan QR</span>
                 </a>
@@ -1732,10 +1799,37 @@
           Cordially invite you to bless the newly wedded couple
         </div>
 
-        <!-- Toggle back to individual wings if both doors are open -->
-        <button class="wing-quick-btn" style="max-width:240px; margin:10px auto 4px; background:linear-gradient(135deg, #d4af37, #b8860b); color:#1a0808;" onclick="event.stopPropagation(); isUnionOpen=false; updateDoorStates();">
-          ◆ View Groom &amp; Bride Wings ◆
-        </button>
+        <!-- UNIQUE ROYAL SEAL & INTERACTIVE MANDAPAM EMBLEM (NO TEXT) -->
+        <div class="royal-union-seal-badge" onclick="event.stopPropagation(); isUnionOpen=false; updateDoorStates();" title="Tap to return to Doors">
+          <div class="seal-ornament-line">
+            <span class="seal-line-left"></span>
+            <div class="seal-medallion-core">
+              <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+                <defs>
+                  <linearGradient id="hallmarkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fff8d0"/>
+                    <stop offset="30%" stop-color="#ffd700"/>
+                    <stop offset="70%" stop-color="#d4af37"/>
+                    <stop offset="100%" stop-color="#8f5305"/>
+                  </linearGradient>
+                  <radialGradient id="hallmarkGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fff3a8" stop-opacity="0.95"/>
+                    <stop offset="50%" stop-color="#d4af37" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#5a1805" stop-opacity="0.95"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="47" stroke="url(#hallmarkGold)" stroke-width="2.5" fill="url(#hallmarkGlow)"/>
+                <circle cx="50" cy="50" r="42" stroke="#ffd700" stroke-width="1.2" stroke-dasharray="2 3"/>
+                <g stroke="url(#hallmarkGold)" stroke-width="2" fill="none">
+                  <path d="M50 16 L54 36 L74 36 L58 48 L64 68 L50 56 L36 68 L42 48 L26 36 L46 36 Z" fill="url(#hallmarkGold)" fill-opacity="0.35"/>
+                  <circle cx="50" cy="50" r="14" fill="#5a1805" stroke="url(#hallmarkGold)" stroke-width="1.8"/>
+                  <text x="50" y="55" font-family="'Cinzel', serif" font-size="13" font-weight="900" fill="#ffd700" text-anchor="middle" letter-spacing="0.5">S•R</text>
+                </g>
+              </svg>
+            </div>
+            <span class="seal-line-right"></span>
+          </div>
+        </div>
 
       </div>
 
@@ -1804,7 +1898,7 @@
   <div class="calendar-modal-backdrop" id="calendarModal" onclick="closeCalendarModal(event)">
     <div class="calendar-modal-dialog" onclick="event.stopPropagation()">
       <button class="cal-modal-close" onclick="closeCalendarModal()" title="Close">✕</button>
-      <div style="margin-bottom:8px;"><img src="asset_kalash.png" alt="Auspicious Kalash" style="width:38px; height:auto; filter:drop-shadow(0 2px 8px rgba(212,175,55,0.5));"></div>
+      <div style="margin-bottom:8px;"><img src="sacred_gold_kalash.svg" alt="Auspicious Kalash" style="width:44px; height:auto; filter:drop-shadow(0 3px 10px rgba(212,175,55,0.6));"></div>
       <div class="cal-modal-heading">Save Auspicious Date</div>
       <div class="cal-modal-couple">Shashi &amp; Raveena</div>
       <div class="cal-modal-time">Sunday, 13 December 2026 • 09:50 AM</div>
@@ -1843,7 +1937,7 @@
   <!-- UNIQUE ROYAL EXIT CONFIRMATION MODAL -->
   <div class="exit-modal-backdrop" id="exitModal">
     <div class="exit-modal-dialog">
-      <div class="exit-icon" style="margin-bottom:8px;"><img src="asset_kalash.png" alt="Mangala Kalash" style="width:48px; height:auto; filter:drop-shadow(0 4px 10px rgba(212,175,55,0.6));"></div>
+      <div class="exit-icon" style="margin-bottom:8px;"><img src="sacred_gold_kalash.svg" alt="Mangala Kalash" style="width:56px; height:auto; filter:drop-shadow(0 4px 14px rgba(212,175,55,0.75));"></div>
       <div class="exit-sanskrit">॥ శ్రీ వేంకటేశ్వర ప్రసన్న ॥</div>
       <div class="exit-title">Leaving So Soon?</div>
       <div class="exit-body-msg">
