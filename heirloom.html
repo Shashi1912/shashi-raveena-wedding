@@ -774,9 +774,17 @@
       background: rgba(212, 175, 55, 0.2);
     }
     .dock-tab.rsvp {
-      background: linear-gradient(135deg, #128c7e, #075e54);
-      color: #ffffff;
+      background: linear-gradient(135deg, #ffd700, #d4af37);
+      color: #1a0806;
+      font-weight: 800;
       padding: 8px 16px;
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.45);
+      animation: pulse-join 2.2s infinite ease-in-out;
+      position: relative;
+    }
+    @keyframes pulse-join {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 215, 0, 0.35); }
+      50% { transform: scale(1.06); box-shadow: 0 0 18px rgba(255, 215, 0, 0.85); }
     }
 
     /* MODAL */
@@ -919,7 +927,7 @@
         <div class="duo-role-badge">The Bride</div>
         <div class="duo-name">Raveena</div>
         <div class="duo-parents">
-          Daughter of Sri Kotipalli Jagadhishwarao<br>&amp; Smt. Sujatha
+          Daughter of Sri Kotipalli Jagadeeshwararao<br>&amp; Smt. Sujatha
         </div>
       </div>
     </section>
@@ -988,6 +996,21 @@
       </a>
     </section>
 
+    <!-- 6B. UNMISSABLE "JOIN US" INVITATION SECTION -->
+    <section class="join-us-section" id="join-us" style="margin-top:28px; padding:24px 20px; background:linear-gradient(145deg, rgba(32, 14, 10, 0.95), rgba(16, 6, 4, 0.98)); border:1.5px solid var(--gold-bright); border-radius:20px; text-align:center; box-shadow:0 8px 25px rgba(0,0,0,0.6); position:relative;">
+      <div style="display:inline-block; background:linear-gradient(135deg, #ffd700, #d4af37); color:#1a0806; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+        Guest Attendance
+      </div>
+      <div style="font-size:32px; margin-bottom:8px;">💌</div>
+      <h3 style="font-family:var(--font-display); font-size:17px; letter-spacing:2px; color:var(--gold-bright); text-transform:uppercase; margin-bottom:6px;">Will You Join Us?</h3>
+      <p style="font-size:12.5px; color:#f7e7c4; line-height:1.45; max-width:320px; margin:0 auto 16px;">
+        Please let Shashi &amp; Raveena know if you can make it, so our families can warmly prepare for your reception and hospitality.
+      </p>
+      <button type="button" onclick="openRsvpModal()" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg, #ffd700, #d4af37); color:#1a0806; font-family:var(--font-display); font-size:12px; font-weight:800; letter-spacing:1px; padding:13px 26px; border-radius:30px; border:none; cursor:pointer; box-shadow:0 4px 16px rgba(212,175,55,0.4); text-transform:uppercase; transition:transform 0.2s ease;">
+        <span>✨</span> Tap Here to Join Us <span>➔</span>
+      </button>
+    </section>
+
     <!-- 7. BLESSINGS & CELEBRATION FOOTER -->
     <section class="blessings-card" id="blessings">
       <div class="family-lineage-text">Sri Angajala &amp; Sri Kotipalli Families</div>
@@ -1016,7 +1039,7 @@
     <a href="#hero" class="dock-tab active">Overview</a>
     <a href="#timeline" class="dock-tab">Schedule</a>
     <a href="#destination" class="dock-tab">Venue</a>
-    <button class="dock-tab rsvp" onclick="openRsvpModal()">💬 RSVP</button>
+    <button class="dock-tab rsvp" onclick="openRsvpModal()">✨ Join Us</button>
   </div>
 
   <!-- CALENDAR MODAL -->
@@ -1048,9 +1071,9 @@
 
       <!-- FORM VIEW -->
       <div id="rsvpFormContainer">
-        <div style="font-family:var(--font-display); font-size:13px; letter-spacing:2px; color:#ffd700; font-weight:700; margin-bottom:4px;">Auspicious RSVP</div>
+        <div style="font-family:var(--font-display); font-size:14px; letter-spacing:2px; color:#ffd700; font-weight:700; margin-bottom:4px;">Join Our Celebration</div>
         <p style="font-size:12px; color:var(--text-muted); line-height:1.4; margin-bottom:16px;">
-          Confirm your attendance silently. Your RSVP and guest count will be delivered directly to the family.
+          Please let us know you are coming so our families can warmly prepare for your arrival!
         </p>
 
         <div class="rsvp-form-group">
@@ -1080,17 +1103,17 @@
           <input type="text" id="rsvpMessage" class="rsvp-input" placeholder="Blessings for Shashi & Raveena...">
         </div>
 
-        <button type="button" id="btnSubmitRsvp" class="btn-action-modern" style="background:linear-gradient(135deg, #ffd700, #d4af37); color:#1a0806; font-weight:800; width:100%; padding:13px; justify-content:center; font-size:11.5px; border:none; cursor:pointer;" onclick="submitSilentRsvp()">
-          ✨ Confirm Attendance ✨
+        <button type="button" id="btnSubmitRsvp" class="btn-action-modern" style="background:linear-gradient(135deg, #ffd700, #d4af37); color:#1a0806; font-weight:800; width:100%; padding:13px; justify-content:center; font-size:12px; border:none; cursor:pointer;" onclick="submitSilentRsvp()">
+          ✨ Yes, We Will Join You! ✨
         </button>
       </div>
 
       <!-- SUCCESS CONFIRMATION VIEW -->
       <div id="rsvpSuccessContainer" class="rsvp-success-card">
         <div style="font-size:36px; margin-bottom:8px;">🌸</div>
-        <div style="font-family:var(--font-display); font-size:14px; letter-spacing:2px; color:#ffd700; font-weight:700; margin-bottom:6px;">Attendance Confirmed!</div>
+        <div style="font-family:var(--font-display); font-size:14px; letter-spacing:2px; color:#ffd700; font-weight:700; margin-bottom:6px;">We Can't Wait To See You!</div>
         <p style="font-size:13px; color:#f7e7c4; line-height:1.45; margin-bottom:16px;" id="rsvpSuccessMsg">
-          Thank you! We have received your RSVP. The Angajala &amp; Kotipalli families eagerly await your gracious presence!
+          Thank you! We are delighted you will join us. The Angajala &amp; Kotipalli families eagerly await your gracious presence!
         </p>
         <button type="button" class="btn-action-modern btn-maps" style="width:100%; justify-content:center; padding:10px;" onclick="closeRsvpModal()">
           ✓ Done
