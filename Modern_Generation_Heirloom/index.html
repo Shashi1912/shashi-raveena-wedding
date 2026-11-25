@@ -831,15 +831,633 @@
       font-size: 18px;
       cursor: pointer;
     }
+
+    /* ========================================================
+       HEIRLOOM 3D DOOR OPENING OVERLAY
+       ======================================================== */
+    body.door-locked {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .heirloom-door-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50000;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 12px 54px;
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.16) 0%, transparent 60%),
+        radial-gradient(circle at 15% 20%, rgba(139, 37, 24, 0.32) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(139, 37, 24, 0.32) 0%, transparent 50%);
+      transition: background-color 0.45s ease, opacity 0.75s ease 0.85s, visibility 0.75s ease 0.85s;
+    }
+    .heirloom-door-overlay.opened-both {
+      background-color: transparent;
+      background-image: none;
+    }
+    .heirloom-door-overlay.doors-opened {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .heirloom-door-stage {
+      position: relative;
+      width: min(860px, 100%);
+      height: min(620px, 100%);
+      perspective: 1800px;
+      transform-style: preserve-3d;
+      border-radius: 20px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 175, 55, 0.18);
+    }
+
+    /* WARM LUMINOUS INNER SANCTUM CANVAS (CONTRASTS WITH DARK MAHOGANY DOORS) */
+    .heirloom-inner-canvas {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #fbf5e6;
+      background-image:
+        radial-gradient(circle at 50% 25%, rgba(255, 250, 232, 0.96) 0%, rgba(244, 229, 194, 0.9) 75%),
+        repeating-linear-gradient(45deg, rgba(139, 90, 43, 0.025) 0px, rgba(139, 90, 43, 0.025) 2px, transparent 2px, transparent 5px);
+      border-radius: 20px;
+      border: 2.5px solid var(--gold-primary);
+      overflow: hidden;
+      box-shadow: inset 0 0 45px rgba(107, 68, 38, 0.25);
+    }
+
+    .heirloom-door {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(212, 175, 55, 0.14) 0%, transparent 65%),
+        repeating-linear-gradient(90deg, rgba(255, 215, 0, 0.025) 0px, rgba(255, 215, 0, 0.025) 1px, transparent 1px, transparent 32px),
+        linear-gradient(165deg, #2c0f09 0%, #160603 55%, #0a0201 100%);
+      border-top: 2.5px solid var(--gold-primary);
+      border-bottom: 2.5px solid var(--gold-primary);
+      transform-style: preserve-3d;
+      transition: transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 10px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 10;
+    }
+    .heirloom-door-left {
+      left: 0;
+      transform-origin: left center;
+      border-left: 2.5px solid var(--gold-primary);
+      border-right: 1.5px solid var(--gold-bright);
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      box-shadow: inset -12px 0 30px rgba(0, 0, 0, 0.78), 8px 0 28px rgba(0, 0, 0, 0.85);
+    }
+    .heirloom-door-right {
+      right: 0;
+      transform-origin: right center;
+      border-right: 2.5px solid var(--gold-primary);
+      border-left: 1.5px solid var(--gold-bright);
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: inset 12px 0 30px rgba(0, 0, 0, 0.78), -8px 0 28px rgba(0, 0, 0, 0.85);
+    }
+
+    .heirloom-door-overlay.doors-opened .heirloom-door-left,
+    .heirloom-door-overlay.opened-both .heirloom-door-left,
+    .heirloom-door-overlay.opened-groom .heirloom-door-left {
+      transform: rotateY(-124deg);
+      pointer-events: none;
+    }
+    .heirloom-door-overlay.doors-opened .heirloom-door-right,
+    .heirloom-door-overlay.opened-both .heirloom-door-right,
+    .heirloom-door-overlay.opened-bride .heirloom-door-right {
+      transform: rotateY(124deg);
+      pointer-events: none;
+    }
+
+    /* INNER REVEAL WINGS (FILLS EACH 50% DOORWAY WITH WARM SANCTUM STYLING) */
+    .heirloom-wing {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 16px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s ease 0.2s;
+      z-index: 5;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .heirloom-wing::-webkit-scrollbar { display: none; }
+    .heirloom-wing-groom {
+      left: 0;
+      border-right: 1.5px dashed rgba(184, 134, 11, 0.45);
+    }
+    .heirloom-wing-bride {
+      right: 0;
+      border-left: 1.5px dashed rgba(184, 134, 11, 0.45);
+    }
+    .heirloom-door-overlay.opened-groom .heirloom-wing-groom,
+    .heirloom-door-overlay.opened-bride .heirloom-wing-bride {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .heirloom-door-overlay.opened-both .heirloom-inner-canvas {
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .heirloom-door-overlay.opened-both .heirloom-wing {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .wing-shloka {
+      font-family: var(--font-display);
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: #8b2518;
+      font-weight: 800;
+    }
+    .wing-icon {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(139, 37, 24, 0.25));
+    }
+    .wing-badge {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #ffd700;
+      background: #8b2518;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(139, 37, 24, 0.3);
+    }
+    .wing-name {
+      font-family: var(--font-cursive);
+      font-size: 42px;
+      color: #2b1104;
+      line-height: 1;
+      text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.5);
+    }
+    .wing-portrait {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 2.5px solid #d4af37;
+      background: #fffdf7;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(107, 68, 38, 0.28);
+      flex-shrink: 0;
+    }
+    .wing-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wing-parents {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(212, 175, 55, 0.7);
+      border-radius: 10px;
+      padding: 8px 12px;
+      width: 100%;
+      font-size: 12px;
+      font-weight: 600;
+      color: #3b2010;
+      line-height: 1.35;
+      box-shadow: 0 2px 8px rgba(107, 68, 38, 0.08);
+    }
+    .wing-parents small {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8b2518;
+      font-family: var(--font-display);
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .wing-msg {
+      font-family: var(--font-serif);
+      font-size: 12px;
+      font-style: italic;
+      color: #4a2a18;
+      line-height: 1.4;
+      padding: 0 4px;
+    }
+    .wing-event-pill {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(212, 175, 55, 0.18);
+      border: 1px solid rgba(184, 134, 11, 0.5);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 11px;
+      color: #5c2811;
+      width: 100%;
+    }
+    .wing-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+    .wing-union-btn {
+      background: linear-gradient(135deg, #8b2518, #63160c);
+      color: #ffd700;
+      border: 1px solid #d4af37;
+      border-radius: 22px;
+      padding: 10px 14px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(139, 37, 24, 0.35);
+    }
+    .wing-close-btn {
+      background: rgba(139, 37, 24, 0.08);
+      color: #6b3d24;
+      border: 1px solid rgba(139, 37, 24, 0.25);
+      border-radius: 20px;
+      padding: 7px 12px;
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    @media (max-width: 640px) {
+      .heirloom-door-overlay { padding: 44px 8px 50px; }
+      .heirloom-door-stage { height: min(560px, 100%); }
+      .heirloom-wing { padding: 12px 7px; }
+      .wing-shloka { font-size: 7.5px; letter-spacing: 0.8px; }
+      .wing-icon { width: 24px; height: 24px; }
+      .wing-badge { font-size: 7px; letter-spacing: 0.8px; padding: 3px 7px; }
+      .wing-name { font-size: 28px; }
+      .wing-portrait { width: 50px; height: 50px; }
+      .wing-parents { font-size: 9.5px; padding: 5px 6px; }
+      .wing-parents small { font-size: 7.5px; }
+      .wing-msg { font-size: 9.5px; line-height: 1.3; }
+      .wing-event-pill { font-size: 8.5px; padding: 4px 6px; gap: 4px; }
+      .wing-union-btn { font-size: 8px; padding: 8px 6px; letter-spacing: 0.4px; }
+      .wing-close-btn { font-size: 8px; padding: 5px 8px; }
+    }
+
+    .door-frame-inner {
+      width: 100%;
+      height: 100%;
+      max-width: 360px;
+      max-height: 92vh;
+      border: 1.5px solid rgba(212, 175, 55, 0.5);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 12px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, transparent 30%, transparent 70%, rgba(212, 175, 55, 0.05) 100%);
+    }
+    .door-frame-inner::before {
+      content: '';
+      position: absolute;
+      inset: 7px;
+      border: 1px dashed rgba(212, 175, 55, 0.3);
+      border-radius: 11px;
+      pointer-events: none;
+    }
+
+    .door-bells-top {
+      width: 48px;
+      height: auto;
+      opacity: 0.88;
+      filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.45));
+    }
+    .door-side-pill {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold-bright);
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid var(--border-gold);
+      padding: 4px 12px;
+      border-radius: 14px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .door-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.85), 0 0 18px rgba(212, 175, 55, 0.45);
+      overflow: hidden;
+      background: #faf4e8;
+    }
+    .door-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .door-couple-name {
+      font-family: var(--font-cursive);
+      font-size: clamp(32px, 6vw, 48px);
+      color: #ffffff;
+      text-shadow: 0 0 18px rgba(212, 175, 55, 0.7);
+      line-height: 1.1;
+      text-align: center;
+    }
+    .door-lineage {
+      font-family: var(--font-serif);
+      font-size: clamp(10.5px, 2.2vw, 12px);
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      line-height: 1.35;
+      max-width: 210px;
+    }
+    .door-kolam-crest {
+      width: 32px;
+      height: 32px;
+      opacity: 0.78;
+    }
+    .door-tap-label {
+      font-family: var(--font-display);
+      font-size: 8.5px;
+      letter-spacing: 1.5px;
+      color: rgba(255, 240, 160, 0.75);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .door-center-seal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 50010;
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff4b8, #ffd700 42%, #b8860b 82%, #5c3a21 100%);
+      border: 3px solid #fff8d6;
+      box-shadow: 0 0 36px rgba(255, 215, 0, 0.75), 0 10px 32px rgba(0, 0, 0, 0.92);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      animation: sealPulse 2.4s infinite ease-in-out;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .door-center-seal:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    .heirloom-door-overlay.doors-opened .door-center-seal,
+    .heirloom-door-overlay.opened-groom .door-center-seal,
+    .heirloom-door-overlay.opened-bride .door-center-seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.25);
+      pointer-events: none;
+    }
+    @keyframes sealPulse {
+      0%, 100% { box-shadow: 0 0 26px rgba(255, 215, 0, 0.65), 0 10px 30px rgba(0, 0, 0, 0.9); }
+      50% { box-shadow: 0 0 46px rgba(255, 215, 0, 0.95), 0 12px 36px rgba(0, 0, 0, 0.95); }
+    }
+    .seal-monogram-text {
+      font-family: var(--font-display);
+      font-size: 23px;
+      font-weight: 900;
+      color: #2b1104;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .seal-open-text {
+      font-family: var(--font-display);
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      color: #3d1c06;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .door-top-banner {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50008;
+      background: rgba(18, 7, 5, 0.9);
+      border: 1px solid var(--border-gold);
+      border-radius: 30px;
+      padding: 6px 16px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .door-bottom-hint {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50008;
+      background: rgba(18, 7, 5, 0.9);
+      border: 1px solid var(--border-gold-bright);
+      border-radius: 30px;
+      padding: 8px 18px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+      transition: opacity 0.35s ease;
+    }
+    .heirloom-door-overlay.doors-opened .door-top-banner,
+    .heirloom-door-overlay.doors-opened .door-bottom-hint,
+    .heirloom-door-overlay.opened-groom .door-bottom-hint,
+    .heirloom-door-overlay.opened-bride .door-bottom-hint {
+      opacity: 0;
+    }
+
+    .nav-doors-btn {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--gold-light);
+      font-family: var(--font-display);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .nav-doors-btn:hover {
+      background: rgba(212, 175, 55, 0.25);
+      border-color: var(--gold-bright);
+    }
+
+    @media (max-width: 480px) {
+      .heirloom-door { padding: 12px 6px; }
+      .door-frame-inner { padding: 18px 8px; }
+      .door-avatar { width: 62px; height: 62px; }
+      .door-center-seal { width: 88px; height: 88px; }
+      .seal-monogram-text { font-size: 19px; }
+      .seal-open-text { font-size: 7px; }
+      .door-top-banner { font-size: 8.5px; padding: 5px 12px; }
+      .door-bottom-hint { font-size: 8.5px; padding: 7px 14px; }
+    }
   </style>
 </head>
-<body>
+<body class="door-locked">
 
   <!-- FOREGROUND CELEBRATION AKSHATA CANVAS (FALLS OVER ALL CARDS & SCREEN) -->
   <canvas id="akshataCanvas"></canvas>
 
   <!-- AMBIENT GOLD DUST CANVAS -->
   <canvas id="ambientCanvas"></canvas>
+
+  <!-- HEIRLOOM 3D DOOR OPENING ENTRANCE -->
+  <div id="heirloomDoorOverlay" class="heirloom-door-overlay" aria-label="Wedding Invitation Entrance Doors">
+    <div class="door-top-banner">॥ శుభమస్తు • Kalyana Mahotsavam ॥</div>
+
+    <div class="heirloom-door-stage">
+      <!-- WARM LUMINOUS INNER SANCTUM CANVAS -->
+      <div class="heirloom-inner-canvas">
+        <!-- WING 1: GROOM'S SIDE (REVEALED WHEN LEFT DOOR OPENS) -->
+        <div class="heirloom-wing heirloom-wing-groom" id="heirloomWingGroom">
+          <div class="wing-shloka">॥ श्री गणेशाय नमः ॥</div>
+          <img src="ganesha_clean.png" alt="Ganesha" class="wing-icon">
+          <div class="wing-badge">Groom's Family • Varapaksham</div>
+          <div class="wing-name">Shashi</div>
+          <div class="wing-portrait">
+            <img src="groom_doodle.png" alt="Shashi">
+          </div>
+          <div class="wing-parents">
+            <small>Son of</small>
+            Sri Angajala Venkataswamy &amp; Smt. Nirmala
+          </div>
+          <div class="wing-msg">
+            "With immense joy and the sacred blessings of our elders, the Angajala family cordially invites you to grace the wedding of our beloved son Shashi with Raveena."
+          </div>
+          <div class="wing-event-pill">
+            <span><strong>Muhurtham:</strong> 09:50 AM</span>
+            <span><strong>Date:</strong> 13-Dec-2026</span>
+          </div>
+          <div class="wing-actions">
+            <button type="button" class="wing-union-btn" onclick="openBothHeirloomDoors()">👑 View Full Wedding Union ➔</button>
+            <button type="button" class="wing-close-btn" onclick="closeHeirloomDoors()">✕ Close Door</button>
+          </div>
+        </div>
+
+        <!-- WING 2: BRIDE'S SIDE (REVEALED WHEN RIGHT DOOR OPENS) -->
+        <div class="heirloom-wing heirloom-wing-bride" id="heirloomWingBride">
+          <div class="wing-shloka">॥ శుభమస్తు • Kalyanam ॥</div>
+          <img src="sikku_kolam_clean.png" alt="Kolam" class="wing-icon">
+          <div class="wing-badge">Bride's Family • Kanyapaksham</div>
+          <div class="wing-name">Raveena</div>
+          <div class="wing-portrait">
+            <img src="bride_doodle.png" alt="Raveena">
+          </div>
+          <div class="wing-parents">
+            <small>Daughter of</small>
+            Sri Kotipalli Jagadeeshwararao &amp; Smt. Sujatha
+          </div>
+          <div class="wing-msg">
+            "With overflowing love and heartfelt blessings, the Kotipalli family warmly invites you to witness and bless our dearest daughter Raveena as she unites with Shashi."
+          </div>
+          <div class="wing-event-pill">
+            <span><strong>Muhurtham:</strong> 09:50 AM</span>
+            <span><strong>Date:</strong> 13-Dec-2026</span>
+          </div>
+          <div class="wing-actions">
+            <button type="button" class="wing-union-btn" onclick="openBothHeirloomDoors()">👑 View Full Wedding Union ➔</button>
+            <button type="button" class="wing-close-btn" onclick="closeHeirloomDoors()">✕ Close Door</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left Door: Groom's Side -->
+      <div class="heirloom-door heirloom-door-left" onclick="handleLeftDoorClick()" role="button" tabindex="0" aria-label="Open Groom's Side Door">
+        <div class="door-frame-inner">
+          <img src="asset_bells.png" alt="Temple Bells" class="door-bells-top">
+          <div class="door-side-pill">Varapaksham • Groom</div>
+          <div class="door-avatar">
+            <img src="groom_doodle.png" alt="Shashi">
+          </div>
+          <div>
+            <div class="door-couple-name">Shashi</div>
+            <div class="door-lineage">Son of Sri Angajala Venkataswamy &amp; Smt. Nirmala</div>
+          </div>
+          <img src="sikku_kolam_clean.png" alt="Kolam" class="door-kolam-crest">
+          <div class="door-tap-label">👈 Tap for Groom's Side</div>
+        </div>
+      </div>
+
+      <!-- Right Door: Bride's Side -->
+      <div class="heirloom-door heirloom-door-right" onclick="handleRightDoorClick()" role="button" tabindex="0" aria-label="Open Bride's Side Door">
+        <div class="door-frame-inner">
+          <img src="asset_bells.png" alt="Temple Bells" class="door-bells-top" style="transform:scaleX(-1);">
+          <div class="door-side-pill">Kanyapaksham • Bride</div>
+          <div class="door-avatar">
+            <img src="bride_doodle.png" alt="Raveena">
+          </div>
+          <div>
+            <div class="door-couple-name">Raveena</div>
+            <div class="door-lineage">Daughter of Sri Kotipalli Jagadeeshwararao &amp; Smt. Sujatha</div>
+          </div>
+          <img src="sikku_kolam_clean.png" alt="Kolam" class="door-kolam-crest" style="transform:scaleX(-1);">
+          <div class="door-tap-label">Tap for Bride's Side 👉</div>
+        </div>
+      </div>
+
+      <!-- Center Sacred Union Seal -->
+      <div class="door-center-seal" onclick="openBothHeirloomDoors()" role="button" tabindex="0" aria-label="Open Both Doors">
+        <div class="seal-monogram-text">S&amp;R</div>
+        <div class="seal-open-text">Union</div>
+      </div>
+    </div>
+
+    <div class="door-bottom-hint">✦ Tap Seal or Doors to Enter &amp; Play Sacred Music ✦</div>
+  </div>
 
   <!-- TOP FROSTED STATUS BAR -->
   <nav class="top-nav">
@@ -850,14 +1468,17 @@
       <span class="live-dot"></span>
       <span>13 DEC 2026</span>
     </div>
-    <button class="nav-audio-btn" id="audioToggle" onclick="toggleAudio()">
-      <span class="sound-bars">
-        <span class="s-bar"></span>
-        <span class="s-bar"></span>
-        <span class="s-bar"></span>
-      </span>
-      <span id="audioStatus">MUSIC</span>
-    </button>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <button class="nav-doors-btn" onclick="closeHeirloomDoors()" title="Replay Door Entrance">DOORS</button>
+      <button class="nav-audio-btn" id="audioToggle" onclick="toggleAudio()">
+        <span class="sound-bars">
+          <span class="s-bar"></span>
+          <span class="s-bar"></span>
+          <span class="s-bar"></span>
+        </span>
+        <span id="audioStatus">MUSIC</span>
+      </button>
+    </div>
   </nav>
 
   <!-- MAIN EDITORIAL CONTENT -->
@@ -1123,8 +1744,11 @@
     </div>
   </div>
 
-  <!-- AUDIO ENGINE -->
+  <!-- AUDIO ENGINE (HEIRLOOM ENTRY, KETTI MELAM & TABAL SOUNDS) -->
+  <audio id="audioEntry" src="entry_8d.mp3" loop preload="auto"></audio>
   <audio id="audioMain" src="kettimelam_exact_mela.mp3" loop preload="auto"></audio>
+  <audio id="audioGroom" src="sound_groom_side.mp3" preload="auto"></audio>
+  <audio id="audioBride" src="sound_bride_side.mp3?v=2" preload="auto"></audio>
 
   <script>
     // 1. DYNAMIC PERSONALIZED GUEST HONORS
@@ -1316,62 +1940,172 @@
       }
     }
 
-    // 4. SPATIAL AUDIO ENGINE WITH SEAMLESS GESTURE UNLOCK
-    const audio = document.getElementById('audioMain');
+    // 4. HEIRLOOM DOOR OPENING & SACRED AUDIO ENGINE (HEIRLOOM SOUNDS ONLY)
+    const doorOverlay = document.getElementById('heirloomDoorOverlay');
+    const audioEntry = document.getElementById('audioEntry');
+    const audioMain = document.getElementById('audioMain');
+    const audioGroom = document.getElementById('audioGroom');
+    const audioBride = document.getElementById('audioBride');
     const audioBtn = document.getElementById('audioToggle');
     const audioStatus = document.getElementById('audioStatus');
     const audioPrompt = document.getElementById('audioPromptBanner');
+
     let isPlaying = false;
+    let isMutedByUser = false;
+    let activeAudio = audioEntry;
 
     function hideAudioPrompt() {
       if (audioPrompt) audioPrompt.classList.add('hidden');
     }
 
-    function playAudioStream() {
-      audio.volume = 0.65;
-      return audio.play().then(() => {
+    function stopAllHeirloomAudio() {
+      [audioEntry, audioMain, audioGroom, audioBride].forEach(track => {
+        if (!track.paused) track.pause();
+        track.currentTime = 0;
+      });
+    }
+
+    function playHeirloomTrack(track, vol = 0.65) {
+      stopAllHeirloomAudio();
+      activeAudio = track;
+      track.volume = vol;
+      return track.play().then(() => {
         isPlaying = true;
+        isMutedByUser = false;
         audioBtn.classList.remove('muted');
         audioStatus.textContent = 'PLAYING';
         hideAudioPrompt();
       });
     }
 
+    // Smoothly continue with main Ketti Melam after side-specific motif finishes
+    [audioGroom, audioBride].forEach(sideTrack => {
+      sideTrack.addEventListener('ended', () => {
+        if (!isMutedByUser) {
+          playHeirloomTrack(audioMain, 0.65).catch(() => {});
+        }
+      });
+    });
+
+    function playDoorTrack(track) {
+      if (isMutedByUser) return;
+      playHeirloomTrack(track, 0.65).catch(() => {
+        audioBtn.classList.add('muted');
+        audioStatus.textContent = 'MUTED';
+        if (audioPrompt) audioPrompt.classList.remove('hidden');
+      });
+    }
+
+    function openGroomWing() {
+      if (!doorOverlay) return;
+      if ('vibrate' in navigator) try { navigator.vibrate(20); } catch (e) {}
+      doorOverlay.className = 'heirloom-door-overlay opened-groom';
+      document.body.classList.add('door-locked');
+      playDoorTrack(audioGroom);
+    }
+
+    function openBrideWing() {
+      if (!doorOverlay) return;
+      if ('vibrate' in navigator) try { navigator.vibrate(20); } catch (e) {}
+      doorOverlay.className = 'heirloom-door-overlay opened-bride';
+      document.body.classList.add('door-locked');
+      playDoorTrack(audioBride);
+    }
+
+    function handleLeftDoorClick() {
+      if (!doorOverlay) return;
+      if (doorOverlay.classList.contains('opened-groom')) {
+        closeHeirloomDoors();
+      } else {
+        openGroomWing();
+      }
+    }
+
+    function handleRightDoorClick() {
+      if (!doorOverlay) return;
+      if (doorOverlay.classList.contains('opened-bride')) {
+        closeHeirloomDoors();
+      } else {
+        openBrideWing();
+      }
+    }
+
+    function openBothHeirloomDoors() {
+      if (!doorOverlay || doorOverlay.classList.contains('doors-opened')) return;
+
+      if ('vibrate' in navigator) {
+        try { navigator.vibrate([25, 45, 25]); } catch (e) {}
+      }
+
+      doorOverlay.className = 'heirloom-door-overlay opened-both doors-opened';
+      document.body.classList.remove('door-locked');
+
+      // Shower sacred Akshathalu as both doors swing open
+      setTimeout(() => {
+        showerAkshataCelebration();
+      }, 450);
+
+      playDoorTrack(audioMain);
+    }
+
+    function closeHeirloomDoors() {
+      if (!doorOverlay) return;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      doorOverlay.className = 'heirloom-door-overlay';
+      document.body.classList.add('door-locked');
+    }
+
+    // Keyboard support for door panels & center seal
+    document.querySelectorAll('.heirloom-door, .door-center-seal').forEach(el => {
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          el.click();
+        }
+      });
+    });
+
     function toggleAudio() {
       if (isPlaying) {
-        audio.pause();
+        activeAudio.pause();
         isPlaying = false;
+        isMutedByUser = true;
         audioBtn.classList.add('muted');
         audioStatus.textContent = 'MUTED';
       } else {
-        playAudioStream().catch(() => {});
+        isMutedByUser = false;
+        activeAudio.volume = 0.65;
+        activeAudio.play().then(() => {
+          isPlaying = true;
+          audioBtn.classList.remove('muted');
+          audioStatus.textContent = 'PLAYING';
+          hideAudioPrompt();
+        }).catch(() => {});
       }
     }
 
     function startAudioOnInteraction() {
       if (!isPlaying) {
-        playAudioStream().catch(() => {});
+        isMutedByUser = false;
+        playHeirloomTrack(activeAudio || audioMain, 0.65).catch(() => {});
       }
     }
 
-    // Try immediate autoplay on page load
-    playAudioStream().catch(() => {
-      // Browser blocked unprompted autoplay per security law:
-      // Show floating prompt & unlock sound on ANY first user gesture (touch, scroll, wheel, click, key)
+    // Play entry_8d.mp3 immediately on site entry (with seamless first-gesture unlock if browser blocks autoplay)
+    hideAudioPrompt();
+    playHeirloomTrack(audioEntry, 0.65).catch(() => {
       audioBtn.classList.add('muted');
-      audioStatus.textContent = 'MUTED';
-      
-      const unlockEvents = ['click', 'touchstart', 'touchend', 'touchmove', 'scroll', 'wheel', 'keydown', 'pointerdown'];
-      function unlockOnAnyGesture() {
-        if (!isPlaying) {
-          playAudioStream().catch(() => {});
-        }
-        unlockEvents.forEach(evt => window.removeEventListener(evt, unlockOnAnyGesture));
-        unlockEvents.forEach(evt => document.removeEventListener(evt, unlockOnAnyGesture));
-      }
+      audioStatus.textContent = 'MUSIC';
 
-      unlockEvents.forEach(evt => window.addEventListener(evt, unlockOnAnyGesture, { passive: true, once: true }));
-      unlockEvents.forEach(evt => document.addEventListener(evt, unlockOnAnyGesture, { passive: true, once: true }));
+      const entryUnlockEvents = ['pointerdown', 'touchstart', 'keydown'];
+      function unlockEntrySong(e) {
+        entryUnlockEvents.forEach(evt => window.removeEventListener(evt, unlockEntrySong));
+        if (isMutedByUser || isPlaying) return;
+        // If user directly tapped a door or the center seal, let that door's handler play its own sound
+        if (e && e.target && e.target.closest && e.target.closest('.heirloom-door, .door-center-seal')) return;
+        playHeirloomTrack(audioEntry, 0.65).catch(() => {});
+      }
+      entryUnlockEvents.forEach(evt => window.addEventListener(evt, unlockEntrySong, { passive: true, once: true }));
     });
 
     // 5. MODALS & SILENT EMAIL RSVP
