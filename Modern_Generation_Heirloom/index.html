@@ -608,6 +608,67 @@
       box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
     }
 
+    /* FLOATING SACRED MUSIC PROMPT */
+    .audio-prompt-banner {
+      position: fixed;
+      bottom: 72px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 998;
+      background: linear-gradient(135deg, rgba(38, 12, 10, 0.95), rgba(20, 6, 5, 0.95));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 215, 0, 0.55);
+      border-radius: 30px;
+      padding: 9px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.65), 0 0 16px rgba(255, 215, 0, 0.25);
+      animation: promptGlowPulse 2.4s infinite ease-in-out;
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      pointer-events: auto;
+    }
+    .audio-prompt-banner.hidden {
+      opacity: 0;
+      transform: translateX(-50%) translateY(25px);
+      pointer-events: none;
+    }
+    @keyframes promptGlowPulse {
+      0%, 100% { box-shadow: 0 8px 25px rgba(0,0,0,0.65), 0 0 12px rgba(255,215,0,0.25); transform: translateX(-50%) scale(1); }
+      50% { box-shadow: 0 10px 32px rgba(0,0,0,0.8), 0 0 24px rgba(255,215,0,0.6); transform: translateX(-50%) scale(1.03); }
+    }
+    .prompt-icon-ring {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.15);
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+    .prompt-text-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .prompt-main-text {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffd700;
+    }
+    .prompt-sub-text {
+      font-size: 9px;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+    }
+
     /* SILENT RSVP FORM STYLES */
     .rsvp-form-group {
       text-align: left;
@@ -941,6 +1002,15 @@
 
   </main>
 
+  <!-- FLOATING SACRED MUSIC UNLOCK PROMPT -->
+  <div id="audioPromptBanner" class="audio-prompt-banner" onclick="startAudioOnInteraction()">
+    <div class="prompt-icon-ring">🎵</div>
+    <div class="prompt-text-group">
+      <span class="prompt-main-text">Tap anywhere to play sacred music</span>
+      <span class="prompt-sub-text">Auspicious Ketti Melam • Sannai Melam</span>
+    </div>
+  </div>
+
   <!-- BOTTOM FLOATING MODERN DOCK -->
   <div class="bottom-dock">
     <a href="#hero" class="dock-tab active">Overview</a>
@@ -1223,11 +1293,26 @@
       }
     }
 
-    // 4. SPATIAL AUDIO ENGINE
+    // 4. SPATIAL AUDIO ENGINE WITH SEAMLESS GESTURE UNLOCK
     const audio = document.getElementById('audioMain');
     const audioBtn = document.getElementById('audioToggle');
     const audioStatus = document.getElementById('audioStatus');
+    const audioPrompt = document.getElementById('audioPromptBanner');
     let isPlaying = false;
+
+    function hideAudioPrompt() {
+      if (audioPrompt) audioPrompt.classList.add('hidden');
+    }
+
+    function playAudioStream() {
+      audio.volume = 0.65;
+      return audio.play().then(() => {
+        isPlaying = true;
+        audioBtn.classList.remove('muted');
+        audioStatus.textContent = 'PLAYING';
+        hideAudioPrompt();
+      });
+    }
 
     function toggleAudio() {
       if (isPlaying) {
@@ -1236,21 +1321,35 @@
         audioBtn.classList.add('muted');
         audioStatus.textContent = 'MUTED';
       } else {
-        audio.volume = 0.65;
-        audio.play().then(() => {
-          isPlaying = true;
-          audioBtn.classList.remove('muted');
-          audioStatus.textContent = 'PLAYING';
-        }).catch(() => {});
+        playAudioStream().catch(() => {});
       }
     }
 
-    // Auto-enable audio on user's first scroll/tap
-    document.addEventListener('pointerdown', function() {
+    function startAudioOnInteraction() {
       if (!isPlaying) {
-        toggleAudio();
+        playAudioStream().catch(() => {});
       }
-    }, { once: true });
+    }
+
+    // Try immediate autoplay on page load
+    playAudioStream().catch(() => {
+      // Browser blocked unprompted autoplay per security law:
+      // Show floating prompt & unlock sound on ANY first user gesture (touch, scroll, wheel, click, key)
+      audioBtn.classList.add('muted');
+      audioStatus.textContent = 'MUTED';
+      
+      const unlockEvents = ['click', 'touchstart', 'touchend', 'touchmove', 'scroll', 'wheel', 'keydown', 'pointerdown'];
+      function unlockOnAnyGesture() {
+        if (!isPlaying) {
+          playAudioStream().catch(() => {});
+        }
+        unlockEvents.forEach(evt => window.removeEventListener(evt, unlockOnAnyGesture));
+        unlockEvents.forEach(evt => document.removeEventListener(evt, unlockOnAnyGesture));
+      }
+
+      unlockEvents.forEach(evt => window.addEventListener(evt, unlockOnAnyGesture, { passive: true, once: true }));
+      unlockEvents.forEach(evt => document.addEventListener(evt, unlockOnAnyGesture, { passive: true, once: true }));
+    });
 
     // 5. MODALS & SILENT EMAIL RSVP
     function openCalendarModal() {
