@@ -1001,6 +1001,11 @@
         </div>
 
         <div class="rsvp-form-group">
+          <label class="rsvp-form-label">Phone / WhatsApp (Optional)</label>
+          <input type="tel" id="rsvpContact" class="rsvp-input" placeholder="e.g. +91 98765 43210">
+        </div>
+
+        <div class="rsvp-form-group">
           <label class="rsvp-form-label">Heartfelt Wishes (Optional)</label>
           <input type="text" id="rsvpMessage" class="rsvp-input" placeholder="Blessings for Shashi & Raveena...">
         </div>
@@ -1283,16 +1288,25 @@
       const nameInput = document.getElementById('rsvpGuestName');
       const name = nameInput.value.trim() || (guestParam ? decodeURIComponent(guestParam).trim() : 'Honored Guest');
       const count = document.getElementById('rsvpGuestCount').value || selectedGuestCount;
+      const contact = document.getElementById('rsvpContact') ? document.getElementById('rsvpContact').value.trim() : '';
       const msg = document.getElementById('rsvpMessage').value.trim() || 'Auspicious wishes for Shashi & Raveena!';
       const submitBtn = document.getElementById('btnSubmitRsvp');
+
+      // Check if user is testing locally via file://
+      if (window.location.protocol === 'file:') {
+        console.warn('Note: Browsing via file://. FormSubmit requires an HTTP/S host (e.g., GitHub Pages) to deliver emails without blocking.');
+      }
 
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span>⏳ Sending Confirmation...</span>';
 
       const payload = {
         _subject: `Wedding RSVP: ${name} (${count} Guests Attending)`,
+        _captcha: 'false',
+        _template: 'table',
         Guest_Name: name,
         Attending_Count: count,
+        Contact_Number: contact || 'Not provided',
         Blessings_Message: msg,
         Ceremony: "Shashi & Raveena Wedding - 13 Dec 2026",
         Venue: "Thanmaya Farmstay Resort, Warangal Highway",
@@ -1300,7 +1314,7 @@
       };
 
       try {
-        await fetch('https://formsubmit.co/ajax/shashi123kumar99@gmail.com', {
+        const response = await fetch('https://formsubmit.co/ajax/shashi123kumar99@gmail.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -1308,6 +1322,8 @@
           },
           body: JSON.stringify(payload)
         });
+        const result = await response.json();
+        console.log('RSVP response status:', result);
       } catch (err) {
         console.log('Silent RSVP dispatched:', err);
       }
