@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
+  <defs>
+    <!-- 24K Polished Gold Gradient -->
+    <linearGradient id="goldMain" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#fff8d0"/>
+      <stop offset="20%" stop-color="#ffd700"/>
+      <stop offset="45%" stop-color="#f5ba28"/>
+      <stop offset="75%" stop-color="#cb8610"/>
+      <stop offset="100%" stop-color="#804a02"/>
+    </linearGradient>
+
+    <!-- Warm Coconut & Husk Gradient -->
+    <linearGradient id="coconutGrad" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#ffe6a3"/>
+      <stop offset="35%" stop-color="#d9942a"/>
+      <stop offset="75%" stop-color="#9a520c"/>
+      <stop offset="100%" stop-color="#542400"/>
+    </linearGradient>
+
+    <!-- Sacred Mango Leaf Gold-Green Gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff5b0"/>
+      <stop offset="30%" stop-color="#d4af37"/>
+      <stop offset="70%" stop-color="#8b7500"/>
+      <stop offset="100%" stop-color="#463800"/>
+    </linearGradient>
+
+    <!-- Specular Highlight -->
+    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="sacredAura" cx="50%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#d4af37" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sacred Soft Aura -->
+  <ellipse cx="60" cy="85" rx="55" ry="65" fill="url(#sacredAura)"/>
+
+  <!-- 1. SACRED COCONUT (SHRIPHALA) -->
+  <g id="coconut">
+    <!-- Coconut body -->
+    <path d="M60 22 C48 34 44 48 45 62 C50 64 70 64 75 62 C76 48 72 34 60 22 Z" fill="url(#coconutGrad)" stroke="#ffd700" stroke-width="1.2"/>
+    <!-- Husk fibers & tuft -->
+    <path d="M60 12 C58 16 57 20 60 23 C63 20 62 16 60 12 Z" fill="#ffd700"/>
+    <path d="M57 14 C54 18 55 22 58 24" stroke="#ffd700" stroke-width="1" fill="none"/>
+    <path d="M63 14 C66 18 65 22 62 24" stroke="#ffd700" stroke-width="1" fill="none"/>
+    <!-- Coconut ribs -->
+    <path d="M60 24 Q52 42 53 58" stroke="#ffe299" stroke-width="0.8" fill="none" opacity="0.7"/>
+    <path d="M60 24 Q68 42 67 58" stroke="#ffe299" stroke-width="0.8" fill="none" opacity="0.7"/>
+    <path d="M60 24 V59" stroke="#ffe299" stroke-width="0.9" fill="none" opacity="0.8"/>
+  </g>
+
+  <!-- 2. AUSPICIOUS MANGO LEAVES (AMRAPALLAV - 5 LEAVES) -->
+  <g id="mango-leaves" stroke="#ffe890" stroke-width="0.8">
+    <!-- Far Left Leaf -->
+    <path d="M48 64 C32 58 16 46 12 36 C18 48 30 58 46 66 Z" fill="url(#leafGrad)"/>
+    <path d="M47 65 Q28 53 14 38" stroke="#ffd700" stroke-width="0.8" fill="none"/>
+
+    <!-- Far Right Leaf -->
+    <path d="M72 64 C88 58 104 46 108 36 C102 48 90 58 74 66 Z" fill="url(#leafGrad)"/>
+    <path d="M73 65 Q92 53 106 38" stroke="#ffd700" stroke-width="0.8" fill="none"/>
+
+    <!-- Mid Left Leaf -->
+    <path d="M50 63 C38 48 32 30 30 18 C38 30 48 48 52 64 Z" fill="url(#leafGrad)"/>
+    <path d="M51 63 Q40 40 31 20" stroke="#ffd700" stroke-width="0.8" fill="none"/>
+
+    <!-- Mid Right Leaf -->
+    <path d="M70 63 C82 48 88 30 90 18 C82 30 72 48 68 64 Z" fill="url(#leafGrad)"/>
+    <path d="M69 63 Q80 40 89 20" stroke="#ffd700" stroke-width="0.8" fill="none"/>
+
+    <!-- Center Top Leaf -->
+    <path d="M55 60 C53 42 56 22 60 8 C64 22 67 42 65 60 Z" fill="url(#leafGrad)"/>
+    <path d="M60 59 V10" stroke="#fff0a0" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- 3. KALASH POT (PURNA KUMBHAM) -->
+  <g id="pot">
+    <!-- Rim / Lip of Pot -->
+    <ellipse cx="60" cy="64" rx="24" ry="5.5" fill="url(#goldMain)" stroke="#ffd700" stroke-width="1.5"/>
+    <ellipse cx="60" cy="63.5" rx="21" ry="4" fill="none" stroke="#fff6bd" stroke-width="0.8"/>
+
+    <!-- Neck -->
+    <path d="M40 65 Q45 76 34 88 C20 102 20 124 38 138 C46 144 74 144 82 138 C100 124 100 102 86 88 Q75 76 80 65 Z" fill="url(#goldMain)" stroke="#ffd700" stroke-width="1.6"/>
+
+    <!-- Specular 3D Highlight curve on left side of pot -->
+    <path d="M38 90 C26 102 26 120 40 132 C31 122 30 106 42 94 Q47 84 45 72 Q41 78 38 90 Z" fill="url(#highlightGrad)"/>
+
+    <!-- Sacred Kalawa / Thread around Neck -->
+    <g id="neck-threads" stroke="#b31b1b" stroke-width="2.2" fill="none">
+      <path d="M42 70 Q60 75 78 70" stroke="#c41e3a"/>
+      <path d="M41 74 Q60 79 79 74" stroke="#ffd700" stroke-width="1.6"/>
+      <path d="M42 78 Q60 83 78 78" stroke="#c41e3a"/>
+    </g>
+
+    <!-- Beaded Gold Collar below neck -->
+    <g id="beads" fill="#fff2a8" stroke="#b8860b" stroke-width="0.5">
+      <circle cx="45" cy="83" r="1.8"/>
+      <circle cx="50" cy="85" r="2"/>
+      <circle cx="55" cy="86" r="2.2"/>
+      <circle cx="60" cy="86.5" r="2.3"/>
+      <circle cx="65" cy="86" r="2.2"/>
+      <circle cx="70" cy="85" r="2"/>
+      <circle cx="75" cy="83" r="1.8"/>
+    </g>
+
+    <!-- Sacred Auspicious Swastika / Royal Emblem on Pot Center -->
+    <g id="swastika" stroke="#901010" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.95">
+      <!-- Main Cross -->
+      <path d="M60 98 V118 M50 108 H70"/>
+      <!-- Swastika Arms -->
+      <path d="M60 98 H69 M70 108 V117 M60 118 H51 M50 108 V99"/>
+      <!-- Sacred Dots -->
+      <circle cx="55" cy="103" r="1.2" fill="#901010" stroke="none"/>
+      <circle cx="65" cy="103" r="1.2" fill="#901010" stroke="none"/>
+      <circle cx="55" cy="113" r="1.2" fill="#901010" stroke="none"/>
+      <circle cx="65" cy="113" r="1.2" fill="#901010" stroke="none"/>
+    </g>
+
+    <!-- Ornate Pot Base / Pedestal -->
+    <path d="M44 138 L42 145 C42 147 78 147 78 145 L76 138 Z" fill="url(#goldMain)" stroke="#ffd700" stroke-width="1.4"/>
+    <ellipse cx="60" cy="145" rx="19" ry="4.5" fill="url(#goldMain)" stroke="#ffe890" stroke-width="1"/>
+    <ellipse cx="60" cy="146.5" rx="15" ry="2.5" fill="#6d3800" opacity="0.4"/>
+  </g>
+</svg>

@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shashi & Raveena — The Wedding Celebration</title>
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Shashi & Raveena — Wedding Invitation">
+  <meta property="og:description" content="13 December 2026 • Thanmaya Farmstay Resort • Join us in celebrating our wedding.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Haute Couture Editorial Serifs & Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #0a0403;
+      --bg-card: rgba(26, 10, 8, 0.75);
+      --bg-card-hover: rgba(38, 15, 12, 0.85);
+      --border-gold: rgba(212, 175, 55, 0.35);
+      --border-gold-bright: rgba(255, 215, 0, 0.7);
+      --gold-primary: #d4af37;
+      --gold-light: #fff0a0;
+      --gold-bright: #ffd700;
+      --gold-deep: #a67c1e;
+      --red-accent: #c43224;
+      --text-main: #fbf5eb;
+      --text-muted: #c9b39c;
+      --font-display: 'Cinzel', serif;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-cursive: 'Great Vibes', cursive;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(196, 50, 36, 0.25) 0%, transparent 55%),
+        radial-gradient(circle at 10% 40%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(196, 50, 36, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 50% 95%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    /* FOREGROUND CELEBRATION AKSHATA CANVAS (FALLS DIRECTLY OVER ALL WIDGETS & CARDS) */
+    #akshataCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999999;
+    }
+
+    /* BACKGROUND PARTICLES CANVAS */
+    #ambientCanvas {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* TOP FLOATING FROSTED NAVIGATION */
+    .top-nav {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 28px);
+      max-width: 580px;
+      background: rgba(18, 7, 5, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 40px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 15px rgba(212, 175, 55, 0.15);
+    }
+    .nav-monogram {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #fff0a0, var(--gold-bright), var(--gold-deep));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-live-pill {
+      font-size: 10.5px;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      background: #25d366;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #25d366;
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .nav-audio-btn {
+      background: none;
+      border: none;
+      color: var(--gold-light);
+      font-size: 11px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+    .sound-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+    .s-bar {
+      width: 2px;
+      background: var(--gold-bright);
+      border-radius: 1px;
+      animation: barDance 1.2s infinite ease-in-out;
+    }
+    .s-bar:nth-child(1) { height: 4px; animation-delay: 0.1s; }
+    .s-bar:nth-child(2) { height: 10px; animation-delay: 0.3s; }
+    .s-bar:nth-child(3) { height: 6px; animation-delay: 0.2s; }
+    .nav-audio-btn.muted .s-bar {
+      animation: none;
+      height: 2px;
+      opacity: 0.4;
+    }
+    @keyframes barDance {
+      0%, 100% { height: 3px; }
+      50% { height: 12px; }
+    }
+
+    /* MAIN CONTAINER */
+    .editorial-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 85px 16px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* 1. HERO SECTION: EDITORIAL COVER */
+    .hero-cover {
+      text-align: center;
+      padding: 30px 16px 20px;
+      position: relative;
+    }
+    .hero-shloka {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+    .hero-ganesha-badge {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      background: radial-gradient(circle, rgba(212,175,55,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 16px rgba(212,175,55,0.5));
+    }
+    .hero-ganesha-badge img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+    .hero-kalyanam-sub {
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      letter-spacing: 5px;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .hero-names-title {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      background: linear-gradient(180deg, #ffffff 20%, #f7e6c4 65%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .hero-names-title .amp {
+      font-family: var(--font-cursive);
+      font-size: 44px;
+      font-weight: normal;
+      color: var(--gold-bright);
+      -webkit-text-fill-color: var(--gold-bright);
+      margin: 0 4px;
+    }
+    .hero-editorial-date {
+      font-size: 13.5px;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 6px;
+    }
+    .guest-special-tag {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 11.5px;
+      color: var(--gold-light);
+      letter-spacing: 0.5px;
+    }
+
+    /* 2. REAL-TIME CELEBRATION COUNTDOWN */
+    .countdown-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 22px 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .card-label-small {
+      font-family: var(--font-display);
+      font-size: 9.5px;
+      letter-spacing: 3px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .countdown-box {
+      background: rgba(10, 4, 3, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 14px;
+      padding: 10px 4px;
+    }
+    .c-num {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    }
+    .c-lbl {
+      font-size: 8.5px;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .countdown-note {
+      font-size: 11px;
+      color: rgba(247, 231, 196, 0.7);
+      font-style: italic;
+    }
+
+    /* 3. THE TWO SOULS: MODERN EDITORIAL DIPTYCH (COUPLE CARDS) */
+    .couple-diptych {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .duo-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 22px;
+      padding: 20px 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .duo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+    }
+    .duo-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold-bright);
+    }
+    .duo-avatar-frame {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.8), 0 0 15px rgba(212,175,55,0.4);
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: #faf4e8;
+    }
+    .duo-avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .duo-role-badge {
+      font-family: var(--font-display);
+      font-size: 8.5px;
+      letter-spacing: 2px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .duo-name {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .duo-parents {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.35;
+      font-style: italic;
+    }
+
+    /* 4. THE SACRED CEREMONIES (HIGH-END TIMELINE) */
+    .ceremony-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+    .ceremony-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(212, 175, 55, 0.25);
+    }
+    .ceremony-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .ceremony-time-badge {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 12px;
+      padding: 8px 12px;
+      min-width: 82px;
+      text-align: center;
+    }
+    .time-large {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--gold-bright);
+      line-height: 1;
+    }
+    .time-day {
+      font-size: 8.5px;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .ceremony-info {
+      flex: 1;
+    }
+    .ceremony-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .ceremony-details {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* 5. SAPTAPADI ART BANNER */
+    .saptapadi-showcase {
+      background: linear-gradient(145deg, rgba(35, 12, 8, 0.9), rgba(18, 5, 4, 0.95));
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 22px 18px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+    }
+    .saptapadi-img-modern {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      margin: 10px auto;
+      display: block;
+    }
+    .saptapadi-caption {
+      font-family: var(--font-serif);
+      font-size: 13.5px;
+      font-style: italic;
+      color: #f7e6c4;
+      line-height: 1.45;
+    }
+
+    /* 6. DESTINATION & ZERO-FRICTION LOGISTICS */
+    .venue-card-modern {
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    .venue-name-large {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 4px 0 2px;
+    }
+    .venue-address-sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .modern-btn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .btn-action-modern {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+    .btn-maps {
+      background: linear-gradient(135deg, #c43224, #8b1e14);
+      color: #ffffff;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+    }
+    .btn-maps:hover {
+      background: #dc3929;
+      transform: translateY(-2px);
+    }
+    .btn-uber {
+      background: #111111;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .btn-uber:hover {
+      background: #252525;
+      transform: translateY(-2px);
+    }
+    .btn-full-width {
+      grid-column: span 2;
+    }
+    .btn-calendar {
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+    }
+    .btn-calendar:hover {
+      background: rgba(212, 175, 55, 0.25);
+      transform: translateY(-2px);
+    }
+    .qr-badge-modern {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 5px 12px;
+      color: #1a0806;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .qr-badge-modern img {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* 7. BLESSINGS & CELEBRATION FOOTER */
+    .blessings-card {
+      text-align: center;
+      padding: 24px 16px;
+      background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.1) 0%, transparent 80%);
+    }
+    .family-lineage-text {
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .family-invite-sub {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .btn-shower-akshata {
+      background: linear-gradient(135deg, #ffd700, #d4af37);
+      color: #1a0806;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-shower-akshata:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+    }
+
+    /* SILENT RSVP FORM STYLES */
+    .rsvp-form-group {
+      text-align: left;
+      margin-bottom: 14px;
+    }
+    .rsvp-form-label {
+      display: block;
+      font-size: 10px;
+      font-family: var(--font-display);
+      letter-spacing: 1.5px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .rsvp-input {
+      width: 100%;
+      background: rgba(10, 4, 3, 0.85);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #ffffff;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .rsvp-input:focus {
+      border-color: var(--gold-bright);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    .count-pills-row {
+      display: flex;
+      gap: 7px;
+      justify-content: space-between;
+    }
+    .count-pill-btn {
+      flex: 1;
+      background: rgba(10, 4, 3, 0.7);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 9px 4px;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .count-pill-btn.active {
+      background: linear-gradient(135deg, #ffd700, #d4af37);
+      color: #1a0806;
+      border-color: #ffd700;
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+    }
+    .rsvp-success-card {
+      display: none;
+      padding: 10px 4px;
+      text-align: center;
+    }
+
+    /* BOTTOM FLOATING DOCK */
+    .bottom-dock {
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 28px);
+      max-width: 440px;
+      background: rgba(18, 7, 5, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 40px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 1000;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+    }
+    .dock-tab {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .dock-tab:hover, .dock-tab.active {
+      color: #ffffff;
+      background: rgba(212, 175, 55, 0.2);
+    }
+    .dock-tab.rsvp {
+      background: linear-gradient(135deg, #128c7e, #075e54);
+      color: #ffffff;
+      padding: 8px 16px;
+    }
+
+    /* MODAL */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(10, 4, 3, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-box {
+      background: linear-gradient(145deg, #2b1104, #140501);
+      border: 2px solid var(--gold-bright);
+      border-radius: 22px;
+      max-width: 380px;
+      width: 100%;
+      padding: 26px 20px 22px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 65px rgba(0,0,0,0.95);
+      transform: scale(0.92);
+      transition: transform 0.3s ease;
+    }
+    .modal-backdrop.open .modal-box {
+      transform: scale(1);
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px; right: 14px;
+      background: none; border: none;
+      color: var(--gold-primary);
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FOREGROUND CELEBRATION AKSHATA CANVAS (FALLS OVER ALL CARDS & SCREEN) -->
+  <canvas id="akshataCanvas"></canvas>
+
+  <!-- AMBIENT GOLD DUST CANVAS -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- TOP FROSTED STATUS BAR -->
+  <nav class="top-nav">
+    <div class="nav-monogram">
+      <span>✦</span> S&amp;R
+    </div>
+    <div class="nav-live-pill">
+      <span class="live-dot"></span>
+      <span>13 DEC 2026</span>
+    </div>
+    <button class="nav-audio-btn" id="audioToggle" onclick="toggleAudio()">
+      <span class="sound-bars">
+        <span class="s-bar"></span>
+        <span class="s-bar"></span>
+        <span class="s-bar"></span>
+      </span>
+      <span id="audioStatus">MUSIC</span>
+    </button>
+  </nav>
+
+  <!-- MAIN EDITORIAL CONTENT -->
+  <main class="editorial-container">
+
+    <!-- 1. HERO COVER: CINEMATIC REVEAL -->
+    <section class="hero-cover" id="hero">
+      <div class="hero-shloka">॥ శ్రీ వేంకటేశ్వర ప్రసన్న ॥</div>
+      <div class="hero-ganesha-badge">
+        <img src="ganesha_clean.png" alt="Ganesha">
+      </div>
+      <div class="hero-kalyanam-sub">Kalyana Mahotsavam</div>
+      <h1 class="hero-names-title">
+        Shashi <span class="amp">&amp;</span> Raveena
+      </h1>
+      <p class="hero-editorial-date">Sunday • 13 December 2026 • 09:50 AM</p>
+      
+      <div class="guest-special-tag" id="guestGreetingTag">
+        <span>🌿</span>
+        <span id="guestHonorName">Distinguished Guest &amp; Family</span>
+      </div>
+    </section>
+
+    <!-- 2. REAL-TIME CEREMONY COUNTDOWN -->
+    <section class="countdown-card" id="countdown">
+      <div class="card-label-small">Auspicious Muhurtham Countdown</div>
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <div class="c-num" id="dDays">--</div>
+          <div class="c-lbl">Days</div>
+        </div>
+        <div class="countdown-box">
+          <div class="c-num" id="dHours">--</div>
+          <div class="c-lbl">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="c-num" id="dMins">--</div>
+          <div class="c-lbl">Mins</div>
+        </div>
+        <div class="countdown-box">
+          <div class="c-num" id="dSecs">--</div>
+          <div class="c-lbl">Secs</div>
+        </div>
+      </div>
+      <div class="countdown-note">Sumuhurtham at 09:50 AM • Dhanur Lagna</div>
+    </section>
+
+    <!-- 3. THE TWO SOULS (COUPLE & LINEAGE DIPTYCH) -->
+    <section class="couple-diptych" id="couple">
+      <!-- Groom Card -->
+      <div class="duo-card">
+        <div class="duo-avatar-frame">
+          <img src="groom_doodle.png" alt="Shashi">
+        </div>
+        <div class="duo-role-badge">The Groom</div>
+        <div class="duo-name">Shashi</div>
+        <div class="duo-parents">
+          Son of Sri Angajala Venkataswamy<br>&amp; Smt. Nirmala
+        </div>
+      </div>
+
+      <!-- Bride Card -->
+      <div class="duo-card">
+        <div class="duo-avatar-frame">
+          <img src="bride_doodle.png" alt="Raveena">
+        </div>
+        <div class="duo-role-badge">The Bride</div>
+        <div class="duo-name">Raveena</div>
+        <div class="duo-parents">
+          Daughter of Sri Kotipalli Jagadhishwarao<br>&amp; Smt. Sujatha
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CEREMONY TIMELINE -->
+    <section class="ceremony-card" id="timeline">
+      <div class="card-label-small">The Wedding Itinerary</div>
+
+      <div class="ceremony-row">
+        <div class="ceremony-time-badge">
+          <div class="time-large">09:50</div>
+          <div class="time-day">AM</div>
+        </div>
+        <div class="ceremony-info">
+          <div class="ceremony-title">Auspicious Sumuhurtham</div>
+          <div class="ceremony-details">
+            Dhanur Lagna Sumuhurtham &amp; Saptapadi Kalyanam in the sacred presence of family and elders.
+          </div>
+        </div>
+      </div>
+
+      <div class="ceremony-row">
+        <div class="ceremony-time-badge">
+          <div class="time-large">FEAST</div>
+          <div class="time-day">Afternoon</div>
+        </div>
+        <div class="ceremony-info">
+          <div class="ceremony-title">Grand Wedding Reception</div>
+          <div class="ceremony-details">
+            Festive wedding feast, felicitations, and celebrations following the marriage ceremony.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SAPTAPADI SACRED ART -->
+    <section class="saptapadi-showcase">
+      <div class="card-label-small">Sacred Ritual of Seven Steps</div>
+      <img src="feet_artwork_feathered.png" alt="Saptapadi Sacred Feet" class="saptapadi-img-modern">
+      <p class="saptapadi-caption">
+        సప్తపది • "Together we take the seven sacred steps into a lifetime of boundless love, companionship, and harmony."
+      </p>
+    </section>
+
+    <!-- 6. DESTINATION & ZERO-FRICTION LOGISTICS -->
+    <section class="venue-card-modern" id="destination">
+      <div class="card-label-small">Wedding Destination</div>
+      <h2 class="venue-name-large">Thanmaya Farmstay Resort</h2>
+      <p class="venue-address-sub">Rajavaram, Warangal Highway, Telangana 506144</p>
+
+      <div class="modern-btn-grid" style="grid-template-columns: 1fr;">
+        <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" rel="noopener noreferrer" class="btn-action-modern btn-maps" style="padding:12px 18px; font-size:11px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Get Directions (Google Maps) ➔</span>
+        </a>
+
+        <button class="btn-action-modern btn-calendar" style="padding:12px 18px; font-size:11px;" onclick="openCalendarModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Sync Auspicious Date to Calendar</span>
+        </button>
+      </div>
+
+      <a href="https://maps.google.com/?q=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" rel="noopener noreferrer" class="qr-badge-modern">
+        <img src="venue_qr.svg" alt="QR" onerror="this.src='venue_qr.png'">
+        <span>Scan or Tap for Google Maps Pin</span>
+      </a>
+    </section>
+
+    <!-- 7. BLESSINGS & CELEBRATION FOOTER -->
+    <section class="blessings-card" id="blessings">
+      <div class="family-lineage-text">Sri Angajala &amp; Sri Kotipalli Families</div>
+      <p class="family-invite-sub">
+        Cordially invite your gracious presence and heartfelt blessings for the newly wedded couple.
+      </p>
+
+      <button class="btn-shower-akshata" onclick="showerAkshataCelebration()">
+        <span>🌸</span> Shower Sacred Akshathalu <span>🌸</span>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM FLOATING MODERN DOCK -->
+  <div class="bottom-dock">
+    <a href="#hero" class="dock-tab active">Overview</a>
+    <a href="#timeline" class="dock-tab">Schedule</a>
+    <a href="#destination" class="dock-tab">Venue</a>
+    <button class="dock-tab rsvp" onclick="openRsvpModal()">💬 RSVP</button>
+  </div>
+
+  <!-- CALENDAR MODAL -->
+  <div class="modal-backdrop" id="calModal" onclick="closeCalendarModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeCalendarModal()">✕</button>
+      <div style="margin-bottom:10px;">
+        <img src="sacred_gold_kalash.svg" alt="Auspicious Kalash" style="width:48px; height:auto; filter:drop-shadow(0 3px 12px rgba(212,175,55,0.7));">
+      </div>
+      <div style="font-family:var(--font-display); font-size:12px; letter-spacing:1px; color:#ffd700; font-weight:700;">Save Auspicious Date</div>
+      <div style="font-family:var(--font-cursive); font-size:34px; color:#ffffff; margin:4px 0;">Shashi &amp; Raveena</div>
+      <div style="font-size:12.5px; color:#f7e7c4; margin-bottom:14px;">Sunday, 13 December 2026 • 09:50 AM<br>Thanmaya Farmstay Resort, Warangal Highway</div>
+
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <a class="btn-action-modern btn-maps" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shashi+%26+Raveena+Wedding&dates=20261213T042000Z/20261213T093000Z&details=Auspicious+Sumuhurtham+at+09:50+AM.+Thanmaya+Farmstay+Resort,+Warangal+Highway.&location=Thanmaya+Farmstay+Resort,+Rajavaram,+Telangana+506144" target="_blank" style="justify-content:center;">
+          📅 Add to Google Calendar
+        </a>
+        <button class="btn-action-modern btn-uber" onclick="downloadICS()" style="justify-content:center;">
+          🍏 Apple / Outlook (.ics)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SILENT IN-BROWSER RSVP MODAL (DELIVERS DIRECTLY TO shashi123kumar99@gmail.com) -->
+  <div class="modal-backdrop" id="rsvpModal" onclick="closeRsvpModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeRsvpModal()">✕</button>
+
+      <!-- FORM VIEW -->
+      <div id="rsvpFormContainer">
+        <div style="font-family:var(--font-display); font-size:13px; letter-spacing:2px; color:#ffd700; font-weight:700; margin-bottom:4px;">Auspicious RSVP</div>
+        <p style="font-size:12px; color:var(--text-muted); line-height:1.4; margin-bottom:16px;">
+          Confirm your attendance silently. Your RSVP and guest count will be delivered directly to the family.
+        </p>
+
+        <div class="rsvp-form-group">
+          <label class="rsvp-form-label">Guest / Family Name</label>
+          <input type="text" id="rsvpGuestName" class="rsvp-input" placeholder="Your name or family name">
+        </div>
+
+        <div class="rsvp-form-group">
+          <label class="rsvp-form-label">Attending Guest Count</label>
+          <div class="count-pills-row">
+            <button type="button" class="count-pill-btn" onclick="selectGuestCount(1)">1</button>
+            <button type="button" class="count-pill-btn active" onclick="selectGuestCount(2)">2</button>
+            <button type="button" class="count-pill-btn" onclick="selectGuestCount(3)">3</button>
+            <button type="button" class="count-pill-btn" onclick="selectGuestCount(4)">4</button>
+            <button type="button" class="count-pill-btn" onclick="selectGuestCount('5+')">5+</button>
+          </div>
+          <input type="hidden" id="rsvpGuestCount" value="2">
+        </div>
+
+        <div class="rsvp-form-group">
+          <label class="rsvp-form-label">Heartfelt Wishes (Optional)</label>
+          <input type="text" id="rsvpMessage" class="rsvp-input" placeholder="Blessings for Shashi & Raveena...">
+        </div>
+
+        <button type="button" id="btnSubmitRsvp" class="btn-action-modern" style="background:linear-gradient(135deg, #ffd700, #d4af37); color:#1a0806; font-weight:800; width:100%; padding:13px; justify-content:center; font-size:11.5px; border:none; cursor:pointer;" onclick="submitSilentRsvp()">
+          ✨ Confirm Attendance ✨
+        </button>
+      </div>
+
+      <!-- SUCCESS CONFIRMATION VIEW -->
+      <div id="rsvpSuccessContainer" class="rsvp-success-card">
+        <div style="font-size:36px; margin-bottom:8px;">🌸</div>
+        <div style="font-family:var(--font-display); font-size:14px; letter-spacing:2px; color:#ffd700; font-weight:700; margin-bottom:6px;">Attendance Confirmed!</div>
+        <p style="font-size:13px; color:#f7e7c4; line-height:1.45; margin-bottom:16px;" id="rsvpSuccessMsg">
+          Thank you! We have received your RSVP. The Angajala &amp; Kotipalli families eagerly await your gracious presence!
+        </p>
+        <button type="button" class="btn-action-modern btn-maps" style="width:100%; justify-content:center; padding:10px;" onclick="closeRsvpModal()">
+          ✓ Done
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AUDIO ENGINE -->
+  <audio id="audioMain" src="kettimelam_exact_mela.mp3" loop preload="auto"></audio>
+
+  <script>
+    // 1. DYNAMIC PERSONALIZED GUEST HONORS
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestParam = urlParams.get('to') || urlParams.get('guest') || urlParams.get('name');
+    const guestHonorName = document.getElementById('guestHonorName');
+    if (guestParam) {
+      guestHonorName.textContent = `Honored Guest: ${decodeURIComponent(guestParam).trim()}`;
+    }
+
+    // 2. REAL-TIME CEREMONY COUNTDOWN TIMER (13 Dec 2026, 09:50 AM IST)
+    const targetDate = new Date('2026-12-13T09:50:00+05:30').getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('dDays').textContent = '00';
+        document.getElementById('dHours').textContent = '00';
+        document.getElementById('dMins').textContent = '00';
+        document.getElementById('dSecs').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('dDays').textContent = String(days).padStart(2, '0');
+      document.getElementById('dHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('dMins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('dSecs').textContent = String(secs).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 3. BACKGROUND AMBIENT PARTICLES
+    const canvas = document.getElementById('ambientCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      akW = akCanvas.width = window.innerWidth;
+      akH = akCanvas.height = window.innerHeight;
+    });
+
+    const ambientParticles = [];
+    for (let i = 0; i < 35; i++) {
+      ambientParticles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 2 + 0.5,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: -Math.random() * 0.4 - 0.15,
+        color: Math.random() > 0.5 ? '#ffd700' : '#e6ca85',
+        alpha: Math.random() * 0.5 + 0.15
+      });
+    }
+
+    function renderAmbient() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < ambientParticles.length; i++) {
+        const p = ambientParticles[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha;
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.y < -10) p.y = height + 10;
+        if (p.x < -10) p.x = width + 10;
+        if (p.x > width + 10) p.x = -10;
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(renderAmbient);
+    }
+    renderAmbient();
+
+    // 4. FOREGROUND CELEBRATION AKSHATALU & MARIGOLD PETALS (FALLS OVER ALL WIDGETS)
+    const akCanvas = document.getElementById('akshataCanvas');
+    const akCtx = akCanvas.getContext('2d');
+    let akW = akCanvas.width = window.innerWidth;
+    let akH = akCanvas.height = window.innerHeight;
+    const celebrationItems = [];
+
+    class AkshataGrain {
+      constructor() {
+        this.x = Math.random() * akW;
+        this.y = -15 - Math.random() * 100;
+        this.isRice = Math.random() > 0.35; // 65% sacred turmeric rice, 35% marigold petals
+
+        if (this.isRice) {
+          // Authentic golden rice grain (slender oval)
+          this.length = Math.random() * 6 + 7; // 7-13px
+          this.width = Math.random() * 2 + 2.8;
+          this.color = Math.random() > 0.3 ? '#ffd700' : (Math.random() > 0.5 ? '#ffe57f' : '#f5a623');
+          this.vx = (Math.random() - 0.5) * 3;
+          this.vy = Math.random() * 3.5 + 4; // falls with authentic speed
+          this.rot = Math.random() * Math.PI * 2;
+          this.vRot = (Math.random() - 0.5) * 0.18;
+        } else {
+          // Festive saffron & marigold flower petal (fluttering teardrop)
+          this.length = Math.random() * 9 + 11; // 11-20px
+          this.width = Math.random() * 7 + 8;
+          const petalPalette = ['#ff8c00', '#ffaa00', '#e62e00', '#ffd000', '#ff4500'];
+          this.color = petalPalette[Math.floor(Math.random() * petalPalette.length)];
+          this.vx = (Math.random() - 0.5) * 2.2;
+          this.vy = Math.random() * 2.4 + 2.5;
+          this.rot = Math.random() * Math.PI * 2;
+          this.vRot = (Math.random() - 0.5) * 0.08;
+          this.swayAngle = Math.random() * Math.PI * 2;
+          this.swaySpeed = Math.random() * 0.06 + 0.04;
+        }
+        this.alpha = 1;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.rot += this.vRot;
+
+        if (!this.isRice) {
+          this.swayAngle += this.swaySpeed;
+          this.x += Math.sin(this.swayAngle) * 1.6;
+        }
+
+        if (this.y > akH - 100) {
+          this.alpha -= 0.025;
+        }
+      }
+
+      draw(c) {
+        c.save();
+        c.translate(this.x, this.y);
+        c.rotate(this.rot);
+        c.globalAlpha = Math.max(0, this.alpha);
+        c.fillStyle = this.color;
+
+        if (this.isRice) {
+          // Turmeric Rice Ellipse
+          c.beginPath();
+          c.ellipse(0, 0, this.width / 2, this.length / 2, 0, 0, Math.PI * 2);
+          c.fill();
+          // Rice Specular Sheen
+          c.fillStyle = '#ffffff';
+          c.globalAlpha = Math.max(0, this.alpha * 0.6);
+          c.fillRect(-0.5, -this.length / 4, 1, this.length / 2);
+        } else {
+          // Curved Marigold Petal
+          c.beginPath();
+          c.moveTo(0, -this.length / 2);
+          c.bezierCurveTo(this.width / 2, -this.length / 4, this.width / 2, this.length / 2, 0, this.length / 2);
+          c.bezierCurveTo(-this.width / 2, this.length / 2, -this.width / 2, -this.length / 4, 0, -this.length / 2);
+          c.fill();
+        }
+        c.restore();
+      }
+    }
+
+    function renderForegroundAkshata() {
+      akCtx.clearRect(0, 0, akW, akH);
+      for (let i = 0; i < celebrationItems.length; i++) {
+        const item = celebrationItems[i];
+        item.update();
+        item.draw(akCtx);
+        if (item.alpha <= 0 || item.y > akH + 30) {
+          celebrationItems.splice(i, 1);
+          i--;
+        }
+      }
+      requestAnimationFrame(renderForegroundAkshata);
+    }
+    renderForegroundAkshata();
+
+    // TRIGGER CELEBRATION (FALLS IN FRONT OF ALL CARDS)
+    function showerAkshataCelebration() {
+      if ('vibrate' in navigator) {
+        try { navigator.vibrate([30, 60, 30]); } catch (e) {}
+      }
+      for (let i = 0; i < 170; i++) {
+        celebrationItems.push(new AkshataGrain());
+      }
+    }
+
+    // 4. SPATIAL AUDIO ENGINE
+    const audio = document.getElementById('audioMain');
+    const audioBtn = document.getElementById('audioToggle');
+    const audioStatus = document.getElementById('audioStatus');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        audioBtn.classList.add('muted');
+        audioStatus.textContent = 'MUTED';
+      } else {
+        audio.volume = 0.65;
+        audio.play().then(() => {
+          isPlaying = true;
+          audioBtn.classList.remove('muted');
+          audioStatus.textContent = 'PLAYING';
+        }).catch(() => {});
+      }
+    }
+
+    // Auto-enable audio on user's first scroll/tap
+    document.addEventListener('pointerdown', function() {
+      if (!isPlaying) {
+        toggleAudio();
+      }
+    }, { once: true });
+
+    // 5. MODALS & SILENT EMAIL RSVP
+    function openCalendarModal() {
+      document.getElementById('calModal').classList.add('open');
+    }
+    function closeCalendarModal(e) {
+      if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('modal-close')) return;
+      document.getElementById('calModal').classList.remove('open');
+    }
+
+    function openRsvpModal() {
+      // Pre-fill name if guestParam is present
+      const nameInput = document.getElementById('rsvpGuestName');
+      if (guestParam && !nameInput.value) {
+        nameInput.value = decodeURIComponent(guestParam).trim();
+      }
+      document.getElementById('rsvpModal').classList.add('open');
+    }
+    function closeRsvpModal(e) {
+      if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('modal-close')) return;
+      document.getElementById('rsvpModal').classList.remove('open');
+    }
+
+    let selectedGuestCount = 2;
+    function selectGuestCount(cnt) {
+      selectedGuestCount = cnt;
+      document.getElementById('rsvpGuestCount').value = cnt;
+      document.querySelectorAll('.count-pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim() === String(cnt));
+      });
+      if ('vibrate' in navigator) try { navigator.vibrate(15); } catch(e) {}
+    }
+
+    async function submitSilentRsvp() {
+      const nameInput = document.getElementById('rsvpGuestName');
+      const name = nameInput.value.trim() || (guestParam ? decodeURIComponent(guestParam).trim() : 'Honored Guest');
+      const count = document.getElementById('rsvpGuestCount').value || selectedGuestCount;
+      const msg = document.getElementById('rsvpMessage').value.trim() || 'Auspicious wishes for Shashi & Raveena!';
+      const submitBtn = document.getElementById('btnSubmitRsvp');
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>⏳ Sending Confirmation...</span>';
+
+      const payload = {
+        _subject: `Wedding RSVP: ${name} (${count} Guests Attending)`,
+        Guest_Name: name,
+        Attending_Count: count,
+        Blessings_Message: msg,
+        Ceremony: "Shashi & Raveena Wedding - 13 Dec 2026",
+        Venue: "Thanmaya Farmstay Resort, Warangal Highway",
+        Timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      };
+
+      try {
+        await fetch('https://formsubmit.co/ajax/shashi123kumar99@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.log('Silent RSVP dispatched:', err);
+      }
+
+      // Smoothly display royal success confirmation
+      document.getElementById('rsvpFormContainer').style.display = 'none';
+      const successBox = document.getElementById('rsvpSuccessContainer');
+      successBox.style.display = 'block';
+      document.getElementById('rsvpSuccessMsg').innerHTML = 
+        `Thank you, <strong>${name}</strong>!<br>Your attendance for <strong>${count} guest(s)</strong> has been recorded and sent directly to the family.<br><br>The Angajala &amp; Kotipalli families eagerly await your gracious presence!`;
+
+      // Shower sacred Akshathalu across screen in celebration!
+      showerAkshataCelebration();
+    }
+
+    function downloadICS() {
+      const icsLines = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Shashi Raveena Wedding Modern Edition//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        'SUMMARY:Shashi & Raveena Wedding (Sumuhurtham)',
+        'DESCRIPTION:Auspicious Wedding Celebration of Shashi & Raveena at Thanmaya Farmstay Resort, Warangal Highway.\\nSumuhurtham: 09:50 AM (Dhanur Lagna).',
+        'LOCATION:Thanmaya Farmstay Resort, Rajavaram, Telangana 506144',
+        'DTSTART:20261213T042000Z',
+        'DTEND:20261213T093000Z',
+        'STATUS:CONFIRMED',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT2H',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:Reminder: Shashi & Raveena Wedding Ceremony today at 09:50 AM',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ];
+      const blob = new Blob([icsLines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', 'Shashi_Raveena_Wedding_Modern.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
