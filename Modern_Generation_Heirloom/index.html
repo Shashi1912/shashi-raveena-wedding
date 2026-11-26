@@ -73,7 +73,7 @@
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
       pointer-events: none;
-      z-index: 1;
+      z-index: 50001;
     }
 
     /* TOP FLOATING FROSTED NAVIGATION */
@@ -850,11 +850,12 @@
       align-items: center;
       justify-content: center;
       padding: 48px 12px 54px;
-      background-color: var(--bg-base);
+      background-color: #160503;
       background-image:
-        radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.16) 0%, transparent 60%),
-        radial-gradient(circle at 15% 20%, rgba(139, 37, 24, 0.32) 0%, transparent 50%),
-        radial-gradient(circle at 85% 80%, rgba(139, 37, 24, 0.32) 0%, transparent 50%);
+        radial-gradient(circle at 50% 45%, rgba(255, 200, 70, 0.22) 0%, rgba(212, 175, 55, 0.08) 38%, transparent 68%),
+        radial-gradient(circle at 12% 18%, rgba(168, 38, 22, 0.45) 0%, transparent 52%),
+        radial-gradient(circle at 88% 82%, rgba(168, 38, 22, 0.45) 0%, transparent 52%),
+        repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.025) 0px, rgba(212, 175, 55, 0.025) 1px, transparent 1px, transparent 60px);
       transition: background-color 0.45s ease, opacity 0.75s ease 0.85s, visibility 0.75s ease 0.85s;
     }
     .heirloom-door-overlay.opened-both {
@@ -865,6 +866,75 @@
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+    }
+
+    /* ROYAL TEMPLE MANDAPAM ENTRANCE THEME: TORAN, SWAYING DIYAS & MANDALA AURA */
+    .door-mandala-aura {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(760px, 130vw);
+      height: min(760px, 130vw);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.34;
+      background:
+        radial-gradient(circle, rgba(255, 215, 0, 0.18) 0%, rgba(212, 175, 55, 0.05) 45%, transparent 70%),
+        repeating-conic-gradient(from 0deg, rgba(255, 215, 0, 0.14) 0deg 6deg, transparent 6deg 18deg);
+      border-radius: 50%;
+      mask-image: radial-gradient(circle, black 35%, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle, black 35%, transparent 72%);
+      animation: mandalaSpin 48s linear infinite;
+      transition: opacity 0.4s ease;
+    }
+    .heirloom-door-overlay.opened-both .door-mandala-aura,
+    .heirloom-door-overlay.opened-both .door-toran-garland {
+      opacity: 0;
+    }
+    @keyframes mandalaSpin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .door-toran-garland {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0 18px;
+      pointer-events: none;
+      z-index: 50007;
+      transition: opacity 0.4s ease;
+    }
+    .toran-sway-lamp {
+      width: 44px;
+      height: auto;
+      transform-origin: top center;
+      animation: diyaSway 4.2s ease-in-out infinite;
+      filter: drop-shadow(0 6px 14px rgba(255, 180, 40, 0.45));
+    }
+    .toran-sway-lamp.right {
+      animation-delay: -2.1s;
+    }
+    .toran-flame {
+      transform-origin: center bottom;
+      animation: flameFlicker 1.6s ease-in-out infinite alternate;
+    }
+    @keyframes diyaSway {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    @keyframes flameFlicker {
+      0% { transform: scaleY(0.95) scaleX(0.98); opacity: 0.9; }
+      100% { transform: scaleY(1.08) scaleX(1.03); opacity: 1; }
+    }
+    @media (max-width: 640px) {
+      .door-toran-garland { padding: 0 6px; }
+      .toran-sway-lamp { width: 32px; }
     }
 
     .heirloom-door-stage {
@@ -1357,6 +1427,29 @@
 
   <!-- HEIRLOOM 3D DOOR OPENING ENTRANCE -->
   <div id="heirloomDoorOverlay" class="heirloom-door-overlay" aria-label="Wedding Invitation Entrance Doors">
+    <div class="door-mandala-aura" aria-hidden="true"></div>
+    <div class="door-toran-garland" aria-hidden="true">
+      <svg class="toran-sway-lamp" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="30" y1="0" x2="30" y2="58" stroke="#d4af37" stroke-width="2" stroke-dasharray="3 2"/>
+        <circle cx="30" cy="24" r="5" fill="#ff8c00"/>
+        <circle cx="30" cy="40" r="5.5" fill="#ffb703"/>
+        <path d="M30 56 C24 62, 24 68, 30 70 C36 68, 36 62, 30 56 Z" fill="#ffd700"/>
+        <ellipse class="toran-flame" cx="30" cy="73" rx="4.5" ry="8" fill="#ffea75"/>
+        <ellipse class="toran-flame" cx="30" cy="75" rx="2.5" ry="4.5" fill="#ff6b00"/>
+        <path d="M12 82 Q30 98 48 82 L42 90 Q30 100 18 90 Z" fill="#d4af37" stroke="#ffd700" stroke-width="1"/>
+        <path d="M22 92 L38 92 L34 102 L26 102 Z" fill="#b8860b"/>
+      </svg>
+      <svg class="toran-sway-lamp right" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="30" y1="0" x2="30" y2="58" stroke="#d4af37" stroke-width="2" stroke-dasharray="3 2"/>
+        <circle cx="30" cy="24" r="5" fill="#ff8c00"/>
+        <circle cx="30" cy="40" r="5.5" fill="#ffb703"/>
+        <path d="M30 56 C24 62, 24 68, 30 70 C36 68, 36 62, 30 56 Z" fill="#ffd700"/>
+        <ellipse class="toran-flame" cx="30" cy="73" rx="4.5" ry="8" fill="#ffea75"/>
+        <ellipse class="toran-flame" cx="30" cy="75" rx="2.5" ry="4.5" fill="#ff6b00"/>
+        <path d="M12 82 Q30 98 48 82 L42 90 Q30 100 18 90 Z" fill="#d4af37" stroke="#ffd700" stroke-width="1"/>
+        <path d="M22 92 L38 92 L34 102 L26 102 Z" fill="#b8860b"/>
+      </svg>
+    </div>
     <div class="door-top-banner">॥ శుభమస్తు • Kalyana Mahotsavam ॥</div>
 
     <div class="heirloom-door-stage">
